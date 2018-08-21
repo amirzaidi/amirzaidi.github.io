@@ -1,0 +1,8 @@
+body button[type="reset"] { color: #4285f4 !important }
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus { border-bottom: 1px solid #4285f4 }
+body .color { background: #4285f4 !important }
+body > div#navbar { border: 1px solid #4285f4; color: #4285f4 !important }
+body > div#navbar > a#open > div { color: #4285f4 !important }
+body > div#navbar > div#nav > div > a#current { color: #4285f4 !important }
+body .action { color: #4285f4 }
+body a.action:hover { color: #4285f4 }

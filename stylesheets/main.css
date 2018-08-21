@@ -1,0 +1,600 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:900,700,500,400,300);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+@import url(colors.css);
+@import url(extends.css);
+@import url(shadows.css);
+
+* {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+	-webkit-tap-highlight-color: transparent !important;
+	-webkit-focus-ring-color: rgba(0, 0, 0, 0) !important;
+	outline: none !important;
+}
+
+body {
+	margin: 0;
+	background: #ddd;
+}
+
+body, input, textarea, select, option, button {
+	font: 14px Roboto;
+	font-weight: 400;
+	line-height: 20px;
+	color: rgb(64, 64, 64);
+}
+
+body .color {
+	color: #fff !important;
+}
+
+body .color:hover {
+	color: #fff !important;
+}
+
+body button {
+	border: none;
+	border-image-width: 0;
+	cursor: pointer;
+	float: right;
+	position: relative;
+	text-transform: uppercase;
+	background: #fff;
+	margin: 0 !important;
+}
+
+body button.color {
+	z-index: 2;
+	transition: box-shadow 0.2s ease-out !important;
+}
+
+label, label > b, a.disabled, a#button > b {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+
+body a {
+	color: #999;
+	text-decoration: none;
+	transition: color 0.2s ease-out;
+}
+
+body img {
+	width: 100%;
+	display: block;
+}
+
+body a:hover {
+	color: rgb(64, 64, 64);
+}
+
+body input.hide {
+	display: none;
+}
+
+body a.round {
+	background: #fff;
+	border-radius: 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+}
+
+body .clearfix {
+	clear: both;
+	width: 100%;
+	height: 0 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	display: block;
+}
+
+body .line24 {
+	line-height: 24px;
+}
+
+body .prewrap {
+	white-space: pre-wrap;
+}
+
+body .transparent95 {
+	background: rgba(255, 255, 255, 0.95) !important;
+}
+
+body > div#navbar {
+	position: fixed;
+	z-index: 3;
+	height: 56px;
+	width: 100%;
+	top: -1px;
+	left: -1px;
+	right: -1px;
+	background: #fff;
+	border-bottom: none !important;
+	transition: height 0.2s ease-out;
+}
+
+body > div#navbar > div#nav {
+	width: 300px;
+	margin-left: -300px;
+	background: #fff;
+	height: 100%;
+	z-index: 4;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	overflow: auto;
+	font-weight: 500;
+	transition: margin-left 0.2s ease-out, box-shadow 0.2s ease-out, width 0.2s ease-out;
+}
+
+body > div#navbar > div#nav > div {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 8px;
+}
+
+body > div#navbar > div#nav > div:last-child {
+	border-bottom: none;
+}
+
+body > div#navbar > div#nav > div > a {
+	padding: 14px 16px 12px 16px;
+	background: #fff;
+	transition: background 0.2s ease-out, padding-left 0.2s ease-out, padding-right 0.2s ease-out;
+	display: block;
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+body > div#navbar > div#nav > div > a:hover {
+	background: #eee;
+}
+
+body > div#navbar > div#nav > div > a.subheader {
+	background: #fff;
+	opacity: 0.54;
+}
+
+body > div#navbar > div#nav > div > a > img {
+	opacity: 0.54;
+	display: block;
+	width: 24px;
+	float: left;
+	margin-right: 32px;
+	transform: translateY(-1px);
+}
+
+body > div#navbar > div#nav > label {
+	color: #fff;
+	position: relative;
+	z-index: 2;
+	display: block;
+	overflow: auto;
+	padding-bottom: 8px;
+	padding-top: 8px;
+}
+
+body > div#navbar > div#nav > label > a {
+	float: left;
+	display: block;
+	margin: 16px 0 8px 16px;
+	transition: margin 0.2s ease-out;
+	width: 64px;
+	height: 64px;
+}
+
+body > div#navbar > div#nav > label > div {
+	padding: 12px 20px 4px 16px;
+	transition: padding 0.2s ease-out;
+	line-height: 12px;
+	clear: both;
+}
+
+body > div#navbar > div#nav > label > div:last-child {
+	padding-top: 4px;
+	padding-bottom: 12px;
+	font-weight: 400;
+}
+
+body > div#navbar > div#nav > label > div > b {
+	float: right;
+	display: block;
+	transform: rotate(45deg);
+	font-size: 10px;
+	transition: transform 0.2s ease-out;
+}
+
+body > div#navbar > div#nav > div > a#current {
+	background: #eee !important;
+}
+
+body > div#navbar > div#nav > div#extended {
+	margin-top: -100px;
+	border-bottom: none;
+	transition: margin-top 0.2s ease-out, opacity 0.2s ease-out;
+	opacity: 0;
+	position: relative;
+	z-index: 1;
+}
+
+body > div#navbar > div#nav > input#extendnav:checked ~ div#extended {
+	margin-top: 0;
+	opacity: 1;
+}
+
+body > div#navbar > div#nav > input#extendnav:checked ~ div#extended {
+	border-bottom: 1px solid #eee;
+}
+
+body > div#navbar > div#nav > input#extendnav:checked ~ label > div > b {
+	transform: rotate(225deg) translate(-1px, -1px);
+}
+
+body > div#navbar > a#open {
+	position: relative; 
+	height: 56px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	float: left;
+}
+
+body > div#navbar > a#open > div {
+	padding: 0 20px;
+	transform: scaleY(0.7);
+	font-size: 24px;
+	font-weight: bold;
+}
+
+body > div#navbar > div#title {
+	height: 56px;
+	display: flex;
+	align-items: center;
+	font-size: 20px;
+	float: left;
+	transition: margin 0.2s ease-out;
+}
+
+body > div#navbar label.btn {
+	font-size: 28px;
+	position: relative;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	float: right;
+	padding: 0 24px;
+	transition: margin 0.2s ease-out;
+}
+
+body > div#navbar label.btn > b {
+	transform: rotate(-45deg);
+	display: block;
+}
+
+body > div#navbar > form {
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	top: 100%;
+}
+
+body > div#navbar > form > input {
+	float: right;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	height: 24px;
+	width: 0;
+	padding: 8px 0;
+	margin: 8px 32px;
+	border-radius: 2px;
+	font-size: 16px;
+	background: #fff;
+	border: none;
+	z-index: 2;
+}
+
+body > div#navbar > form > input::-webkit-input-placeholder {
+	color: #fff;
+	transition: color 0.2s ease-out;
+}
+
+body > div#navbar > form > input:focus {
+	height: 24px;
+	width: calc(100% - 68px);
+	padding: 8px 40px 8px 12px;
+	margin: 8px;
+	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.4);
+	transition: all 0.2s ease-out;
+}
+
+body > div#navbar > form > input:focus::-webkit-input-placeholder {
+	color: #6b6b6b;
+	font-family: Roboto;
+}
+
+body > div#navbar > form > label.btn {
+	position: absolute;
+	z-index: 3;
+	right: 0;
+	bottom: 0;
+	padding-left: 0;
+	display: none;
+	color: rgba(64, 64, 64, 0.75);
+	height: 56px;
+}
+
+body > div#navbar > form > input:focus ~ label.btn {
+	display: flex;
+}
+
+body > div#navbar:target > div#nav {
+	margin-left: 0;
+	box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+body > div#navbar:target > a#close > div {
+	width: 100vw;
+	left: 0;
+	top: 0;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.4);
+	transition: background 0.2s ease-out;
+	position: fixed;
+	z-index: 3;
+}
+
+body > div#content {
+	padding: 0;
+	margin: 0 auto;
+	width: 100%;
+	max-width: 2560px;
+	background: #fff;
+	margin-left: 0;
+	margin-top: 56px;
+	
+	column-gap: 0;
+	-moz-column-gap: 0;
+	line-height: 0;
+
+	transition: all 0.2s ease-out;
+}
+
+body > div#content > div {
+	width: 100%;
+	transition: width 0.5s ease-out;
+}
+
+body > div#content > div > div {
+	background: #fff;
+	width: 100%;
+	border-radius: 0;
+	margin: 0;
+	border-bottom: 1px solid #eee;
+	transition: all 0.2s ease-out;
+	overflow: hidden;
+	page-break-inside: avoid;
+	line-height: 20px;
+	display: inline-block;
+}
+
+body > div#content > div > div p {
+	margin: 0;
+	padding: 16px;
+	transition: background 0.5s ease-out;
+}
+
+body > div#content > div > div p:active {
+	background: rgba(153, 153, 153, 0.2);
+}
+
+body .action {
+	margin: 8px 0 8px 8px;
+	border-radius: 2px;
+	padding: 8px;
+	transition: background 0.2s ease-out;
+	font-weight: 500;
+	display: inline-block;
+	cursor: pointer;
+}
+
+body .action:hover {
+	background: rgba(153, 153, 153, 0.2);
+}
+
+body .action:active {
+	background: rgba(153, 153, 153, 0.4);
+}
+
+body .disabled {
+	color: rgba(0, 0, 0, 0.26) !important;
+	cursor: pointer;
+}
+
+body > div#content > div > div > a.round {
+	float: left;
+	width: 40px;
+	height: 40px;
+	margin: 16px 0 16px 16px;
+	display: block;
+}
+
+body > div#content > div > div > div.text {
+	float: left;
+	margin: 16px;
+	font-weight: 500;
+	color: rgba(0, 0, 0, 0.4);
+}
+
+body > div#content > div > div > div.text > b {
+	color: rgba(0, 0, 0, 0.7);
+}
+
+body > div#content > div > div > div.grey {
+	clear: both;
+	padding: 16px;
+	background: #f5f5f5;
+}
+
+body > div#content > div > div > label {
+	width: 100%;
+	overflow: hidden;
+	display: block;
+	color: rgba(0, 0, 0, 0.75);
+	font-weight: 500;
+	transition: max-height 0.2s ease-out, background 0.2s ease-out;
+	max-height: 100px;
+}
+
+body > div#content > div > div > label:hover {
+	background: rgba(153, 153, 153, 0.2);
+}
+
+body > div#content > div > div > div.collapse {
+	max-height: 0;
+	overflow: hidden;
+	width: 100%;
+	opacity: 0;
+	transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+@keyframes toastdiv {
+	0% { bottom: -48px; color: rgba(0,0,0,0); }
+	10% { bottom: 0; }
+	20% { color: #fff; }
+	90% { bottom: 0; color: #fff; }
+	100% { bottom: -48px; color: rgba(0,0,0,0); }
+}
+
+@keyframes toastdiva {
+	0% { opacity: 0; }
+	20% { opacity: 1; }
+	90% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+body > div#toast {
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	z-index: 3;
+	background: #323232;
+	position: fixed;
+	padding: 14px 24px;
+	min-width: 240px;
+	max-width: 520px;
+	bottom: -48px;
+	color: rgba(0,0,0,0);
+	transition: all 0.2s ease-out;
+}
+
+body > div#toast > a {
+	float: right;
+	display: block;
+	border-radius: 2px;
+	font-weight: 500;
+	padding: 8px 12px;
+	margin: -8px -12px -8px 12px;
+}
+
+body > div#toast:target {
+	animation-name: toastdiv;
+	animation-duration: 5s;
+}
+
+body > div#toast:target > a {
+	animation-name: toastdiva;
+	animation-duration: 5s;
+}
+
+@media screen and (min-width: 500px) {
+	body > div#navbar > div#nav {
+		width: 320px;
+		margin-left: -320px;
+	}
+
+	body > div#navbar > div#nav > label > a {
+		margin: 24px 0 12px 24px;
+	}
+
+	body > div#navbar > div#nav > label > div {
+		padding-left: 24px;
+		padding-right: 28px;
+	}
+
+	body > div#navbar > div#nav > div > a {
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+
+	body > div#content {
+		width: calc(100% - 32px);
+		margin-top: 72px;
+		margin-left: 16px;
+		background: none;
+		height: 0;
+	}
+	
+	body > div#content > div > div {
+		border-radius: 8px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+		border-bottom: none;
+		transition: box-shadow 0.2s;
+	}
+
+	body > div#content > div > div:hover {
+		box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+	}
+
+	body > div#toast {
+		border-radius: 2px;
+		box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+	}
+
+	body > div#toast > a {
+		margin-left: 36px;
+	}
+}
+
+@media screen and (min-width: 750px) {
+	body > div#content {
+		width: 80%;
+		margin-left: 10%;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	body > div#content {
+		width: 60%;
+		margin-left: 20%;
+	}
+}
+
+@media screen and (min-height: 720px) {
+	body > div#navbar {
+		height: 112px;
+	}
+
+	body > div#navbar > div#title {
+		margin-top: 56px;
+		margin-left: -40px;
+	}
+
+	body > div#navbar label.btn {
+		margin-top: 56px;
+	}
+
+	body > div#content {
+		margin-top: 112px;
+	}
+}
+
+@media screen and (min-height: 720px) and (min-width: 500px) {
+	body > div#content {
+		margin-top: 128px;
+	}
+}
