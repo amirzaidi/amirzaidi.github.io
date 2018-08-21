@@ -1,20 +1,2 @@
-input#c0:checked ~ div#e0 > div.collapse { max-height: 400px; opacity: 1 }
+input#c0:checked ~ div#e0 > div.collapse { max-height: 700px; opacity: 1 }
 input#c0:checked ~ div#e0 > label { max-height: 0 }
-input#c1:checked ~ div#e1 > div.collapse { max-height: 400px; opacity: 1 }
-input#c1:checked ~ div#e1 > label { max-height: 0 }
-input#c2:checked ~ div#e2 > div.collapse { max-height: 400px; opacity: 1 }
-input#c2:checked ~ div#e2 > label { max-height: 0 }
-input#c3:checked ~ div#e3 > div.collapse { max-height: 400px; opacity: 1 }
-input#c3:checked ~ div#e3 > label { max-height: 0 }
-input#c4:checked ~ div#e4 > div.collapse { max-height: 400px; opacity: 1 }
-input#c4:checked ~ div#e4 > label { max-height: 0 }
-input#c5:checked ~ div#e5 > div.collapse { max-height: 400px; opacity: 1 }
-input#c5:checked ~ div#e5 > label { max-height: 0 }
-input#c6:checked ~ div#e6 > div.collapse { max-height: 400px; opacity: 1 }
-input#c6:checked ~ div#e6 > label { max-height: 0 }
-input#c7:checked ~ div#e7 > div.collapse { max-height: 400px; opacity: 1 }
-input#c7:checked ~ div#e7 > label { max-height: 0 }
-input#c8:checked ~ div#e8 > div.collapse { max-height: 400px; opacity: 1 }
-input#c8:checked ~ div#e8 > label { max-height: 0 }
-input#c9:checked ~ div#e9 > div.collapse { max-height: 400px; opacity: 1 }
-input#c9:checked ~ div#e9 > label { max-height: 0 }
