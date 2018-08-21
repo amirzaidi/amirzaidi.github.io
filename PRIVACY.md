@@ -1,3 +1,5 @@
-Hello world!
-Further content.
-Further content next line.
+Applications and utilities compiled from sources on my GitHub account will never send any data to me or any location that I can access. There might be data collected by third parties when the application connects to them. Permissions are required for the apps to function.
+It is possible that other developers impersonate me and add malicious code before compiling my applications. To prevent this, ensure you are always installing directly from my GitHub account or my Play Store account.
+Data could be collected by third parties such as Google, when using their Play Services and connecting to the Google App through AIDL. For these cases, please consult their privacy policies.
+Necessary permissions are requested for the application to be able to function on the Android API. These permissions are only used for features in the application, and will never be used without your knowledge.
+For further privacy concerns read the source codes on my GitHub account 'AmirZaidi'. If you still have concerns, you can send an e-mail to azaidi@live.nl.
