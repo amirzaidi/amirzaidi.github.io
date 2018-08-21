@@ -1,0 +1,2 @@
+input#c0:checked ~ div#e0 > div.collapse { max-height: 700px; opacity: 1 }
+input#c0:checked ~ div#e0 > label { max-height: 0 }
