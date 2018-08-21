@@ -4,7 +4,7 @@ $(document).ready(() => {
 	client.onreadystatechange = function() {
 		var response = client.responseText.split('\n')
 		var summary = response.shift()
-		var full = response.join('\n\n')
+		var full = response.join('\n\n').trim()
 		$('#js-summary').html(summary)
 		$('#js-full').html(full)
 	}
