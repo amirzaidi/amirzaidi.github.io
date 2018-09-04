@@ -538,10 +538,10 @@ body > div#toast:target > a {
 	}
 	
 	body > div#content > div > div {
+		margin-bottom: 16px;
 		border-radius: 8px;
 		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 		border-bottom: none;
-		transition: box-shadow 0.2s;
 	}
 
 	body > div#content > div > div:hover {
