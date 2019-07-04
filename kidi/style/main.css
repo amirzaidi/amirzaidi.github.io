@@ -6,17 +6,18 @@ body {
 	text-shadow: 0 1px #fff;
 }
 
+* {
+	transition: all 0.25s ease-out;
+}
+
 div#topBar {
-	border-left: 1px solid #ddd;
-	border-right: 1px solid #ddd;
-	border-bottom: 2px solid #ddd;
 	position: fixed;
 	right: 9%;
 	background: #fff;
-	padding: 0 3px;
+	padding: 1px 4px;
 	font-size: 12px;
 	font-weight: bold;
-	
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 div#topBar > div.link {
@@ -31,15 +32,15 @@ div#topBar > div.link:last-child {
 }
 
 nav {
-	background: rgba(100,130,200,0.50);
-	border-bottom: 1px solid #223;
+	background: rgba(100,130,200,0.60);
+	border-bottom: 1px solid rgba(0,0,0,0.3);
 }
 
 nav > #topNav {
-	height: 26px;
-	width: 760px;
+	height: 27px;
+	width: 766px;
 	margin: 0 auto;
-	padding-top: 72px;
+	padding-top: 78px;
 }
 
 nav > #topNav > div.tab {
@@ -47,48 +48,44 @@ nav > #topNav > div.tab {
 }
 
 nav > #topNav > div.tab > a {
-	padding: 7px 18px;
+	padding: 9px 19px 8px 19px;
 	margin: 0 8px 0 0;
 	color: #000;
 	text-decoration: none;
 	font-size: 14px;
 	background: rgba(255,255,255,0.8);
-	border: 1px solid #fff;
 	border-bottom: none;
 }
 
 nav > #topNav > div.tab > a#selected {
-	border: 2px solid rgba(0,0,0,0.75);
-	border-bottom: none;
-	padding: 7px 17px 8px 17px;
+	padding-bottom: 9px;
 	cursor: default;
 	background: #fff;
 	margin-top: 0px;
 }
 
 nav > #topNav > div.tab > a:hover {
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.95);
 }
 
 div#container {
 	margin: 0 auto;
-	width: 760px;
+	width: 766px;
 }
 
 div#container > div#bottomNav {
 	background: #fff;
-	border: 2px solid rgba(0,0,0,0.75);
 	border-top: none;
-	height: 37px;
-	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	height: 39px;
 	padding: 0 3px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 div#container > div#bottomNav > div.link {
 	border-right: 1px solid #ddd;
 	float: left;
 	padding: 0 16px 3px 14px;
-	margin: 10px 3px 0 0;
+	margin: 11px 3px 1px 0;
 }
 
 div#container > div#bottomNav > div.link > a {
@@ -122,36 +119,32 @@ div#container > div#column1 {
 }
 
 div#container > div#column2 {
-	margin-left: 10px;
+	margin-left: 16px;
 	width: 325px;
 }
 
 div.box {
-	margin-top: 12px;
+	margin-top: 16px;
 	border-bottom: 2px solid rgba(0,0,0,0.3);
-	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 	padding-bottom: 4px;
 	overflow: hidden;
 	background: #fff;
-}
-
-div.box:hover {
-	box-shadow: 0 0 4px rgba(0,0,0,0.2);
 }
 
 div.box > p.title {
 	font-size: 14px;
 	font-family: Verdana;
 	margin: 0;
-	padding: 12px 20px;
+	padding: 12px 18px;
 	background: rgba(0,0,0,0.15);
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 div.box > .content {
-	padding: 14px 18px;
+	padding: 13px 16px;
 	margin: 0;
-	line-height: 19px;
+	line-height: 20px;
 }
 
 div.box > ul.content {
@@ -230,12 +223,12 @@ div.purple > p.title { 	background: #b9f;	}
 
 div#container > footer {
 	clear: both;
-	width: 760px;
+	width: 766px;
 	padding-top: 1px;
 }
 
 div#container > footer > div.box {
-	padding: 10px;
+	padding: 14px;
 	text-align: center;
 	color: #333;
 	font-weight: bold;
