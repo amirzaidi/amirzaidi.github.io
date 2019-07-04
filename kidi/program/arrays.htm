@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Arrays</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a id="selected">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Meer dan één waarde onder één variabelnaam</p>
+				<p class="content">
+					Soms heb je aan één variabelwaarde niet genoeg en heb je een hele lijst die je wilt opslaan en bewerken. Dan is het handig om één variabel te hebben die een heleboel waardes in een lijst opslaat. Die lijst heet in veel programmeertalen een Array. Normaal, als je een variabel gebruikt, wordt er in het RAM genoeg geheugen achter elkaar vrij gemaakt om die waarde op te slaan. Bijvoorbeeld om een byte op te slaan worden er 8 bits vrijgemaakt, en de plaats in het RAM waar die vrije 8 bits staan wordt opgeslagen in de vorm van die variabel die je zojuist gemaakt hebt, die 8 bits zijn nu dus ook gebruikt. Wanneer je de variabel verandert wordt dus direct het ram waar die variabel heen wijst verandert. Wanneer je een array-variabel maakt maak je dus zoveel ruimte achter elkaar als nodig is om al die waardes achter elkaar op te slaan. Bijvoorbeeld als je 4 bytes wilt opslaan worden er dus 32 bits <em>achter elkaar</em> gereserveerd voor die array-variabel, en die 4 bytes kan je via de variabel één voor één lezen en veranderen. Een array is altijd een vaste grootte en kan alleen met speciale functies gekopieerd worden naar een grote ruimte om meer plaats te hebben voor extra waardes.
+				</p>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">Hoe maak je een array in C#?</p>
+				<p class="content">
+					We gaan een programma maken dat 4 namen kan opslaan en daarbij opslaat of die personen aanwezig waren in de les of niet. 
+					Om te beginnen maken we een array van 4 namen en van 4 bools op deze manier:
+				</p>
+				<pre class="content dark">
+string[] Namen = new string[4];
+bool[] Aanwezig = new bool[4];	</pre>
+				<p class="content">
+					Wat je hier doet is de ruimte reserveren voor een lijst van 4 strings en 4 bools. Strings hebben een variabele ruimte voor hoeveel tekst ze als inhoud hebben, bools zijn altijd 8 bits. Hierna kunnen we de plaatsen in de lijst gaan opvullen met nuttige informatie.
+					Waardes in een array gebruik je altijd vanaf 0. Dus als je een array van 2 plaatsen maakt moet je dus [0] en [1] gebruiken om de data te veranderen:
+				</p>
+				<pre class="content dark">
+Namen[0] = "Amir Zaidi";
+Namen[1] = "Rens Kievit";
+Namen[2] = "Kuilaars";
+Namen[3] = "testPersoon123";
+Aanwezig[0] = true;
+Aanwezig[1] = false;
+Aanwezig[2] = true;
+Aanwezig[3] = false;		</pre>
+				<p class="content">
+					Daarna kan je vragen stellen op de array, zoals of ze aanwezig waren of niet. In de volgende paragraaf leer je meer over speciale constructies om dat te doen en hoe ze werken.
+				</p>
+				<pre class="content dark">
+string Afwezig = "Afwezig: ";
+if (Aanwezig[3] == false)
+{
+   Afwezig += Namen[3];
+}				</pre>
+			</div>
+
+			
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">Multi-dimensie Arrays</p>
+					<p class="content">
+						Zo ver heb ik alleen uitgelegd hoe je een lijst maakt. Het is ook mogelijk om een tabel te maken van variabelen, om bijvoorbeeld leerlingen te ordenen op klas en leerling nummer, of als je een rechthoekig circuit heb de plaats op dat circuit te veranderen. Laten we het eerste voorbeeld uitschrijven:
+					</p>
+					<pre class="content dark">
+int Klassen = 10;
+int MaxLeerlingen = 30;
+string[,] Leerlingen = new string[Klassen, MaxLeerlingen];</pre>
+					<p class="content">
+						Nu is het mogelijk om in de array één van de string values, dus een leerling's naam, te veranderen in de array op dezelfde manier dat je die zou veranderen in een enkele dimensie-array. Alleen nu moet je net zoals bij het aanmaken de komma gebruiken voor de tweede column. In je hoofd moet je het dus zien als een tabel, met links LeerlingNummers en bovenaan de klassen:
+					</p>
+					<pre class="content dark">
+int Klas = 0;
+Leerlingen[Klas, 5] = "Amir Zaidi";
+int Leerling = 17;
+Leerlingen[Klas + 3, Leerling] = "Rens Kievit";	</pre>
+					<p class="content">
+						Deze wordt niet zo vaak gebruikt als een scherpe array omdat alle columns hier dezelfde hoeveelheid rijen moeten hebben, wat niet in elke situatie nodig is.
+					</p>
+				</div>
+			</div>
+
+			<div id="column2" class="column">
+				<div class="box blue">
+					<p class="title">Scherpe "Jagged" Arrays</p>
+					<p class="content">
+						Een scherpe array is een array van nog niet gedefiniëerde arrays, die dus van elke grootte kunnen zijn. Je zegt wel van tevoren hoeveel arrays er in die array kunnen komen, maar je kan nog niet zeggen hoe groot die arrays zullen of moeten worden. Dat zeg je pas zodra je die arrays erin aanmaakt. Het is hetzelfde te gebruiken als een multi-dimensie array (ookal is de syntax iets anders). Het voordeel is dat je hier verschillende groottes rijen kan hebben van informatie om bijvoorbeeld facturen per jaar op te slaan. Als je het als een tabel voor je ziet dan zul je zien dat de onderkant ribbelig kan zijn door de verschillen in rijgrootte, waarvan de soort array zijn naam heeft gekregen.
+					</p>
+				</div>
+			
+			</div>
+
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Voorbeeld</p>
+					<pre class="content">
+string[][] Facturen = new string[15][];
+Facturen[3] = new string[200];
+Facturen[3][153] = "Aan Bedrijf BV: €50";	</pre>
+					<p class="content dark">
+						Daarna kan je de data behandelen op dezelfde manier als normale of multi-dimensie arrays, wat je in de volgende paragraaf gaat leren.
+					</p>
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

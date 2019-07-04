@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Functies</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a id="selected">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Functies vergroten je mogelijkheden</p>
+				<p class="content">Je kan al heel ver komen met wiskundige berekeningen op lijsten van waardes, met vragen die ervoor zorgen dat je alle uitzonderingen apart kan behandelen. Maar uiteindelijk wil je toch veel meer kunnen met programmeren dan wiskundige berekeningen. Functies doen veel berekeningen voor je en geven je het resultaat terug in een andere variabel, als je dat wilt en hebt ingesteld tenminste, en dat allemaal in één simpele lijn. Functies nemen in de meeste talen bijna altijd wel een paar argumenten op, dat zijn de variabelen waarop de functie berekeningen gaat doen. C# is daarin een grote uitzondering, omdat bijvoorbeeld een int niet alleen een nummer is in C# maar een grote container met een nummer en een heleboel zij-variabelen en functies om er berekeningen mee te doen.</p>
+			</div>
+
+			<div id="column1" class="column">
+
+			<div class="box yellow">
+				<p class="title">Variabelen zien met Console.Write( );</p>
+				<p class="content">
+					Nu is het heel handig als je Visual Studio klaar hebt staan om een live voorbeeld te zien van wat ik allemaal uit ga leggen. Als je Visual Studio nog niet hebt geinstalleerd kan je <a href="index.htm#visualstudio">hier</a> meer informatie vinden over het installeren en gebruiken.
+				</p>
+				<p class="content">
+					Je kan al veel met de variabelen, maar kan het resultaat nog niet zien. Write is een functie in de "class" genaamd Console, dat is een class die veel functies bevat om het venster te bewerken en er informatie toe te schrijven. De Console.Write functie laat een stuk tekst, of andere variabelen die omgezet worden naar tekst, geschreven worden naar het zwarte console scherm. Dus je kan bijvoorbeeld dit doen:
+				</p>
+				<pre class="content dark">
+string Text = "Hello World!";
+int Number = 10;
+Console.Write(Text);
+Console.Write(" ");
+Console.Write(Number);
+Console.Write("\n");
+Console.Write(Text + " " + Number);	</pre>
+				<p class="content">
+					Output:<br/>
+					Hello World! 10<br/>
+					Hello World! 10	
+				</p>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">Een functie aanmaken</p>
+				<p class="content">Een Console Application begint altijd met de functie Main in de class Program. Je hebt eerder in het hoofdstuk geleerd dat je in die functie je code kan zetten, en die wordt dan uitgevoerd. Die "Main" functie is de hoofd functie van je programma, de computer weet dat hij die functie moet starten wanneer je je programma executable (.exe bestand) start. Natuurlijk kan je veel meer functies aanmaken in de class Program. Er zijn vele modifiers die je vertellen wat voor soort functie het is en de functionaliteit ervan veranderen. Sommige functies zorgen ervoor dat je ze alleen in een object kan gebruiken of vanuit een object, maar daar zijn we nog niet aan toe gekomen. De main functie heeft de modifier genaamd "static", dat betekent dat je die altijd kan uitvoeren zonder dat je in een object hoeft te zitten. Dus om een extra functie te maken gebruiken we ook de modifier static. Daarna komt de modifier "void". Dat betekent dat het geen resultaat teruggeeft die je in een variabel kan opslaan. Bijvoorbeeld bij de functie Math.Pow (een nummer tot een macht doen) krijg je een int als resultaat die je kan opslaan in een variabel. Bij een void functie is er dus geen resultaat.</p>
+				<pre class="content dark">
+int DrieTotMachtVijf = Math.Pow(3, 5);	</pre>
+				<p class="content">
+				Om zelf een functie te maken moet je bedenken of je wilt dat het een resultaat heeft of niet. 
+				Dat moet je van te voren opgeven in de modifiers, dat zijn de dingen die voor de functienaam staan.
+				Je zet simpelweg het type variabel letterlijk voor de functienaam om aan te geven wat het resultaat hoort te zijn.
+				</p>
+				<pre class="content dark" id="optelvoorbeeld">
+using System;
+class Program
+{
+   static void Main(string args[])
+   {
+      
+   }
+
+   static int TelOp(int eerst, int tweede)
+   {
+      return (eerst + tweede);
+   }
+}				</pre>
+				<p class="content">
+				Daarna kan je die functie gebruiken vanuit andere functies. Als je vanuit een andere class een functie in een andere class wilt gebruiken moet je de naam van die class voor een punt zetten, en na de punt de naam van de functie. Als je een functie in dezelfde class wilt gebruiken, zoals wat je hier doet (allebij de functies staan in de class Program, meer daarover in de volgende paragrafen) kan je gewoon los de naam van die functie gebruiken.
+				</p>
+				<pre class="content dark">
+..
+   static void Main(string args[])
+   {
+      int DitNummerIsAcht = TelOp(3, 5);
+   }
+..			</pre>
+				<p class="content">
+				De variabel DitNummerIsAcht is nu via een functie acht geworden.
+				</p>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Functie Returns</p>
+				<p class="content">
+				Zoals je in het voorbeeld links ziet wordt wat je achter de return zet teruggegeven als uitkomst. Dus als je in je functie zet return 5; en je zegt dan variabel = diefunctie(); wordt die variabel dus 5. Nadat je de functie returnt <b>stopt</b> de functie dus met code uitvoeren. Dus als je zou doen return 5; Verwijder("system32"); zou er gelukkig niks gebeuren met je computer. Je kan in void functies ook returnen, alleen je return waarde moet altijd hetzelfde zijn met wat je vooraf hebt opgegeven voor de functienaam. Als je daar dus void hebt gezet mag je niks returnen, als je dan het uitvoeren van je code in de functie wilt stoppen zeg je gewoon return;
+				</p>
+			</div>
+
+			</div>
+
+			<div id="column2" class="column">
+
+			<div class="box yellow">
+				<p class="title">Argumenten</p>
+				<p class="content">
+					Argumenten zijn de variabelen die je tussen de boogjes van een functie zet.
+					Als je een functie gebruikt moet je die variabelen invullen.
+					De functie kan dan berekeningen op die variabelen doen.
+					Bijvoorbeeld een indirecte Console.WriteLine:
+				</p>
+				<pre class="content dark">
+using System;
+class Program
+{
+   static void Write(string Inhoud)
+   {
+      Console.WriteLine(Inhoud);
+   }
+
+   static void Main(string[] args)
+   {
+      this.Write("Hallo!");
+   }
+}				</pre> 
+				<p class="content">
+					Het enige argument van de functie Write is een string genaamd Inhoud.
+					Je moet als je die functie wilt gebruiken dat argument een waarde geven.
+					Je kan een argument ook een standaardwaarde geven die wordt gebruikt als je geen waarde invult:
+				</p>
+				<pre class="content dark">
+using System;
+class Program
+{
+   static void Write(string Inhoud = "Hallo!")
+   {
+      Console.WriteLine(Inhoud);
+   }
+
+   static void Main(string[] args)
+   {
+      this.Write();
+   }
+}				</pre> 
+				<p class="content">
+					In allebei de voorbeelden komt er 'Hallo!' te staan in het Console venster.
+					De functie Main heeft altijd hetzelfde standaard argument: een array van strings.
+					Als je jouw .exe los opent dan zal die array geen waardes hebben.
+					Die array kan waardes krijgen als je jouw .exe opent met een .cmd of .bat script,
+					maar dat hoef je niet te begrijpen als je hierna doorgaat met PHP.
+					Je kan gewoon aannemen dat die array van strings genaamd 'args' geen waardes heeft.
+				</p>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">Andere console functies</p>
+				<p class="content">
+					Behalve Console.Write() heb je ook nog andere functies en variabelen in de Console class die je kan gebruiken om je zwarte venster te veranderen. Console.WriteLine() is hetzelfde als Console.Write(), alleen doet die automatisch een enter na het gebruiken van de functie. Console.Title is een variabel die je kan veranderen om de titel van je zwarte venster (die nu testprogramma.exe of iets wat erop lijkt is) te veranderen:
+				</p>
+				<pre class="content dark">
+Console.Title = "het beste programma ooit!";</pre> 
+			</div>
+
+			<div class="box blue">
+				<p class="title">Functies gebruiken in C#</p>
+				<p class="content">
+				Functies zijn een belangrijk deel van programmeren. Er zijn onvoorstelbaar veel standaardfuncties die je nodig hebt voor verschillende taken. Je hebt File.ReadAllText om uit een bestand alle tekst naar een variabel te zetten, Math.Pow om een getal tot een macht te doen en op te slaan als een nieuwe int variabel. Je hebt de functies in de Socket class om verbindingen te maken met andere computers, en functies in de Threading class om multitasken te laten werken.<br/><br/> De mogelijkheden zijn zeer groot. Elke taal heeft andere namen voor de functies en een andere ordening van de functies, maar het principe is hetzelfde. Als je uit je hoofd kan leren welke functie welk resultaat teruggeeft en welke argumenten het gebruikt kan je alles maken wat je wilt. Argumenten zijn de variabelen (of directe waardes) die je invult tussen de ronde haakjes na de functienaam. Dus wat je Console.Write(" hier "); schrijft is het eerste argument. Console.Write is een functie die maar één argument nodig heeft en geen resultaat geeft. Op internet kan je elke functie vinden met een gedetailleerde beschrijving, argumentenlijst en het resultaattype.
+				</p>
+			</div>
+
+			
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

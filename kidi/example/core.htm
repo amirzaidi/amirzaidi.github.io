@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ PHP Core</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Werkende PHP Core</p>
+				<pre class="content">
+<strong>Bestanden</strong>
+	core.php
+	classes/
+		site.php
+		template.php (geen voorbeeld; wordt niet gebruikt in de core)
+		user.php		</pre>
+				<pre class="content dark">
+<strong>classes/site.php</strong>
+&lt;?php
+class site
+{
+	public static function getRemoteIp()
+	{
+		//Hier komt een cloudflare script als je dat wilt gebruiken
+		return $_SERVER['REMOTE_ADDR'];
+	}
+
+	public static function redirect($url)
+	{
+		header('Location: ' . $url);
+		exit();
+	}
+}
+?>				</pre>
+				<pre class="content">
+<strong>classes/user.php</strong>
+&lt;?php
+class user
+{
+	public $name, $id, $mail;
+
+	function __construct($name, $data)
+	{
+		$this->name = $name;
+		$this->id = $data['id'];
+		$this->mail = $data['mail'];
+	}
+}
+?>				</pre>
+				<pre class="content dark">
+<strong>core.php</strong>
+&lt;?php
+error_reporting(E_ALL);
+session_start();
+
+require 'classes/site.php';
+require 'classes/template.php';
+require 'classes/user.php';
+
+$db = new mysqli('localhost', 'root', 'MyPassword', 'MyDatabase');
+
+$user = false;
+if (isset($_SESSION['username']))
+{
+	$query = $db->query("SELECT id, mail FROM users WHERE username = '" . $_SESSION['username'] ."'");
+	$user = new user($_SESSION['username'], $query->fetch_assoc());
+}
+
+$remoteIp = site::getRemoteIp();
+$websiteName = 'Kidi';
+?>				</pre>
+				<p class="content">
+					Als je niet begrijpt wat sommige functies doen, zijn ze altijd te vinden op PHP.net.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

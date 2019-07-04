@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Ordening</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a id="selected">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+			
+			<div class="box green">
+				<p class="title">Functies zijn niet genoeg ordening</p>
+				<p class="content">
+					Als je net zoals ik grote projecten gaat maken gaat het ordenen in functies veel te lastig worden omdat je hele lange namen krijgt en je overal heel veel variabelen moet gaan gebruiken. Soms laat je je project een tijdje staan zonder er iets aan te doen, en als je dan na een week weer verder gaat werken ben je helemaal vergeten welke functie nou wat precies deed. Functies zijn handig maar er zit een limiet aan hoeveel logisch is om in één functie te zetten, je maakt bijvoorbeeld geen DoeBerekening(string Berekening) functie omdat die functie veel te moeilijk wordt om te maken en onhandig om mee te werken. Je maakt een TelOp(int Num1, int Num2) of een DeelDoor(int Num1, int Num2) functie. Als je het op de goede manier ordent zal je inderdaad duizenden functies krijgen als je een groot project maakt zoals een game of een geavanceerd programma. Daarom moeten we nog een stap verder gaan met het ordenen van stukken code.
+				</p>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Ordenen in classes</p>
+				<p class="content">
+					Net als functies zijn classes nog meer bedoeld om het programmeren overzichtelijker en beter geordend te maken. Je hebt al kennis gemaakt met een aantal classes. Console is bijvorbeeld een class. In de meeste talen staan de standaardfuncties allemaal los in het geheugen en kan je bijvoorbeeld doen ceil(5.7) (ceil betekent omhoog afronden, 5.7 is een voorbeeldgetal). In C# staat letterlijk alles in classes geordend en zijn zelfs simpele functies zoals ceil gezet in een class, om ceil te gebruiken in C# moet je dan ook Math.Ceil(5.7) gebruiken. De write functie is in de console class gezet, net zoals vele andere functies die bij het console venster horen. De enige keer dat je geen classnaam hoeft op te geven is wanneer de functie die je wilt uitvoeren in dezelfde class staat als de functie waaruit je die andere functie wilt gebruiken, zoals je zag bij <a href="functies.htm#optelvoorbeeld">mijn voorbeeld met optellen, onderaan de pagina</a>.
+				</p>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Wat using betekent</p>
+				<p class="content">
+					Bovenaan al je bestanden zal Visual Studio automatisch een aantal "using"s zetten. In mijn voorbeelden geef ik alleen using System; omdat dat de belangrijkste is voor mijn voorbeelden, maar ze hebben allemaal wel een betekenis. Wanneer je zegt using NaamWatjeUsed, betekent het dat je zonder het volledige pad naar de namespace te geven classes uit die class kan gebruiken. Een namespace is nog een betere ordening voor je classes, die zet de classes dan weer waar ze horen. <br/><br/> 
+Je kan namespaces zien als virtuele (en vaak ook echte, Visual Studio doet dat automatisch voor je) mappen. Ik zal een voorbeeld geven om het minder verwarrend te maken als je het niet begrijpt. Als je een heleboel classes hebt die bij elkaar horen kan je die ordenen. Bijvoorbeeld van het bestuur van een school is het mogelijk om al de verschillende soorten leiders in een namespace te ordenen. Je zet dan bijvoorbeeld de classen "Decaan", "Administrator", "Leraar" en "Concierge" in de namespace Testprogramma.Schoolbestuur (als je hele programma Testprogramma heet). <br/><br/>Sub-namespaces zijn ook geordend met punten net als de class erin en de functie daarvan. Dus als je de ceil functie in C# los wilt gebruiken zonder moeilijk te doen met een using moet je dus System.Math.Ceiling(5.7); doen. System is de namespace, Math de class en Ceiling de functie. Als je bijvoorbeeld je vooraf gemaakte class "Decaan" een functie gaf GeefStrafwerk() dan zou je die kunnen gebruiken door Testprogramma.Schoolbestuur.Decaan.GeefStrafwerk(). Natuurlijk wordt dit onhandig als je functies wilt gaan gebruiken uit namespaces zoals System.Net.Mail. Dan is het handig om using te gebruiken, using zorgt ervoor dat je niet de hele namespace hoeft bijvoorbeeld te zetten voor de classnaam. Dus als je de class System.Net.Mail.MailAddress wilt gebruiken hoef je alleen maar MailAddress te typen als je vooraan in je bestand using System.Net.Mail; zet.
+				</p>
+			</div>
+			
+
+			<div id="column1" class="column">
+
+			<div class="box yellow">
+				<p class="title">Een nieuwe class</p>
+				<p class="content">
+					Een nieuwe class maken in C# is niet moeilijk als je Visual Studio gebruikt.
+					Rechts, in je solution explorer, klik je met je rechtermuisknop op de naam van je "solution" wat de naam van het project is waar je aan werkt. Als het testprogramma heet heet je solution zeer waarschijnlijk ook testprogramma tenzij je dat bij het aanmaken van je project hebt veranderd.
+				</p>
+				<p class="content dark">
+					<img alt="Solution Explorer" src="../images/vstudio_newclass.png" />
+				</p>
+				<p class="content">
+					Daarna kan je de naam van je class kiezen. De naam van het bestand maakt helemaal niet uit met de functionaliteit en je zou het dus ook qwertyuiop kunnen noemen. Het is in ieder geval aanbevolen dezelfde naam te kiezen als je echt gaat gebruiken voor je class. Het gaat erom wat de naam is die je <em>in</em> het bestand geeft, de naam die je zet na "class". Dat is dus hier:
+				</p>
+				<pre class="content dark">
+using System;
+class <em>NaamVanjeClass</em>
+{
+}</pre>
+				<p class="content">
+					Als je programma kan "debuggen" (F5) zonder errors is het gelukt en is je nieuwe class succesvol toegevoegd.
+				</p>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Toegangs Modifiers</p>
+				<p class="content">
+					Voor een functie of property of zelfs een class heb je een hele hoop modifiers die je kan gebruiken.
+					In C# is de enige verplichte modifiers het type resultaat dat je functie geeft.
+					Daarnaast hebben we ook gewerkt met het static modifier, in de volgende paragraaf leer je wat dat precies doet.
+					Er zijn nu ook een aantal toegangs modifiers die je moet gaan leren kennen en gebruiken.
+					Je hebt 'public', 'internal', 'protected' en 'private'. 
+					Deze zorgen ervoor dat je programma weet welke classes toegang hebben tot welke functies uit andere classes.
+					<br/><br/>Standaard zijn al je functies private en kan alleen een andere functie uit die class een functie gebruiken.
+					Om een functie openbaar te maken tot andere classes heb je een public of internal modifier nodig.
+					Public betekent dat elk programma dat je samenvoegt met jouw programma toegang heeft tot die variabel (en natuurlijk je eigen classes).
+					Internal betekent dat alleen je eigen classes van je eigen programma toegang hebben tot die functie.
+					Voor de voorbeelden ga ik gewoon de public modifiers gebruiken omdat ik daaraan gewend ben na het werken met vele samengevoegde programma's, 
+					maar als je liever de internal modifier gebruikt en je programma nog net zo goed werkt kan je dat doen.
+				</p>
+			</div>
+
+			</div>
+
+			<div id="column2" class="column">
+			
+			<div class="box yellow">
+				<p class="title">Properties</p>
+				<p class="content">
+					Een class kan ook zijn eigen ingebouwde variabelen hebben zoals Console.Title. 
+					Console.Title is een speciaal voorbeeld omdat het dynamisch de echte titel van het venster verandert, een simpeler voorbeeld is bijvoorbeeld:
+				</p>
+				<pre class="content dark">
+using System;
+class Gebruikers
+{
+   public static int Hoeveelheid = 36;
+   public static string Laatste = "Roens";
+}</pre>
+				<p class="content">
+					Om deze variabelen te gebruiken en veranderen vanuit een andere class hoef je alleen maar de naam van de class waar de variabelen instaan ervoor te zetten,
+					een punt en daarna de naam van de variabel erachter. Dan is het gewoon alsof het een lokale variabel in die functie is.
+				</p>
+				<pre class="content dark">
+using System;
+class Program
+{
+   static void Main(string[] args)
+   {
+      Gebruikers.Hoeveelheid++;
+      Gebruikers.Laatste = "Amir";
+   }
+}				</pre>
+			</div>
+
+			<div class="box green">
+				<p class="title">Te veel informatie?</p>
+				<p class="content">
+					Ik kan me voorstellen dat deze en de volgende paragraven onvoorstelbaar veel informatie hebben geleverd, en je het moeilijk vindt om alles in zo'n korte periode te begrijpen. Als je nog niet aan OOP wilt beginnen kan je wisselen naar de PHP tab en met je huidige kennis aan het PHP hoofdstuk beginnen. Ik zal pas na een paar paragrafen weer beginnen met OOP. Het is alleen wel nodig dat je OOP ooit gaat leren te gebruiken voor je programma's omdat het je gewoon veel ontwikkeltijd bespaart en het veel overzichtelijker is. Het is echt niet zo moeilijk als het vanaf het begin lijkt, en als je andere simpelere tutorials op internet zoekt kan je daarna terugkomen om verder te gaan op deze website.
+				</p>
+			</div>
+
+			
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

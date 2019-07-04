@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Update Query</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Het gebruik van een UPDATE query</p>
+<pre class="content">
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Nieuwe functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3</pre>
+				<pre class="content dark">
+<b>Update.php:</b>
+&lt;?php
+$db = new mysqli('localhost', 'root', '******', 'kidi_website');
+
+$id = intval($_GET['id']);
+$titel = $db->real_escape_string($_GET['titel']);
+
+$db->query("UPDATE artikelen SET titel = '" . str_replace('_', ' ', $titel) . "' WHERE id = '" . $id . "'");
+?>				</pre>
+				<pre class="content">
+Na een bezoek aan /Update.php?id=2&titel=Oudere_functies
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Oudere functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3</pre>
+			</div>
+		</div>
+	</body>
+</html>

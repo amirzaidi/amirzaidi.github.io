@@ -1,0 +1,242 @@
+body {
+	margin: 0;
+	padding: 0 0 12px 0;
+	font: 12px Segoe UI;
+	background: url('bg.bmp');
+	text-shadow: 0 1px #fff;
+}
+
+div#topBar {
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 2px solid #ddd;
+	position: fixed;
+	right: 9%;
+	background: #fff;
+	padding: 0 3px;
+	font-size: 12px;
+	font-weight: bold;
+	
+}
+
+div#topBar > div.link {
+	border-right: 1px solid #ddd;
+	padding: 0 10px 1px 10px;
+	margin: 6px 0 6px 0;
+	float: left;
+}
+
+div#topBar > div.link:last-child {
+	border-right: 0;
+}
+
+nav {
+	background: rgba(100,130,200,0.50);
+	border-bottom: 1px solid #223;
+}
+
+nav > #topNav {
+	height: 26px;
+	width: 760px;
+	margin: 0 auto;
+	padding-top: 72px;
+}
+
+nav > #topNav > div.tab {
+	float: left;
+}
+
+nav > #topNav > div.tab > a {
+	padding: 7px 18px;
+	margin: 0 8px 0 0;
+	color: #000;
+	text-decoration: none;
+	font-size: 14px;
+	background: rgba(255,255,255,0.8);
+	border: 1px solid #fff;
+	border-bottom: none;
+}
+
+nav > #topNav > div.tab > a#selected {
+	border: 2px solid rgba(0,0,0,0.75);
+	border-bottom: none;
+	padding: 7px 17px 8px 17px;
+	cursor: default;
+	background: #fff;
+	margin-top: 0px;
+}
+
+nav > #topNav > div.tab > a:hover {
+	background: rgba(255,255,255,0.9);
+}
+
+div#container {
+	margin: 0 auto;
+	width: 760px;
+}
+
+div#container > div#bottomNav {
+	background: #fff;
+	border: 2px solid rgba(0,0,0,0.75);
+	border-top: none;
+	height: 37px;
+	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	padding: 0 3px;
+}
+
+div#container > div#bottomNav > div.link {
+	border-right: 1px solid #ddd;
+	float: left;
+	padding: 0 16px 3px 14px;
+	margin: 10px 3px 0 0;
+}
+
+div#container > div#bottomNav > div.link > a {
+	color: #000;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+div#container > div#bottomNav > div.link > a:hover {
+	text-decoration: underline;
+}
+
+div#container > div#bottomNav > div.link:last-child {
+	border-right: none;
+}
+
+div#container > div#bottomNav > div.link > a#selected {
+	font-weight: bold;
+}
+
+div#container > div#bottomNav > div.link > a#selected:hover {
+	text-decoration: none;
+}
+
+div#container > div.column {
+	float: left;
+}
+
+div#container > div#column1 {
+	width: 425px;
+}
+
+div#container > div#column2 {
+	margin-left: 10px;
+	width: 325px;
+}
+
+div.box {
+	margin-top: 12px;
+	border-bottom: 2px solid rgba(0,0,0,0.3);
+	box-shadow: 0 0 1px rgba(0,0,0,0.2);
+	padding-bottom: 4px;
+	overflow: hidden;
+	background: #fff;
+}
+
+div.box:hover {
+	box-shadow: 0 0 4px rgba(0,0,0,0.2);
+}
+
+div.box > p.title {
+	font-size: 14px;
+	font-family: Verdana;
+	margin: 0;
+	padding: 12px 20px;
+	background: rgba(0,0,0,0.15);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+div.box > .content {
+	padding: 14px 18px;
+	margin: 0;
+	line-height: 19px;
+}
+
+div.box > ul.content {
+	padding-left: 33px;
+}
+
+div.box > ol.content {
+	padding-left: 33px;
+}
+
+div.box > .hidden {
+	color: #fff;
+	text-shadow: 1px 0 #eee;
+}
+
+div.box > .hidden:hover {
+	color: #000;
+}
+
+div.box > .dark {
+	background: #eee;
+}
+
+div.box > .content > a {
+	text-decoration: none;
+}
+
+div.box > .content > a:hover {
+	text-decoration: underline;
+}
+
+div.box > pre.content {
+	word-wrap: break-word;
+	font-family: Verdana;
+	font-size: 11px;
+	line-height: 17px;
+}
+
+div.box > .content > img {
+	width: 100%;
+}
+
+div.box > .content > a > img {
+	height: 100px;
+	width: 100px;
+	overflow: hidden;
+	float: left;
+	border: 1px solid #ddd;
+	margin: 0 15px 5px 0;
+}
+
+div.box > .content > a > img:hover {
+	height: 150px;
+	width: 150px;
+}
+
+
+
+div.red {			border-color: #f65;	}
+div.red > p.title {		background: #f65;	}
+
+div.orange { 		border-color: #fb3; 	}
+div.orange > p.title { 	background: #fb3;	}
+
+div.yellow {		border-color: #ff5;	}
+div.yellow > p.title {	background: #ff5;	}
+
+div.green {		border-color: #7c7;	}
+div.green > p.title {	background: #7c7;	}
+
+div.blue {		border-color: #adf;	}
+div.blue > p.title { 		background: #adf;	}
+
+div.purple {		border-color: #b9f;	}
+div.purple > p.title { 	background: #b9f;	}
+
+div#container > footer {
+	clear: both;
+	width: 760px;
+	padding-top: 1px;
+}
+
+div#container > footer > div.box {
+	padding: 10px;
+	text-align: center;
+	color: #333;
+	font-weight: bold;
+}

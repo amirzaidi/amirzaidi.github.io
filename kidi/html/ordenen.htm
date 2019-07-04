@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Ordenen</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a id="selected">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Basis</a></div>
+				<div class="link"><a href="linken.htm">Linken</a></div>
+				<div class="link"><a id="selected">Ordenen</a></div>
+				<div class="link"><a href="divs.htm">Divs</a></div>
+				<div class="link"><a href="attributen.htm">Attributen</a></div>
+				<div class="link"><a href="anderetags.htm">Overige tags</a></div>
+			</div>	
+			<div class="box orange">
+				<p class="title">Tabels en Lists</p>
+				<p class="content">Nu dat je weet hoe je een basis html bestand kan maken, en hoe je hier tekst en afbeeldingen kan inplaatsen. Gaan we nu verder op een paar manieren om al deze informatie te orgainseren op de pagina. Hiervoor hebben we tabellen en lijsten, deze ga ik hieronder bespreken. Een 3e manier is met zogenaamde divs, maar deze bespreek ik in de volgende paragraaf.
+				</p>
+				<p class="content">Er zijn twee verschillende soorten lijsten. Je hebt de <em>ordererd list</em>, de geordende lijst. En ook de <em>unordererd list</em>, of de ongeordende lijst. Deze zijn beide hieronder te zien.
+				</p>		
+			</div>
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">Ordered lists</p>
+					<p class="content">In de geordende lijsten komt er voor alle verschillende <em>list items</em> die worden aangegeven een cijfer, of een letter. Standaard gebeurt dit met 1.,2.,3. etc..<br />
+Om een geordende lijst te beginnen, wordt <em>&lt;ol></em>. Verschillende onderdelen van de lijst worden aangegeven met <em>&lt;li></em>. Dan krijg je het volgende
+					</p>
+					<pre class="content dark">
+&lt;h1>Onderwerpen van de website&lt;/h1>
+&lt;ol>
+   &lt;li>HTML&lt;/li>
+   &lt;li>CSS&lt;/li>
+   &lt;li>PHP&lt;/li>
+   &lt;li>C#&lt;/li>
+&lt;/ol>				</pre>
+				</div>
+				<div class="box yellow">
+					<p class="title">Tabellen</p>
+					<p class="content">Een andere manier om de informatie van je website te sorteren, is door tabellen te gebruiken. Tabellen zijn iets moeilijker en groter om te gebruiken dan lijsten., maar bieden wel meer mogelijkheden. Dit is hoe de code van een tabel eruit kan zien.
+					</p>
+					<pre class="content dark">
+&lt;table>
+   &lt;caption>Kidi&lt;/caption>
+   &lt;tr>
+      &lt;th>Persoon&lt;/th>
+      &lt;th>Onderwerp&lt;/th>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>Amir&lt;/td>
+      &lt;td>PHP en C#&lt;/td>
+   &lt;/tr>
+   &lt;tr>
+      &lt;td>Rens&lt;/td>
+      &lt;td>HTML en CSS&lt;/td>
+   &lt;/tr>
+&lt;/table>				</pre>
+					<p class="content">De begin tag geeft hier natuurlijk aan dat er een tabel komt. De tag daarna, caption, geeft een titel aan de tabel. In dit geval is dit <em>Kidi</em><br />
+De tr-tags geven de rijen in de tabel aan, de horizontale vakken. De th- en td-tags geven de kolommen aan, de verticale vlakken.<br /> Th staat voor <em>Tabel Head</em>, hierin geef je aan waar die kolom over gaat.<br />
+Td is een afkorting van <em>Table Data</em>, hierin komt de informatie van de kolommen en rijen	</p>
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box blue">
+					<p class="title">Unordered lists</p>
+					<p class="content">De ongeordende lijsten werken het zelfde als de geordende lijsten. Voor de onderdelen van een ongeordende lijst komen in plaats van cijfers, standaard bolletjes. De tag om een ongeordende lijst te gebruiken is <em>&lt;ul></em>.
+					</p>
+				</div>
+				<div class="box">
+					<p class="title">Lijsten stylen</p>
+					<p class="content">Ook lijsten hebben een aantal verschillende originele attributen. Je kan bijvoorbeeld wijzigen hoe de dingen voor de onderdelen van de lijst eruit zien. Bij een ordered list doe je dit door <em>type=" "</em> bij de tag te zetten. Tussen de aanhalingstekens wordt aangegeven wat er voor de verschillende onderdelen van de lijst komt.<br />
+Hierin kunnen A en a voor hoofdletters en kleine letters.<br />
+I en i zijn voor grote en kleine romeinse cijfers.
+					</p>
+					<pre class="content dark">
+&lt;ol type="A">			</pre>
+					<p class="content">
+Ook unordered list kunnen een andere stijl krijgen. Het attribuut hiervoor is wel anders. Bij een unordered list moet je <br /><em>style="list-style-type: "</em> gebruiken
+					</p>
+				</div>					
+				<div class="box blue">
+					<p class="title">Col- en rowspan</p>
+					<p class="content">Col- en rowspan zijn beide attributen van een td- of th-tag.<br />
+Met colspan geef je aan dat één vakje een aantal kolommen wijd moet zijn. Rowspan geeft aan dat één vakje een aantal rijen hoog moet zijn.<br />
+x staat hieronder voor een door jouw gekozen nummer.
+					</p>
+					<pre class="content dark">
+&lt;td colspan="x">			</pre>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

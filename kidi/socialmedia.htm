@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Social Media</title>
+		<link rel="icon" href="favicon.ico" type="image/x-icon" />
+		<link rel="stylesheet" type="text/css" href="style/main.css" />
+		<style type="text/css">
+		.column > .box {
+			height: 600px;
+		}
+		</style>
+	</head>
+	<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a id="selected">Home</a></div>
+				<div class="tab"><a href="html/index.htm">HTML</a></div>
+				<div class="tab"><a href="css/index.htm">CSS</a></div>
+				<div class="tab"><a href="program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Introductie</a></div>
+				<div class="link"><a id="selected">Social Media</a></div>
+				<div class="link"><a href="over_ons.htm">Over Ons</a></div>
+				<div class="link"><a href="sources.htm">Bronnen</a></div>
+				<div class="link"><a href="mailto:kidi@mail.com?Subject=Ik wil graag contact maken met de makers van Kidi">Contact</a></div>
+			</div>
+			
+			<div id="column1" class="column">
+				<div class="box">
+
+<a class="twitter-timeline" href="https://twitter.com/InformaticaKidi" data-widget-id="551405922808246274"></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+
+			</div>
+
+			<div id="column2" class="column">
+
+				<div class="box">
+<div class="fb-like-box" data-href="https://www.facebook.com/informaticakidi" 
+data-colorscheme="light" data-show-faces="true" data-header="true" 
+data-stream="true" data-show-border="true" height="606px" width="342px" 
+style="margin-left: -1px; margin-top: -1px;"></div>
+				</div>
+
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

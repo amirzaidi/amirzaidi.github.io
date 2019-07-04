@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Gebruik</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a id="selected">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a id="selected">Gebruik</a></div>
+				<div class="link"><a href="tekst.htm">Tekst</a></div>
+				<div class="link"><a href="boxen.htm">Boxen</a></div>
+				<div class="link"><a href="pos.htm">Posities</a></div>
+				<div class="link"><a href="specegn.htm">Speciale Eigenschappen</a></div>
+			</div>
+			<div class="box orange">
+				<p class="title">CSS en html</p>
+				<p class="content">CSS wordt altijd gebruikt bij html. Het is geen taal op zich zelf, en kan dus niet individueel gebruikt worden om iets te maken. CSS is ook geen eigen taal, het maakt vooral gebruik van attributen die ook gebruikt kunnen worden in html, met een paar speciale toevoegingen.<br />
+Met CSS geef je de opmaak van een html pagina aan.
+				</p>
+			</div>
+			<div class="box">
+				<p class="title">Universele ontwerpstijl</p>
+				<p class="content">Een handige tip om je website er uiteindelijk beter uit te laten zien, is door een universele ontwerpstijl te gebruiken. Dit houdt in dat wanneer je een stijl hebt gekozen voor je eerste pagina, je je zoveel mogelijk hieraan moet blijven houden. Dit geeft de website een meer georganiseerde en professionelere uitstraling.			</p>
+				<p class="content">Als voorbeeld, bijvoorbeeld als je op de ene pagina al je paragrafen <em>border-width: 2px</em> geeft. Dan zou je dit op de andere pagina's ook moeten doen.
+				</p>
+			</div>
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">In-line</p>
+					<p class="content">Voor het gebruik maken van CSS zijn er 3 verschillende manieren. De maniere met de hoogste prioriteit is in-line CSS. Hierbij zet je de stijl opties die bij een bepaalde tag wilt, bij die tag met het attribuut "style". <br />
+Deze manier moet volgens de regels van html5 wel met alleen een paar uitzonderingen ontweken worden. Éen van die uitzonderingen is bijvoorbeeld het geven van een achtergrond, als de achtergrond op iedere pagina anders is.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">In-doc</p>
+					<p class="content">In-doc CSS heeft tweede prioriteit, boven stylesheets, maar onder in-line. In-doc CSS wordt in de head van het document ingevoerd, tussen &lt;style>. De manier waarop je dan de code moet invullen kun je hiernaast zien.<br />
+Ook in-doc CSS wordt het liefst vermeden, alleen als er bijvoorbeeld een pagina is die anders moet zijn dan de andere zou in-doc CSS gebruikt kunnen worden.
+					</p>	
+				</div>
+				<div class="box blue">
+					<p class="title">Classes en id's</p>
+					<p class="content">Een andere manier om de eigenschappen te veranderen is met het gebruik van classes of id's. Dan verander je niet de eigenschappen van alle tags die worden gebruikt, maar alleen maar die van de tags met de gegeven class of id. Om een class of id te gebruiken gebruik je <em>class="naamvanclass"</em> of <em>id="naamvanid"</em><br />
+Classes en id's werken bijna helemaal hetzelfde, alleen hebben id's een hogere prioriteit dan classes, en kunnen id's maar één keer per pagina gebruikt worden.	</p>
+					<pre class="content dark">
+.blauw {
+   font-family: Georgia;
+   color: #00F 
+}
+
+p.rood {
+   font-family: Georgia;
+   color: #F00 
+}				</pre>
+					<p class="content">Blauw en rood zijn hier allebei classes omdat er een punt voor staat, als de punt een "#" was geweest, zouden ze id's zijn. De class blauw is hier voor alle tags mogelijk, en maakt deze dan blauw, en geeft ze het lettertype <em>Georgia</em>. Als de laatste niet mogelijk is wordt dat genegeerd, en maakt de browser de tag alleen blauw.<br />
+De class rood is alleen maar toe te voegen op een p-tag, en zal niks doen als hij wordt gebruikt bij een andere tag.
+
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Stylesheet</p>
+					<p class="content">De laagste prioriteit heeft de stylesheet, ondanks dat is het toch de manier die het meest gebruikt moet worden. Stylesheets moeten aparte bestanden zijn die niks anders bevatten dan alleen de CSS. Als extensie gebruik je .css.
+					</p>
+					<pre class="content dark">
+&lt;head>
+   &lt;link rel="stylesheet" type="text/css" 
+   href="jouwcss.css>
+&lt;/head>				</pre>
+					<p class="content">In een stylesheet zijn er dan ook weer meerdere manieren om andere eigenschappen aan de pagina te geven. De eerste is door de eigenschappen van een tag in het algemeen te veranderen.
+					</p>
+					<pre class="content dark">
+p {
+   font-family: Georgia;
+   font-size: 15px;
+   color: #00F 
+}
+
+h1 {
+   font-family: Georgia;
+   color: #F0F;
+   text-align: center 
+} 			</pre>
+					<p class="content">
+Alle p- en h1-tags krijgen nu dus de hierboven gegeven eigenschappen. Alles dat niet veranderd is wordt gewoon wat het normaal zou zijn.
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

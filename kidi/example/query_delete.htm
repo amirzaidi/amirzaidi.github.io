@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Delete Query</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Het gebruik van een DELETE query</p>
+				<pre class="content">
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Nieuwe functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3</pre>
+				<pre class="content dark">
+<b>Verwijder.php:</b>
+&lt;?php
+$db = new mysqli('localhost', 'root', '******', 'kidi_website');
+$verwijderId = intval($_GET['id']);
+$db->query("DELETE FROM artikelen WHERE id = '" . $id . "'");
+?>				</pre>
+				<pre class="content">
+Na een bezoek aan /Verwijder.php?id=2
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 3	| Bijna afgerond		| BlaBla3</pre>
+			</div>
+		</div>
+	</body>
+</html>

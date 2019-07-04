@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Vragen</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a id="selected">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Berekeningen zijn niet genoeg</p>
+				<p class="content">
+					Met simpele wiskundige formules kom je heel ver, maar er zijn vaak punten waar je vast komt te zitten als je alleen maar berekeningen op variabelen blijft doen. Denk bijvoorbeeld aan delen door 0 bij de wiskunde, bij het programmeren zou het fijn zijn als je zulke gevallen kon voorkomen. Gelukkig is dat natuurlijk mogelijk, in de vorm van if/ifelse/else constructies.<br/><br/>
+					De theorie is dat je verschillende vragen stelt aan de variabelen. Is de gekozen kleur blauw? Is de leeftijd boven de 12? Is de gast akkoord gegegaan met de algemene voorwaarden? Als dat zo is voer je een aantal berekeningen en acties uit, zo niet een andere reeks berekeningen en acties. Het is zelfs mogelijk om een tussenvraag te stellen. Bijvoorbeeld is de gast boven de 16, dan mag hij zijn eigen email gebruiken, als hij boven de 12 of 12 is moet hij een email van zijn ouders opgeven en onder de 12 mag je helemaal de website niet op.
+				</p>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">De simpelste vraag: If met else</p>
+				<p class="content">
+					Een vraag heeft altijd een bool als antwoord, en die bool moet je dan invullen in de if constructie. 
+					Als de bool true is wordt de code die je zelf kan bepalen dan uitgevoerd, 
+					als hij false is wordt hij niet uitgevoerd, 
+					en wordt eventueel de code in het else-deel uitgevoerd als je die hebt aangemaakt.
+				</p>
+				<pre class="content dark">
+string Tekst = "Toegang: ";
+int Leeftijd = 13;
+bool BovenDeTwaalf = (Leeftijd > 11);
+if (BovenDeTwaalf)
+{
+   Tekst += "Gegeven";
+}
+else
+{
+   Tekst += "Geweigerd";
+}				</pre>
+				<p class="content">
+					Wat { <em>hiertussen</em> } staat wordt dus uitgevoerd wanneer de if of de else klopt.
+					Dit ziet er ingewikkeld uit en dat komt misschien omdat ik het er ingewikkeld uit heb laten zien,
+					want dit zou precies hetzelfde doen:
+				</p>
+				<pre class="content dark">
+string Tekst = "Toegang: Geweigerd";
+int Leeftijd = 13;
+if (Leeftijd > 11)
+{
+   Tekst = "Toegang: Gegeven";
+}				</pre>
+				<p class="content">
+					Wat je nu denkt klopt, je kan inderdaad de vraag meteen in de if invullen, 
+					je hoeft het resultaat niet eerst op te slaan als een bool variabel.<br/><br/>
+					Je hebt verschillende vergelijkende tekens, de meest gebruikte zijn:
+				</p>
+				<ul class="content dark">
+					<li>'<': Links is kleiner dan rechts</li>
+					<li>'>': Rechts is kleiner dan links</li>
+					<li>'==': Links en rechts zijn hetzelfde, werkt met alle typen variabelen</li>
+					<li>'!=': Links en rechts zijn niet hetzelfde, werkt met alle typen variabelen</li>
+					<li>'<=': Links is kleiner dan rechts of ze zijn hetzelfde</li>
+					<li>'>=': Rechts is kleiner dan links of ze zijn hetzelfde</li>
+				</ul>
+				<p class="content">
+					Tip: (Var < 5) en (Var <= 4) zijn dus precies hetzelfde als het om hele getallen gaat.
+				</p>
+			</div>
+
+			<div id="column1" class="column">
+
+			<div class="box yellow">
+				<p class="title">Vragen in vragen</p>
+				<p class="content">
+					Soms heb je meer criteria waarvan je wilt dat ze allemaal goed zijn voordat je een stuk code wilt uitvoeren. Bijvoorbeeld het registreren van een email adres, dan wil je zeker weten dat die email niet al gebruikt wordt, de naam niet te lang of te kort is, er geen persoonlijke informatie inzit enzovoort. Daarvoor heb je of heel veel vragen nodig in elkaar, of je gebruikt de 'of' en 'en' tekens: || en &&. Meerdere vragen sorteren kan je net als in de wiskunde met de simpele ronde haakjes ( ) om verwarring te voorkomen. Bijvoorbeeld op een forum voor alleen tieners:
+				</p>
+				<pre class="content dark">
+string Tekst = "Welkom!";
+int Leeftijd = 16;
+bool Administrator = false;
+if (Leeftijd < 13 || Leeftijd > 18)
+{
+   if (Administrator == false)
+   {
+      Tekst = "Je mag hier niet komen, dit is alleen voor tieners";
+   }
+}				</pre>
+				<p class="content">
+					Dit kan je inkorten tot:
+				</p>
+				<pre class="content dark">
+string Tekst = "Welkom!";
+int Leeftijd = 16;
+bool Administrator = false;
+if ((Leeftijd < 13 || Leeftijd > 18) && Administrator == false)
+{
+   Tekst = "Je mag hier niet komen, dit is alleen voor tieners";
+}				</pre>
+			</div>
+			</div>
+
+			<div id="column2" class="column">
+
+			<div class="box yellow">
+				<p class="title">If / elseif (/ elseif / elseif ...) / else</p>
+				<p class="content">
+					In één vraagblok kan je heel veel subvragen stellen waarvan de code 
+					alleen uitgevoerd wordt als de vragen ervoor allemaal niet klopten:
+				</p>
+				<pre class="content dark">
+string LeeftijdsFase = "Onbekend";
+int Leeftijd = 25;
+if (Leeftijd > 60)
+{
+   LeeftijdsFase = "Oud";
+}
+else if (Leeftijd >= 18)
+{
+    LeeftijdsFase = "Volwassen";
+}
+else if (Leeftijd > 12)
+{
+    LeeftijdsFase = "Tiener";
+}
+else
+{
+   LeeftijdsFase = "Kind";
+}				</pre>
+				<p class="content">
+					Dit is natuurlijk ook samen te voegen met wat je geleerd hebt in de column hiernaast.
+				</p>
+			</div>
+			
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

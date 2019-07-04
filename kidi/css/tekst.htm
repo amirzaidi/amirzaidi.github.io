@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Tekst</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a id="selected">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Gebruik</a></div>
+				<div class="link"><a id="selected">Tekst</a></div>
+				<div class="link"><a href="boxen.htm">Boxen</a></div>
+				<div class="link"><a href="pos.htm">Posities</a></div>
+				<div class="link"><a href="specegn.htm">Speciale Eigenschappen</a></div>
+			</div>
+			<div class="box blue">
+				<p class="title">Kleuren</p>
+				<p class="content">Kleur aan een stuk tekst geven doe je met <em>color:</em> achter de dubbele punt bestaan er meerdere manieren om een kleur te geven.<br />
+De makkelijkste manier is door gewoon de kleur op te schrijven, als je gele tekst wilt wordt het <em>color: "yellow"</em>. Op deze manier is er een <a href="http://www.w3schools.com/cssref/css_colornames.asp">grote lijst met de 140 gegeven kleuren</a>. Alleen zijn er meer dan 16.7 miljoen kleuren mogelijk. Deze kunnen we krijen met rgb.				
+				</p>
+				<p class="content dark">
+Rgb staat voor Red, Green, Blue. Je geeft dus een waarde voor rood, groen en blauw. Deze waardes liggen tussen de 0 en de 255. Hoe hoger een van de kleuren is, hoe sterker je zijn effecten ziet. Als je geel wilt hebben met rgb word het <br /><em>color: rgb(255,255,0)</em>. Ofterwijl rood en groen vol, en geen blauw.
+				</p>
+				<p class="content">De derde manier werkt ook met rgb, maar in plaats van decimale getallen te gebruiken, gebruiken we hexadecimale getallen.<br />
+Hexadecimale getallen gaan van 0 tot F, in decimaal is dit van 0 tot 15. Bij rgb waardes worden er 2 hexadecimale getallen gebruikt. Je doet de eerste keer 16 plus de tweede. 255 is dus FF, 15 keer 16 plus 15.<br />
+Geel in hexadecimale getallen is <em>color: #FFFF00</em>, dit kan je ook schrijven als <em>color: #FF0</em> omdat beide getallen iedere keer hetzelfde zijn. Het hekje geeft aan dat er een rgb-waarde in hexadecimale getallen komt. 
+			</div>
+			<div id="column1" class="column">
+				<div class="box blue">
+					<p class="title">Font-family en -size</p>
+					<p class="content">Met font-family en font-size kun je het lettertype, en de lettergrote van de letters op je pagina veranderen. Font-family wordt gebruikt voor het veranderen van het lettertype. Tussen de aanhalingstekens zet je gewoon de naam van het letterype. Ook is het mogelijk om meerdere lettertypes te gebruiken, dan kijkt de browser eerst naar de eerste, als hij deze niet kan gebruiken, gaat hij naar de tweede, enzovoort.<br />
+Niet alle lettertypes kunnen door alle browser en computers worden weergegeven, <a href="http://www.cssfontstack.com/">hier</a> is een lijst met letterypes die op bijna iedere computer zichtbaar is.
+					</p>
+					<p class="content dark">Met font-size kan je de grootte van de letters aanpassen. Je kan de groote van de letters op verschillende manieren aangeven. In CSS zijn de groottes xxsmall tot en met xxlarge ingebouwd die je kan gebruiken.<br />
+Ook kan je de grootte die je wilt aangeven in procenten van de originele grootte, 200% is dus 2x groter dan het origineel.<br />
+Of je kan de grootte aangeven in px(pixels) of cm(centimeter).
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Weights</p>
+					<p class="content">De dikheid van de letters is ook aanpasbaar. Dit doe je met <br /><em>font-weight: </em>.<br />
+De dikheid van de letters kun je aangeven met een aantal ingestelde namen, normal, bold, bolder en lighter, of met een getal. Dit moet een getal zijn tussen de 0, en de 999.<br />
+Hierin is 400 net zo dik als <em>normal</em>, en 700 hetzelfde als <em>bold</em> 
+					</p>
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Decorations</p>
+					<p class="content">Een ander attribuut voor stukken tekst is <em>text-decoration</em>. Hiermee kan je stukken tekst "decoreren" met lijnen. Er zijn 3 verschillende mogelijkheiden voor lijnen, en 4 values.<br />
+Deze zijn:<br />
+<em style="text-decoration: underline">text-decoration: underline</em>,<br />
+<em style="text-decoration: line-through">text-decoration: line-through</em><br />
+<em style="text-decoration: overline">text-decoration: overline</em><br/><br />
+De 4e value is <em>text-decoration: none</em>. Deze kan bijvoorbeeld gebruikt worden als je geen underline wilt bij de a-tag.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Shadows</p>
+					<p class="content">Schaduwen aan tekst toe voegen heeft meerdere onderdelen. Een schaduw wordt gemaakt met <em>text-shadow: </em>. Achter de dubbele punt is het verplicht om de horizontale en verticale verplaatsing aan te geven, dit is hoever de schaduw van de originele tekst vandaan wordt gezet. Optioneel kan je de schaduw vervagen, en deze ook een kleur geven.	</p>
+					<p class="content dark">Voor de verplaatsing gebruik je een afstand in px of cm, met positieve getallen gaat de schaduw naar rechts en beneden, negatieve getallen brengen hem naar links en boven. Een waarde van 0 doet niks, maar een invoer is wel verplicht.
+					</p>
+					<p class="content">Het derde getal geeft de vervaging aan, hoe groter het gebruikte getal, hoe meer er vervaagd wordt, of "verdwijnd".<br />Als laatst, hiervoor is vervaging niet nodig, kan je de schaduw een kleur geven, dit door de kleur, rgb of hexadecimale waarde te geven.<br />
+Alle 4 de waardes moeten gescheiden worden met een spatie, zonder ;.
+					</p>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

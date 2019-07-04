@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ OOP Voorbeeld 3</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Waardes en Objecten</p>
+				
+					<pre class="content">
+using System;
+class Program
+{
+	static void VeranderTekst(string Tekst)
+	{
+		Tekst = "Veranderd";
+	}
+
+	static void VeranderTekstHouder(TekstHouder Houder)
+	{
+		Houder.Tekst = "Veranderd";
+	}
+
+	static void Main(string[] args)
+	{
+		string HalloTekst = "Hallo";
+
+		TekstHouder HoiTekst = new TekstHouder();
+		HoiTekst.Tekst = "Hoi";
+
+		VeranderTekst(HalloTekst);
+		VeranderTekstHouder(HoiTekst);
+
+		Console.WriteLine(HalloTekst);
+		Console.Write(HoiTekst.Tekst);
+	}
+}					</pre>
+					<pre class="content dark">
+using System;
+class TekstHouder
+{
+	public string Tekst;
+}					</pre>
+					<p class="content">
+						Uitkomst:<br/>
+						Hallo<br/>
+						Veranderd
+					</p>
+			</div>
+		</div>
+	</body>
+</html>

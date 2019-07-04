@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ OOP Voorbeeld 2</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Meerdere Gebruikers</p>
+				<pre class="content">
+using System;
+class Gebruiker
+{
+	public string Voornaam;
+	public string Achternaam;
+	public int Leeftijd;
+
+	public Gebruiker(string NieuweVoornaam, string NieuweAchternaam, int NieuweLeeftijd)
+	{
+		this.Voornaam = NieuweVoornaam;
+		this.Achternaam = NieuweVoornaam;
+		this.Leeftijd = NieuweLeeftijd;
+	}
+
+	public string VolledigeNaam()
+	{
+		return (this.Voornaam + " " + this.Achternaam);
+	}
+}				</pre>
+				<pre class="content dark">
+using System;
+class Program
+{
+	static void Main(string[] args)
+	{
+		Gebruiker[] Gebruikers = new Gebruiker[20];
+
+		Gebruikers[0] = new Gebruiker("Rens", "Kievit", 3);
+		Gebruikers[1] = new Gebruiker("Amir", "Zaidi", 3);
+
+		foreach (Gebruiker Persoon in Gebruikers)
+		{
+			if (Persoon == null)
+			{
+				continue;
+			}
+
+			Console.WriteLine(Persoon.VolledigeNaam() + " is " + (string)Persoon.Leeftijd + " jaar oud.");
+		}
+	}
+}				</pre>
+				<p class="content">
+					Omdat een aantal waardes in de array nog niet een echte waarde hebben gekregen zijn ze nog null. Null wilt zeggen dat die ruimte wel in je geheugen gereserveerd is en die variabel daarheen wijst, maar die ruimte nog geen echte waarde heeft gekregen.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

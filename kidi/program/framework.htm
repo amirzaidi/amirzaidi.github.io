@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ .NET Framework</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a id="selected">.NET</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">.NET Framework Integratie</p>
+				<p class="content">
+					C# is een taal gebaseerd op het simpele C, maar het gebruikt altijd .NET Framework.
+					.NET Framework is een collectie van versimpelende functies die het maken van geavanceerde programma's makkelijker maken.
+					.NET doet ook heel veel dingen voor je op de achtergrond zonder dat je het door hebt.
+					Het optimaliseert als eerste het programma voor je processor zodat het sneller kan worden uitgevoerd.
+					Ten tweede zorgt het ervoor dat variabelen die je niet langer nodig hebt vanzelf verwijderd worden zodat je bijna altijd genoeg RAM over hebt. 
+					In oudere programmeertalen zoals C++ moest je dat allemaal zelf doen, wat veel ontwikkeltijd kon kosten. .NET maakt het leven dus een stuk makkelijker voor de beginner, het nadeel is alleen dat het voor Windows is gemaakt en andere besturingssystemen dus weinig support krijgen.
+				</p>
+			</div>
+
+			<div id="column1" class="column">
+				<div class="box blue">
+					<p class="title">Geheugenbeheer</p>
+					<p class="content">
+						Wanneer je een variabel aanmaakt in een functie en je returnt in die functie wordt die variabel vanzelf verwijderd omdat die toch niet meer nodig is.
+					</p>
+					<pre class="content dark">
+using System;
+class DubbeleString
+{
+   public string String1;
+   public string String2;
+
+   public DubbeleString(string ArgString1, string ArgString2)
+   {
+      this.String1 = ArgString1;
+      this.String2 = ArgString2;
+   }
+}					</pre>
+					<pre class="content">
+using System;
+class Program
+{
+   static string KrijgTekst()
+   {
+      DubbeleString Var = new DubbeleString("Hallo", "Doei");
+      return (Var.String1 + Var.String2);
+   }
+
+   static void Main(string[] args)
+   {
+      string EenTekst = KrijgTekst();
+      string EenTekst2 = KrijgTekst();
+      string EenTekst3 = KrijgTekst();
+      string EenTekst...
+   }
+}					</pre>
+					<p class="content dark">
+						Als je dit een aantal keer in C++ zou doen zou je zeer waarschijnlijk geheugenproblemen krijgen. Je blijft maar DubbeleString objecten aanmaken en je verwijdert ze nergens. String en ints (en andere directe waarde-typen) worden meteen verwijderd wanneer ze niet meer nodig zijn, maar objecten blijven altijd bestaan tot je ze verwijdert in C++. In C# worden ze gelukkig gewoon verwijderd wanneer het .NET Framework erachter komt dat je het nergens meer gaat gebruiken. Natuurlijk maakt dit je programma iets slomer, maar met de kracht van de processors tegenwoordig maakt dat niet veel uit.
+					</p>
+				</div>
+			</div>
+
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Multithreading</p>
+					<p class="content">
+						Processoren hebben vaak meer dan één deel dat logische behandelingen kan uitvoeren. Tegenwoordig zijn ze allemaal gemaakt om het potentieel van multitasken te gebruiken. Op één 'core' wordt een timer bijgehouden, op de andere 'core' worden de berekeningen gedaan. Het is ook mogelijk om als je veel berekeningen hebt ze te verdelen over de twee cores. Je moet dat wel zelf programmeren. Je programma gaat niet uit zichzelf taken uitdelen aan verschillende cores, dat moet je zelf doen. Daarvoor moeten we werken met Threads. Een Thread (Nederlands: Draad) is een lijn van instructies die worden uitgevoerd op één core. Tot nu toe heeft je programma nog maar één thread gebruikt, de hoofdthread. Je kan een extra thread instructies geven, in de vorm van simpele C# code, die een andere core kan uitvoeren. Zo'n thread kan je behandelen in de vorm van een object met als classnaam, zoals je zou denken, 'Thread'. Om te beginnen moet je een nieuw object van de class Thread maken. Het argument dat je aan de constructor moet geven is de naam van de functie die die thread moet starten. Daarna hoef je alleen maar de functie Start() te gebruiken op dat object om je Thread te starten!
+					</p>
+					<p class="content dark">
+						<a href="../example/multithread.htm" target="_blank">Voorbeeld</a>
+					</p>
+					<p class="content">
+						Ik ben niet heel ver gegaan met multithreaden omdat het volgende hoofdstuk over PHP gaat, en PHP geen multithreading mogelijkheden heeft. Er zijn veel meer mogelijkheden dan een simpele extra thread, maar met extra threads kan je al heel veel. Om meer voorbeelden van efficient multithreading te lezen kan je <a href="http://www.albahari.com/threading/">hier (Engels)</a> klikken.
+					</p>
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Cache</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a id="selected">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Twee keer hetzelfde berekenen is nooit nodig</p>
+				<p class="content">
+					Cache heeft vele vormen, maar het wordt altijd gebruikt voor hetzelfde doel:
+					Om dingen die je al gedaan hebt op te slaan en later te kunnen hergebruiken,
+					zodat je geen onnodige processortijd (tijd dat apache instructies naar je processor stuurt) of netwerkcapaciteit hoeft te gebruiken.
+					Cache wordt overal gebruikt, je browser slaat de CSS bestanden van een website op zodat hij die niet opnieuw hoeft te laden,
+					je processor slaat variabelen die normaal in je RAM staan op in kleine cache ruimtes om ze sneller te kunnen bewerken,
+					en MySQL, een programma dat alle data naar bestanden schrijft, cachet die data in het RAM,
+					zodat het je sneller het resultaat van je queries kan geven (RAM is immers veel sneller dan je harde schijf).
+					Op deze pagina gaan we het hebben over het cachen van uitgerekende/uitgewerkte variabelen die meerdere keren per seconde
+					worden berekend, zonder dat dat nodig is.
+				</p>
+			</div>
+
+			<div class="column" id="column1">
+				<div class="box blue">
+					<p class="title">De trage plaatsen</p>
+					<p class="content">
+					Je moet zelf uitzoeken waar je webpagina veel tijd aan besteedt tijdens de volledige laadtijd van de gebruiker.
+					Vanaf het moment dat de gebruik jouw webadres intypt in zijn browser en op enter klikt, tot het moment dat de pagina
+					volledig geladen is, zijn er overal plaatsen die kunnen worden versneld.
+					Je kan heel creatief worden met het versnellen van je website, maar het belangrijkste is om zo min mogelijk processortijd te gebruiken,
+					die processortijd wordt namelijk linear langer naar mate er meer bezoekers komen.
+					Dingen die al een keer berekend zijn kan je het beste opslaan naar je RAM, of wanneer nodig MySQL,
+					zodat je die voor de volgende gebruiker meteen uit het geheugen kan laden, en je het niet opnieuw hoeft te berekenen.
+					Statische widgets die data uit de database halen zijn een goed voorbeeld van wat je in zijn geheel kan opslaan in je cache.
+					Welke soort cache je gebruikt moet je zelf kiezen.
+					Er zijn verschillende bekende types RAM-Cache voor PHP zoals APC, Memcache en Memcached.
+					Ik ga op deze pagina alleen pseudo-code schrijven die je kan uitvoeren voor elk van deze RAM-Caches,
+					maar de syntax van de functies kan verschillen. Kijk dus op PHP.net wat de syntax is van de functies.<br/><br/>
+					Een RAM-Cache is ongeveer hetzelfde als een simpelere MySQL server met maar één tabel die alleen twee columns bevat:
+					Een key en een value, net als een array.
+					Bij sommige RAM-Caches is het nodig om ermee te verbinden, bij sommigen wordt het automatisch geregeld.
+					Wanneer je je computer uitzet, of wanneer jouw RAM-Cache zijn tabel vernieuwt, zullen alle verouderde waardes worden verwijderd.
+					Natuurlijk mag je zelf kiezen hoelang die waardes erin mogen staan tot ze als verouderd worden beschouwd.
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">Cache versnelt meer</p>
+					<p class="content">
+						Er zijn ook RAM-Caches in PHP die je hele PHP code versnellen.
+						PHP wordt namelijk afgebroken tot het op de processor kan worden uitgevoerd met binaire opdrachten,
+						elke keer dat de pagina wordt geladen.
+						Wat sommige RAM-Caches zoals APC doen is het onthouden van die binaire opdrachten in het RAM geheugen
+						en die uitvoeren wanneer de pagina wordt uitgevoerd.
+						Dus zelfs wanneer je het niet zelf gebruikt kan een RAM-Cache de snelheid van je pagina verbeteren.
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+				<div class="box yellow">
+					<p class="title">Voorbeeld</p>
+					<pre class="content">
+&lt;?php
+function LangeFunctie()
+{
+	$MoeilijkeVar = '';
+	for ($i = 0; $i < 1500000; $i++)
+	{
+		$MoeilijkeVar += sqrt($i);
+		$MoeilijkeVar -= $i;
+	}
+
+	return $MoeilijkeVar;
+}
+
+echo LangeFunctie();
+?>					</pre>
+					<p class="content dark">
+						Dit gaat voor elke gebruiker een seconde duren om te laden.
+						Als je meerdere gebruikers per seconde hebt worden ze in een rij gezet
+						(als je meerdere processor cores hebt kunnen er meerdere tegelijk behandeld worden)
+						en zullen ze zeer sloom behandeld worden.
+						Gelukkig is dit op een simpele manier te versnellen.
+						De schuingedrukte woorden zijn voor elke vorm van cache anders:
+					</p>
+					<pre class="content">
+&lt;?php
+function LangeFunctie()
+{
+	...
+}
+
+if (!<em>cache_contains</em>('resultaat'))
+{
+	<em>cache_add</em>('resultaat', LangeFunctie());
+}
+
+echo <em>cache_load</em>('resultaat');
+?>					</pre>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

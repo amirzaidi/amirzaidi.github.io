@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Syntax</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a id="selected">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Verschillen met C#</p>
+				<p class="content">
+					De PHP syntax (manier dat je dingen opschrijft, en de betekenis van speciale tekens) lijkt zeer op wat je geleerd hebt bij C#. Er zijn een paar belangrijke verschillen. Het belangrijkste verschil is dat je altijd een dollarteken ($) voor een variabelnaam zet. Dus je zegt geen Leeftijd = 30 maar $Leeftijd = 30. Daarbij komt dat je nooit zegt wat voor soort variabel iets is. Je kan het afleiding uit de context, maar in PHP maken variabeltypen niks uit. Een functie zegt niet wat hij als resultaat geeft, en variabeltypes worden automatisch omgezet wanneer nodig. Er bestaat geen 'char' in PHP, die sla je gewoon op als een string. Strings kunnen in PHP daarom ook dubbele EN enkele apostrofs gebruiken. Er zit wel een verschil tussen de twee, maar ik raad je aan om <strong>altijd</strong> enkele apostrofs te gebruiken. In dubbele apostrofs worden namelijk variabelen vervangen door de waarde, wat slomer is en verwarring kan brengen. Ook heb je in dubbele apostrof strings een paar speciale tekens zoals \n om een letterlijke enter (newline) aan te geven.</br></br>Een minder belangrijk verschil is dat je teksten niet samenvoegt met een + maar met een punt, de punt betekent in PHP dus heel iets anders dan in C#. Om in PHP een property van een object te lezen of veranderen, of om een functie van een object te gebruiken gebruik je '->'. Om een statische property van een class zelf te lezen of veranderen of een statische functie in een class te gebruiken gebruik je in plaats van de punt '::'. Ook staan in PHP alle standaardfuncties los, en niet geordend in standaardclasses. Je zegt dus gewoon file_get_contents() in plaats van File.ReadAllText(). Vele standaard functienamen gebruiken ook in tegenstelling tot C# een underscore ( _ ). De rest van de standaardregels van C# worden gebruikt. Haakjes en boogjes betekenen precies hetzelfde en de constructies schrijf je hetzelfde met de uitzondering van foreach en arrays.</br><br/>
+PHP code wordt afgewisseld met HTML code door de pagina heen. Om te beginnen met PHP code in je standaard HTML pagina moet je een opening php-tag '&lt;?php' neerzetten. Om weer terug te wisselen naar HTML inhoud moet je de sluitings php-tag '?>' neerzetten.
+				</p>
+			</div>
+
+
+			<div class="column" id="column1">
+				<div class="box yellow">
+					<p class="title">Lossere Arrays</p>
+					<p class="content">
+						PHP heeft vergeleken met de zeer logische arrays van C# hele vrije en verwarrende arrays.
+						Je hoeft in PHP nooit te zeggen wat voor variabeltype een variabel is, hetzelfde geldt ook voor arrays.
+						Een array kan je in PHP ook gelijk bij het aanmaken waardes geven, en er wordt ook een nieuw element geintroduceerd.
+						Keys. In PHP kan je de verschillende waardes in een array sorteren met keys, 
+						oftewel net zoals je woordbetekenissen kan opzoeken in een woordenboek via het woord,
+						kan je in PHP de waarde in een array opzoeken via een key.
+						Arrays hebben ook geen vaste lengte zoals in C#, ze worden automatisch vergroot wanneer nodig en zijn zeer flexibel.
+						Het nadeel ervan is dat je bij een array bijna nooit kan verwachten wat voor inhoud het bezit. 
+						Je moet dus goed uitkijken wat je allemaal in je array stopt!
+					</p>
+					<pre class="content dark">
+&lt;?php
+$arrayEen = Array();
+$arrayEen[0] = 'Rens';
+$arrayEen[1] = 'Amir';
+
+$arrayTwee = Array();
+$arrayTwee['rood'] = 'Appel';
+$arrayTwee['geel'] = 'Banaan';
+$arrayTwee['blauw'] = 'Schimmel';
+?>					</pre>
+					<p class="content">
+						Waardes in een array zijn dus nogsteeds te verkrijgen in dezelfde syntax als in C#, alleen nu heb je de mogelijkheid om keys te gebruiken
+						in plaats van nummers.<br/><br/>
+						Je kan in PHP ook makkelijk bij het aanmaken van de array de waardes er direct instoppen. Dit is hetzelfde als het voorbeeld hierboven:
+					</p>
+					<pre class="content dark">
+&lt;?php
+$arrayEen = Array('Rens', 
+			'Amir');
+
+$arrayTwee = Array('rood' => 'Appel',
+			'geel' => 'Banaan',
+			'blauw' => 'Schimmel');
+?>					</pre>
+					<p class="content">
+						Vreemd genoeg is het zelfs mogelijk om bij sommige waardes wel een key te hebben en bij sommigen niet. Het is ook mogelijk om variabeltypes door elkaar te gebruiken en arrays in arrays te krijgen. Dit zou een goed werkende array zijn:
+					</p>
+					<pre class="content dark">
+&lt;?php
+$arrayEen = Array();
+$arrayEen[0] = 'Rens';
+$arrayEen[1] = 'Amir';
+
+$arrayTwee = Array();
+$arrayTwee['rood'] = 'Appel';
+$arrayTwee['geel'] = 'Banaan';
+$arrayTwee['blauw'] = 'Schimmel';
+
+$arraySamen = Array(5,
+			$arrayEen,
+			'arrayTwee' => $arrayTwee,
+			'LOL');
+?>					</pre>
+					<p class="content">
+						Je kan de waardes nu verkrijgen met foreach of via de keys. Dus $arraySamen[0], $arraySamen[1], $arraySamen['arrayTwee'], $arraySamen[3].
+						De nummering van geen-key waardes gaat gewoon door, zelfs wanneer je waardes met een key toevoegt.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Foreach</p>
+					<p class="content">
+						Aangezien de arrays heel anders zijn moet de foreach constructie ook heel anders zijn om de array te kunnen behandelen.
+						Je schrijft hier niet 'foreach Waarde in Array' maar 'foreach Array as (Key =>) Waarde'.
+					</p>
+					<pre class="content dark">
+&lt;?php
+$array = Array('drie', 'vier');
+foreach ($array as $waarde)
+{
+	echo $waarde, '&lt;br/>';
+}
+?>					</pre>
+					<p class="content">
+						Uitkomst:<br/>
+						drie&lt;br/>vier&lt;br/><br/>
+						Of met keys:
+					</p>
+					<pre class="content dark">
+&lt;?php
+$array = Array('rood' => 'aardbei', 'groen' => 'druif');
+foreach ($array as $key => $waarde)
+{
+	echo $key, '=', $waarde, '&lt;br/>';
+}
+?>					</pre>
+					<p class="content">
+						Uitkomst:</br>
+						rood=aardbei&lt;br/>groen=druif&lt;br/>
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Unset/Isset</p>
+					<p class="content">
+						In PHP is er een speciale functie om variabelen te verwijderen: unset.
+						Nadat je een variabel verwijdert lijkt het nooit alsof die heeft bestaan.
+						Dit is handig als je wilt kijken of er al een taak voltooid is.
+						Bijvoorbeeld om vast te stellen of er wel iets in de foreach loop gedaan is,
+						het kan namelijk dat er niks gebeurt in een foreach loop als de array leeg is.
+					</p>
+					<pre class="content dark">
+&lt;?php
+while (true)
+{
+	$array = Array();
+	foreach ($array as $key => $waarde)
+	{
+		//Doe_taak($key, $waarde);
+		$klaar = 'gedaan!';
+	}
+
+	if (!isset($klaar))
+	{
+		echo 'Het was een lege array?';
+		//Doe_taak('zelfgemaakt', 'zelfgemaakt');
+	}
+	else
+	{
+		echo 'taak volbracht!';
+		unset($klaar);
+	}
+}
+?>					</pre>
+					<p class="content">
+						Dit kan blijven doorgaan zonder errors.
+						Als je die unset niet zou doen op het einde zou $klaar altijd blijven bestaan en kan je dus nooit
+						uitvinden of de foreach ook echt tenminste een keer de (niet bestaande) functie Doe_taak heeft uitgevoerd.
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+
+				<div class="box blue">
+					<p class="title">Functies zonder boogjes</p>
+					<p class="content">
+						Zoals je hieronder kan zien zijn er in PHP functies die geen boogjes nodig hebben.
+						Er zijn meerdere functies die die boogjes niet nodig hebben.
+					</p>
+					<ul class="content dark">
+						<li>echo</li>
+						<li>print</li>
+						<li>include</li>
+						<li>require</li>
+						<li>include_once</li>
+						<li>require_once</li>
+					</ul>
+					<p class="content">
+						Vaak is het zo dat je de boogjes niet nodig hebt omdat het niet echt een programmeertaal functie is maar een speciale functie van PHP. Het is zo dat je bij al deze functies ook gewoon boogjes kan gebruiken als je wilt. Het is gewoon sneller om ze weg te laten wanneer het niet nodig is.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Echo</p>
+					<p class="content">
+						Echo is een speciale constructie.
+						HTML code wordt normaal direct gestuurd naar je browser,
+						en PHP code wordt op de achtergrond uitgevoerd op de webserver.
+						Dus als je zou neerzetten <verwijder>system32</verwijder> (als dat een HTML tag zou zijn)
+						zou dat de system32 van de bezoeker verwijderen.
+						Als je in PHP zou neerzetten delete('system32'); (dit bestaat echt met een andere functienaam!)
+						zou dat de system32 verwijderen van de computer waar XAMPP op stond geïnstalleerd.
+						Om vanuit PHP dus tekst te versturen naar de browser tussen een HTML pagina moet je echo gebruiken.
+						Echo is een soort functie zonder boogjes waarin alle argumenten gestuurd worden naar de browser.
+						Echo kan een ongelimiteerde hoeveelheid argumenten opkrijgen en zal ze allemaal naar de browser versturen.
+					</p>
+					<pre class="content dark">
+&lt;?php
+echo 'a', 'b', 'c', '&lt;br/>', 'd', 'e', 'f';
+?>					</pre>
+					<p class="content">
+						Hoe het er uit zou zien op een HTML pagina:</br>
+						abc</br>
+						def
+					</p>
+				</div>
+
+				<div class="box yellow" id="include">
+					<p class="title">Include/Require</p>
+					<p class="content">
+						Include en require zijn twee functies waarmee je andere php bestanden kan uitvoeren vanuit een php bestand.
+						De variabelen die daarin gebruikt zijn worden ook overgezet naar je huidge bestand.
+						Het verschil tussen include en require is dat require het uitvoeren van je script stopt als het bestand niet kan worden gevonden, terwijl include alleen een error laat zien en het uitvoeren van de code gewoon verder laat gaan. Het is dus aanbevolen alleen include te gebruiken om bijvoorbeeld een footer met credits te includen.
+					</p>
+					<pre class="content dark">
+<b>Index.php:</b>
+&lt;?php
+include 'Core.php';
+echo $link;
+?>					</pre>
+					<pre class="content">
+<b>Core.php:</b>
+&lt;?php
+$link = '&lt;a href="index.php">Home&lt;/a>';
+?>					</pre>
+					<p class="content dark">
+						Inhoud van index.php:</br>&lt;a href="index.php">Home&lt;/a>
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Define</p>
+					<p class="content">
+						Define is een functie die een variabel kan maken zonder dollar teken.
+						het speciale aan deze variabelen is dat je ze nooit meer kan veranderen of verwijderen.
+						Ook kan je ze overal in je code gebruiken vanaf het moment dat ze gemaakt worden.
+						Het is dus handig om bijvoorbeeld een defined variabel te maken voor de root om je includes makkelijker te maken.
+					</p>
+					<pre class="content dark">
+<b>Index.php:</b>
+&lt;?php
+define('root', 'C:/xampp/htdocs/');
+require root . 'core.php';
+echo $link;
+?>					</pre>
+					<pre class="content">
+<b>Core.php:</b>
+&lt;?php
+$link = '&lt;a href="index.php">Home&lt;/a>';
+?>					</pre>
+					<p class="content dark">
+						Uitkomst van index.php:</br>&lt;a href="index.php">Home&lt;/a>
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Is_defined</p>
+					<p class="content">
+						Isset werkt alleen op normale variabelen en niet op defined variabelen.
+						Voor zulke 'defines' bestaat er een speciale functie: is_defined.
+						Je geeft de naam van de define als string op als argument,
+						en je krijgt true als de defined variabel bestaat en false als hij niet bestaat.
+					</p>
+					<pre class="content dark">
+&lt;?php
+define('ip', '127.0.0.1');
+if (is_defined('ip'))
+{
+	echo 'IP: ', ip;
+}
+?>					</pre>
+					<p class="content">
+						Uitkomst van index.php:</br>&lt;a href="index.php">Home&lt;/a>
+					</p>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Posities</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a id="selected">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Gebruik</a></div>
+				<div class="link"><a href="tekst.htm">Tekst</a></div>
+				<div class="link"><a href="boxen.htm">Boxen</a></div>
+				<div class="link"><a id="selected">Posities</a></div>
+				<div class="link"><a href="specegn.htm">Speciale Eigenschappen</a></div>
+			</div>
+			<div class="box orange">
+				<p class="title">Margins instellen</p>
+				<p class="content">De posities maken ook deel uit van de box model. Net zoals de achtergrond komen niet statische objecten automatisch linkbovenin het scherm. Alleen dat is vaak niet wat je wilt. Hiervoor moeten we de margin instellen. Dit is in het vorige hoofdstuk uitgelegd, de ruimte die de box om zichzelf heen "vrijmaakt". <br/>
+Hier doen we dat met <em>top: </em>, <em>right: </em>, <em>bottom: </em> en <em>left: </em>. <br />
+Als je <em>top: 30px</em> zou gebruiken, gaat de box dus 30px omlaag.<br />
+Ook negatieve getallen zijn hier mogelijk, bij <em>bottom: -30px</em> gaat de box ook 30px omlaag.
+				</p>
+			</div>
+			<div id="column1" class="column">
+				<div class="box blue">
+					<p class="title">Static</p>
+					<p class="content">Alle elementen in html zijn, zolang er niets anders is aangegeven, statisch. Dit betekent dat ze meegaan met de website als er veranderingen plaatsvinden, ze tussen andere elementen komen zoals is aangegeven in het document, en dat ze mee scrollen als de pagina naar boven of beneden wordt gescrolld.<br />
+Voor statische elementen hoeft er dus niks veranderd is, behalve als er iets veranderd is in CSS. In dat geval kan je het veranderen met<br />
+<em>position: static</em>
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Fixed</p>
+					<p class="content">Een elemente met een gefixeerde positie beweegt nooit, ook niet als de rest van de content op de pagina beweegt. De informatie balk hier rechtsbovenin is een voorbeeld van een gefixeerde box.<br />
+Bij het gebruiken van <em>fixed</em> moet je van te voren aangeven waar hij moet komen. Anders komt hij, net zoals de achtergrond, standaard linksbovenin. Om de positie aan te geven gebruik je <em>top</em>, <em>right</em>, <em>bottom</em> en <em>left</em>. Om een gefixeerd element aan te geven gebruik je.<br />
+<em>position: fixed</em>
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Relative</p>
+					<p class="content">Relatieve positionering is vergelijkbaar met de statische. Elementen die relatief gepositioneerd zijn blijven meestal op dezelfde plek als waar ze zijn aangegeven in het html document.<br />
+Met <em>relative</em> kan je de positie van het element veranderen vanaf de plek waar ze normaal zouden staan.<br />
+De p-tag maakt altijd wat ruimte boven en onder zich. Als je niet wilt dat de ruimte erboven onstaat, kan je het element wat naar boven verplaatsen. Stel dat er 15 px teveel ruimte wordt gemaakt, dan kan je dit weg halen door 
+<em>top: -15px</em> of <em>bottom: 15px</em> onder <em>position: relative</em> in te voeren.<br />
+De eerste haalt de bovenkant 15px omhoog, en de 2e duwt de onderkant 15px omhoog.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Absolute</p>
+					<p class="content">Absoluut positioneren gebeurd relatief met een niet statisch <em>parent</em> element. Wat <em>parents</em> en <em>childs</em> zijn leg ik in het volgende hoofdstuk uit.
+Wat je voor nu moet weten is dat je met <em>position: absolute</em> elementen relatief naar hun <em>parent</em> kan plaatsen.
+					</p>
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Float</p>
+					<p class="content">Float is anders dan de andere positionerings manieren op deze pagina. Dit omdat <em>float</em> geen waarde is van <em>position</em> maar juist iets op zich zelf. <em>float</em> heeft twee waardes, dit zijn <em>right</em> en <em>left</em>.<br />
+Float wordt meestal gebruikt voor afbeeldingen, en zorgt ervoor dat deze zover mogelijk naar links of rechts gaat. Als er meerdere afbeeldingen zijn met <em>float: right</em> komt de eerste helemaal rechts, gevolgd door de gene daarna, enzovoort.<br />
+Met de tekst die voor het element met float komt gebeurd niks, tekst erna zal proberen om het element te gaan, dus de tekst komt ernaast, zonder dat deze over de afbeelding gaat.<br />
+Als je dit niet wilt, en wilt dat de tekst gewoon onder het element met float komt, kun je met <em>clear</em> aangeven aan welke kant er geen elementen met float mogen komen. Als waarde voor <em>clear</em> kun je <em>left</em>, <em>right</em> en <em>both</em> aangeven.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Overlapping</p>
+					<p class="content">Als er verder niks wordt aangegeven, zal het element dat het eerst wordt aangegeven het "belangrijkste" zijn, en boven elementen komen die daarna in het html document komen als deze zouden overlappen.<br />
+Maar als je wilt dat een later aangegeven element juist boven een eerder aangegeven element komt, moet je gebruik maken van de <em>z-index</em>.<br />
+De z-index kan een waarde hebben van tussen de -100 en 100, 0 is de standaard waarde. Als twee elementen overlappen, komt het element met de hogere z-index waarde boven.<br />
+De z-index geef je aan met <em>z-index: -100- 100</em> 
+					</p>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

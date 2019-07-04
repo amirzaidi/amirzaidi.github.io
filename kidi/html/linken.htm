@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Linken</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a id="selected">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Basis</a></div>
+				<div class="link"><a id="selected">Linken</a></div>
+				<div class="link"><a href="ordenen.htm">Ordenen</a></div>
+				<div class="link"><a href="divs.htm">Divs</a></div>
+				<div class="link"><a href="attributen.htm">Attributen</a></div>
+				<div class="link"><a href="anderetags.htm">Overige tags</a></div>
+			</div>	
+				<div class="box orange">
+					<p class="title">Afbeeldingen en Pagina's</p>
+					<p class="content">Als je op je website afbeeldingen wilt zetten, kan je niet zomaar de afbeelding in het html bestand zetten. Om afbeeldingen op de website weer te geven moet je een link van de afbeelding geven. Er zijn meerdere manieren om dit te doen, en dat leg ik hieronder uit.</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Afbeelding tag</p>
+					<p class="content">Om aan de browser aan te geven dat de link die jij gaat geven een afbeelding moet worden, gebruik je <em>&lt;img></em>.<br />
+Alleen nu is alleen detag niet genoeg. We hebben iets nodig om aan te gevendat de afbeelding de we gaan wergeven van een link komt. Dit doen we met een zogenaamd atribuut. Wat een atribuut is leg ik later uit, maar voor nu moet je weten dat een atribuut extra informatie is die achter een tag staat. De benodigde tag voor afbeeldingen is <em>src</em>. Als we dan een afbeelding willen invoeren wordt het:
+					</p>
+					<pre class="content dark">
+&lt;img src="http://en.wikipedia.org/wiki/HTML#mediaviewer/File:HTML5_logo_and_wordmark.svg"/></pre>
+					<p class="content">Als je deze tag zou kopiëren, en in een html bestand zou zetten. krijg je een afbeelding van het logo van html.</p>			
+				</div>
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">URL</p>
+					<p class="content">Één manier om afbeeldingen op jouw website weer te geven is door de link van de afbeelding op internet te kopiëren.<br /> Dit is de manier waarop ik het hierboven heb gedaan, de afbeelding komt van wikipedia. Je kunt foto's van overal op het internet gebruiken, (zolang je natuurlijk wel vermeldt waar de foto's vandaan komen).<br />
+Om de foto zichtbaar te maken zet je de link achter het atribuut met een =, en tussen "".									</p>
+				</div>	
+				<div class="box blue">
+					<p class="title">Figure</p>
+					<p class="content">Als je een beschrijving onder je foto wilt hebben, kan je dit doen door een paragraaf onder de foto te zetten. Alleen ziet deze oplossing er niet altijd goed uit. Voor dit probleem heeft html zelf ook al een ingebouwde oplossing. Namelijk de <code>&lt;figure></code> tag, en de <code>&lt;figcaption></code> tag. 	</p>
+					<pre class="content dark">
+&lt;figure>
+   &lt;img src="http://goo.gl/k1T5AX">
+   &lt;figcaption>Het html5 logo&lt;/figcaption>
+&lt;/figure>				</pre>	
+					<p class="content">De figure tag geeft aan dat er een figuurt set komt. Deze tag zet het hele stuk tussen de tags ook een stuk naar rechts.<br />
+De img tag geeft, zoals ik net heb gezegd, aan dat er een link van een foto komt.<br />
+Tussen de figcaption tag kun je een extra beschrijving van jouw foto geven, die onder de foto komt.
+					</p>
+				</div>			
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Linken via mappen</p>
+					<p class="content">Een andere manier om afbeeldingen weer te geven is door ze op je computer op te slaan. Dan geef je de browser een link naar een bestand op jouw computer.<br />
+Als je een foto hebt met de naam <em>html5.htm</em> en deze staan in het mapje <em>fotos</em>. Dan link je de foto zo:
+					</p>
+					<pre class="content dark">
+&lt;img src="fotos/html5.htm"/>		</pre>
+					<p class="content">Als je al je verschillende pagina's sorteert in mapjes, en je hebt één apart mapje voor foto's werkt dit niet. Dan wordt er namelijk gezocht naar een mapje, dat ergens anders is. Om één map terug te gaan gebruik je <em>../</em>. Als je hetzelfde als net zou hebben, maar dan één map terug. Dan krijg je:						</p>
+					<pre class="content dark">
+&lt;img src="../fotos/html5.htm>	</pre>				
+				</div>
+				<div class="box red">
+					<p class="title">Eerste pagina</p>
+					<p class="content">Maak een html-pagina met één paragraaf en een grote titel, één paragraaf en een kleinere titel. En een foto met beschrijving.				
+					</p>
+				</div>
+				<div class="box purple">
+					<p class="title">Uitwerking</p>
+					<p class="content">Klik <a href="uitwerkingen/opdracht01.htm">hier</a>
+					</p>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

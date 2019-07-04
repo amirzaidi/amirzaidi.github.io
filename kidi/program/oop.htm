@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Object Orientated Programming</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a id="selected">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Objecten</p>
+				<p class="content">
+Sommige classes zijn bedoeld om te gebruiken als objecten. Zo ver hebben we alleen maar statische functies en waardes gebruikt zoals Console.Write() en Console.Title, maar het is ook mogelijk om een class te hergebruiken. Neem bijvoorbeeld de class Socket. Een Socket is een verbinding met een andere computer. Als je de socket class maar kon gebruiken om één verbinding te maken zou dat heel inefficient zijn, dus is het mogelijk om meerdere sockets aan te maken, die allemaal dezelfde functionaliteit van de standaard socket class hebben geerfd. OOP, wat simpelweg betekent programmeren met het gebruik van objecten, is de moderne manier van programmeren, en je zal ook niet aangenomen worden als je een baan zoekt in de IT afdeling en je niet weet hoe je ermee moet werken.<br/><br/>
+Bedenk je een class als een bouwplan van bijvoorbeeld een auto, en een object is dan een echte auto gemaakt volgens dat bouwplan. Je kan zelf instellen wat je kan veranderen aan het bouwplan en aan de gemaakte auto's, en als je je handen kan leggen op één van de gemaakte auto's kan je daarmee ook het bouwplan zelf bekijken en veranderen (als je die functionaliteit toevoegt). De objecten hebben zelf ook verschillende ingebouwde functies en properties die werken op dat object, niet op de class zelf. De static functies en properties werken op de class (aka het bouwplan), de niet-static functies en properties zijn dus voor elk object potentieel anders, de kleur van auto één veranderen verandert de kleur van auto twee dus niet.<br/><br/>
+					Een object is dus een product gemaakt volgens het bouwplan dat dus de class is. 
+					Dat object is gewoon een variabelwaarde net als bijvoorbeeld een stuk tekst of een nummer.
+					Het type variabel dat je dan gebruikt is de naam van de class waar het object vanaf komt.
+					Dat kan verwarrend worden als je geen Visual Studio gebruikt omdat je de naam van de class en de naam van de variabel die je hebt aangemaakt (met een object van die class als waarde)
+					heel makkelijk door elkaar kan halen. In Visual Studio worden namen van classes blauw gekleurd, en de variabelnamen blijven gewoon zwart.
+				</p>
+			</div>
+
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">De Autofabriek</p>
+					<pre class="content">
+using System;
+class Auto
+{
+   public static int GemiddeldePrijs = 5000;
+   public string Kleur = "Wit";
+   public int Prijs;
+
+   public void GeefKleur(string NieuweKleur)
+   {
+      this.Kleur = NieuweKleur;
+   }
+}					</pre>
+					<pre class="content dark">
+using System;
+class Program
+{
+   static void Main(string[] args)
+   {
+      Auto BMW = new Auto();
+      Auto Mercedes = new Auto();
+      BMW.GeefKleur("Rood");
+      Console.Write(BMW.Kleur); //Rood
+   }
+}					</pre>
+					<p class="content">
+						Natuurlijk heeft de Mercedes nu geen rode 'Kleur'. 
+						De Mercedes heeft nog een witte kleur, je hebt de kleur van de BMW veranderd.
+						De prijs van allebei is nog niet gedefinieerd, dus als je BMW.Prijs of Mercedes.Prijs zou proberen te gebruiken in een andere functie of er berekeningen op zou doen zou je een error krijgen (die je met een try/catch blok zou kunnen opvangen en verwerken). Auto.GemiddeldePrijs is ook te veranderen via BMW.GemiddeldePrijs en via Mercedes.GemiddeldePrijs. Het is één en dezelfde variabel, hij hoort bij het "bouwplan", de class Auto zelf en niet een object dat ervan is gemaakt.
+					</p>
+				</div>
+
+				
+
+<div class="box yellow">
+					<p class="title">This?</p>
+					<p class="content">
+						This is een speciaal woord dat verwijst naar het object waar de code over wordt uitgevoerd.
+						Als je dus zegt BMW.GeefKleur dan verwijst this in de functie GeefKleur dus naar de variabel BMW, en je verandert dus indirect de kleur van BMW. Soms wordt dit gebruikt voor speciale constructies waarin alleen het object zelf een property kan wijzigen en je het van buitenaf alleen kunt lezen, niet veranderen:
+					</p>
+					<pre class="content dark">
+using System;
+class Beveiliging
+{
+   private string Wachtwoord;
+
+   public void SlaBeveiligdOp(string InvoerWachtwoord)
+   {
+      this.Wachtwoord = <em>EncryptClass.EncryptFunctie</em>(InvoerWachtwoord);
+   }
+
+   public string LeesEncryptedWachtwoord()
+   {
+      return this.Wachtwoord;
+   }
+}					</pre>
+					<pre class="content">
+using System;
+class Program
+{
+   static void Main(string[] args)
+   {
+      Beveiling InlogWachtwoordBeveiliger = new Beveiliging();
+      InlogWachtwoordBeveiliger.SlaBeveiligdOp("abc123");
+      /*
+      Je kan nu InlogWachtwoordBeveiliger.Wachtwoord naar een andere machine sturen
+      */
+   }
+}					</pre>
+					<p class="content dark">
+      						Het is zelden echt nodig om gegevens zo te beschermen omdat het hele programma door jou gemaakt is en jij dus zegt wat het programma moet doen, 						maar soms is het gewoon fijn om te weten dat je niet direct een gevoelige variabel kan veranderen zonder dat een functie de procedure van die variabel 						veranderen error-vrij kan maken.
+					</p>
+				</div>
+			</div>
+
+			<div id="column2" class="column">
+
+				<div class="box blue">
+					<p class="title">Constructor en Destructor</p>
+					<p class="content">
+						Wanneer je een object maakt of verwijdert kan je iets speciaals laten gebeuren in dat object, zonder een extra functie nodig te hebben. Bijvoorbeeld als je een nieuwe auto maakt haal je automatisch geld af van de rekening (zonder een functie Koop()) en als je hem verwijdert komt er weer geld bij voor het verkopen (zonder een functie Verkoop(). Een speciale functie die wordt uitgevoerd wanneer je het object aanmaakt heet de Constructor (denk aan het Nederlandse woord constructie). De functie die wordt uitgevoerd wanneer je het object verwijdert, die minder wordt gebruikt, heet de Destructor.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Waardes en Objecten</p>
+					<p class="content">
+						Een object (van een class) heeft een groot verschil met een simpele variabelwaarde zoals een string of int. Elke keer dat je die string of int in een andere variabel zet kopieer je hem, en als je die tweede variabel dan verandert blijft de eerste wat het was. Een object werkt niet hetzelfde. Een object wordt niet gekopieerd, maar de tweede variabel verwijst dan naar hetzelfde object. Om een object te "kloonen" moet je een nieuw object ervan maken en al de properties kopieren. Properties van een object volgen overigens precies dezelfde regels, want dat zijn ook gewoon variabelen in een container. Waardes worden gekopieerd als je ze in een andere variabel zet, objecten worden verwezen.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Praktisch gebruik</p>
+					<p class="content">
+						<a href="../example/oop.htm" target="_blank">Constructor en Destructor</a><br/>
+						<a href="../example/oop2.htm" target="_blank">Meerdere Gebruikers</a><br/>
+						<a href="../example/oop3.htm" target="_blank">Waardes en Objecten</a>
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">Encryptie</p>
+					<p class="content">
+						Sommige informatie zoals een wachtwoord is te waardevol om direct op te slaan als de string dat het is. Als iemand dan je opslag bekijkt kunnen ze meteen je wachtwoord zien. Daarom is er encryptie uitgevonden. Encryptie is het opslaan van informatie in een speciale vorm zodat je de waarde niet direct kan aflezen. Vaak is de informatie alleen maar terug te halen met een wachtwoord of soms is het helemaal niet meet terug te halen. Het fijne van encryptie is dat je altijd dezelfde encrypted string krijgt met dezelfde invoer string, dus je kan gewoon de encrypted versie van een ingevoerd wachtwoord vergelijken met het opgeslagen encrypted wachtwoord. Als ze gelijk zijn klopt het wachtwoord dus!
+					</p>
+				</div>
+			
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

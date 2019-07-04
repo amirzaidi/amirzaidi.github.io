@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ OOP Voorbeeld</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Constructor en Destructor</p>
+				<pre class="content">
+using System;
+class Auto
+{
+	public string Kleur;
+
+	public Auto(string Kleur)
+	{
+		if (Gebruiker.Geld < 2000)
+		{
+			Console.WriteLine("Waarschuwing: Je staat in het rood!");
+		}
+
+		this.Kleur = Kleur;
+		Gebruiker.Geld -= 2000;
+	}
+
+	public ~Auto()
+	{
+		Gebruiker.Geld += 1000;
+	}
+}				</pre>
+				<pre class="content dark">
+using System;
+class Gebruiker
+{
+	public static int Geld;
+}				</pre>
+				<pre class="content">
+using System;
+class Program
+{
+	static void Main(string[] args)
+	{
+		Gebruiker.Geld = 5000;
+		Auto BMW = new Auto("Donkerblauw");
+		Auto Mercedes = new Auto("Zwart");
+		BMW = null;
+
+		Console.WriteLine("Je balans: " + (string)Gebruiker.Geld);
+	}
+}				</pre>
+				<p class="content dark">
+					Uitkomst:<br/>
+					Je balans: 2000
+				</p>
+				<p class="content">
+					De constructor is een functie met dezelfde naam als de class. De destructor is een functie met dezelfde naam van een class met een ~ ervoor. Ze hebben allebei geen resultaattype omdat ze ingebouwd zijn in de functie en in de achtergrond worden uitgevoerd. Je kan een constructor argumenten geven, die zet je dan gewoon tussen de haakjes: new <em>ClassNaam</em>( <em>hier</em> );<br/><br/>
+					De destructor wordt uigevoerd wanneer variabelen wijzend naar een object <strong>nergens meer in het geheugen wordt gehouden</strong>. Dat is moeilijk om bij te houden, maar wel te begrijpen. Een object kan worden veranderd via de variabel waar die onder staat. De variabel BMW verwijst naar het object dat je hebt aangemaakt. Zodra er geen variabel meer is die verwijst naar het object dat je hebt aangemaakt wordt het verwijderd, en de destructor uitgevoerd.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

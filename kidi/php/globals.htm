@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Globale Variabelen</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a id="selected">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Verschillende Globale Variabelen</p>
+				<p class="content">
+					Er zijn vele globale variabelen in PHP.
+					Globale variabelen zijn altijd arrays.
+					Het speciale eraan is dat ze overal in je PHP code hetzelfde zijn.
+					Normaal kan je buitenstaande variabelen niet gebruiken in een functie,
+					tenzij je ze als argument opgeeft.
+					Met globale variabelen kan dat wel.
+					Je kan globale variabelen ook niet zelf maken, dat doet PHP voor je.
+					Globale variabelen hebben informatie over de bezoeker van de website en de webserver waar hij op dat moment op wordt gebruikt.
+				</p>
+			</div>
+
+			<div class="column" id="column1">
+				<div class="box yellow">
+					<p class="title">$_GET[]: Speciale URLs ('?user=Rens')</p>
+					<p class="content">
+						Get is de simpelste 'global' om uit te leggen.
+						De get variabel wordt veranderd als de URL variabelen heeft na een vraagteken.
+						Voorbeeld als je index.php bekijkt via de URL<br/>'http://localhost/index.php?naam=Amir&wachtwoord=Zaidi':
+					</p>
+					<pre class="content dark">
+<b>Index.php:</b>
+&lt;?php
+echo 'Naam: ', $_GET['naam'], '&ltbr/>';
+echo 'Wachtwoord: ', $_GET['wachtwoord'];
+?>					</pre>
+					<p class="content">
+						Uitkomst:<br/>
+						Naam: Amir<br/>
+						Wachtwoord: Zaidi
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">$_POST[]: Formulieren invullen</p>
+					<p class="content">
+						Je hebt vast wel eens een formulier ingevuld op internet.
+						Met de <a href="../html/form.htm">form tag</a> in HTML kan je een formulier maken die het of op een GET manier opstuurt of op een POST manier.
+						Met PHP kan je de ingevulde waardes behandelen. Get is de manier die hierboven beschreven is en nogal onveilig is, omdat mensen je gegevens kunnen achterhalen met alleen de URL.
+						POST is de manier die ik hier ga laten zien.
+						Bij de &lt;input /> tags waar je informatie kan invullen hoor je ze allemaal een name attribuut te hebben opgegeven.
+						Die name attributen staan gelijk aan de keys in de $_POST array als je als form methode POST gebruikt.
+						Je hebt bijvoorbeeld bij een input met als name "wachtwoord" ingevuld "abcDEF123". Daarna verzend je het naar een php pagina. Op die pagina kan je die informatie opslaan in bijvoorbeeld een database of bekijken of het klopt met de opgegeven gebruikersnaam om iemand in te loggen.
+					</p>
+					<pre class="content dark">
+&lt;?php
+$wachtwoord = $_POST['wachtwoord'];
+file_put_contents('wachtwoord.txt', $wachtwoord);
+echo 'Wachtwoord: ', file_get_contents('wachtwoord.txt');
+?>					</pre>
+					<p class="content">
+						Uitkomst:</br>
+						Wachtwoord: abcDEF123
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">$_SESSION[]: Inloggen</p>
+					<p class="content">
+						Session is een array die wordt onthouden tussen pagina's.
+						Meer op de <a href="session.htm">volgende pagina</a>.
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">PHP.net</p>
+					<p class="content">
+						File_get_contents en file_put_contents zijn twee functies om een bestand te lezen en op te slaan naar een variabel, of om naar dat bestand te schrijven.
+						De manier om die functies te gebruiken kan je vinden op <a href="http://php.net">www.php.net</a>. Als je een functie niet kent, niet weet wat voor argumenten hij nodig heeft of het resultaattype wilt vinden kan je al de functies daar vinden. Ook kan je zien wanneer er een nieuwe versie van PHP uit is en die daar downloaden.
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+
+				<div class="box yellow">
+					<p class="title">$_SERVER[]: Info over de Webserver</p>
+					<p class="content">
+						Met de $_SERVER array kan je informatie over de webserver en de bezoeker weergeven.
+						De $_SERVER array is nuttig voor <a href="http://php.net/manual/en/reserved.variables.server.php">vele dingen</a>.
+						Het belangrijkste is de de waarde die bij de key 'REMOTE_ADDR' hoort, dat is het IP van de gebruiker.
+					</p>
+					<pre class="content dark">
+&lt;?php
+echo 'Je IP: ', $_SERVER['REMOTE_ADDR'];
+?>					</pre>
+					<p class="content">
+						Dat IP kan je opslaan in een database om bijvoorbeeld mensen te IP-Bannen van je website.
+					</p>
+				</div>
+				
+
+				<div class="box yellow">
+					<p class="title">$_COOKIE[]: Wat zijn cookies?</p>
+					<p class="content">
+						Cookies zijn variabelen die je kan opslaan in iemands browser.
+						Je moet nooit waardevolle informatie opslaan in cookies omdat de bezoeker die informatie kan lezen en bewerken.
+						Cookies zijn dus ook voor elke gebruiker anders.
+						Cookies instellen moet je doen met een speciale functie: <a href="http://php.net/manual/en/function.setcookie.php">setcookie</a>.
+						Cookies lezen kan je doen vanuit de $_COOKIE array,
+						wijzigingen en nieuwe toevoegingen kan je overigens pas na het herladen van de pagina aflezen.
+					</p>
+					<pre class="content dark">
+<b>Twitter.php:</b>
+&lt;?php
+setcookie('TBezocht', 'Ja', time() + 999999, '/');
+?>					</pre>
+					<pre class="content">
+<b>Pagina2.php:</b>
+&lt;?php
+if (isset($_COOKIE['TBezocht']))
+{
+	echo 'Bedankt voor het bezoeken van onze twitter pagina!';
+}
+?>					</pre>
+					<p class="content dark">
+						Het eerste argument is de key die je wilt in je variabel.
+						Het tweede argument is de waarde die je het wilt geven.
+						Het derde argument is het tijdstip tot wanneer de cookie blijft gelden,
+						na dat tijdstip verwijdert de browser de cookie.
+						Het 4e argument geeft aan op welke pagina's de cookie allemaal gelezen kan worden, '/' betekent dat het op alle pagina's gelezen kan worden.
+					</p>
+					<p class="content">
+						De functie <a href="http://php.net/manual/en/function.time.php">time()</a> geeft een nummer, dat een tijdstip aangeeft.
+						Dat nummer representeert hoeveel seconden er op dat tijdstip zijn verstreken sinds 0:00:00 1 januari 1970.
+					</p>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

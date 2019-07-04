@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Constructies</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a id="selected">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Nog steeds te statisch?</p>
+				<p class="content">
+					Je programma's kunnen vanaf hier nog een stuk levendiger worden. We gaan het hebben over allerlei constructies om een hoop informatie snel en overzichtelijk te lezen en te bewerken. Er zijn een hele boel verschillende constructies die eruit zien als andere soort if-statements. De belangrijkste zal je hier vinden.
+				</p>
+			</div>
+
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">Voor 0 tot 100 (X tot Y): For</p>
+					<p class="content">
+						De for constructie is gemaakt om een dynamisch aantal keer iets te doen. 
+						Bijvoorbeeld zoveel keer als er waardes in een array zitten, je kan het dus net zoals foreach gebruiken om over een array heen te gaan:
+					</p>
+					<pre class="content dark">
+string[] Namen = new string[3];
+Namen[0] = "Rens Kievit";
+Namen[1] = "Amir Zaidi";
+Namen[2] = "Kuilaars";
+
+for (int i = 0; i < Namen.Length; i++)
+{
+   if (Namen[i] == "Kuilaars")
+   {
+      Namen[i] += " (Docent)";
+   }
+   else
+   {
+      Namen[i] += " (Leerling)";
+   }
+}					</pre>
+					<p class="content">
+						Er zijn 3 delen in de for constructie, gescheiden door twee semicolons. Het eerste deel wordt één keer uitgevoerd aan het begin. Het tweede deel wordt in een soort van while loop uitgevoerd en het derde deel wordt uitgevoerd zolang het tweede deel nog true is. Dit zou dus hetzelfde zijn als:
+					</p>
+					<pre class="content dark">
+string[] Namen = new string[3];
+Namen[0] = "Rens Kievit";
+Namen[1] = "Amir Zaidi";
+Namen[2] = "Kuilaars";
+
+int i = 0;
+while (i < Namen.Length)
+{
+   i++;
+   if (Namen[i] == "Kuilaars")
+   {
+      Namen[i] += " (Docent)";
+   }
+   else
+   {
+      Namen[i] += " (Leerling)";
+   }
+}					</pre>
+					<p class="content">
+						Misschien begrijp je niet wat Namen.Length is of hoe het werkt. <em>ArrayNaam</em>.Length is een dynamische variabel die verandert met hoe groot de array is (en niet met hoeveel waardes het heeft ingevuld gekregen). Hierin is Namen.Length dus de hoeveelheid waardes de array Namen kan hebben, wat dus 3 is zoals je van te voren hebt gekozen. Het is verstandiger om Namen.Length te gebruiken dan direct 3, want als je ooit die 3 wilt veranderen is het mogelijk dat je vergeet de for loop erbij te veranderen. Het is ook mogelijk dat je de array hebt aangemaakt met een andere variabel als grootte, dan is het zeker verstanding om Namen.Length te gebruiken omdat het kan dat de variabel die je hebt gebruikt als grootte intussen veranderd is en de for loop niet meer uitkomt.
+					</p>
+				</div>
+				
+				<div class="box yellow">
+					<p class="title">Try/Catch "Exception"</p>
+					<p class="content">
+						Het is natuurlijk onmogelijk dat er nooit iets mis gaat in je programma. Soms vraag je de gebruiker om een nummer in te voeren en die voert dan een tekst in. Als je dat op slaat in een int variabel zal je programma crashen door een error. Er is een manier om zulke errors op te lossen voordat je programma helemaal vastloopt. We nemen een zelfgemaakte errors als voorbeeld:
+					</p>
+					<pre class="content dark">
+int Dag = (int)"Maandag";
+string DezeVariabelWordtTochNietGemaakt = "Jep";</pre>
+					<p class="content">
+						Natuurlijk zal dat een error geven, en je hele programma zal crashen.
+						Bij dit voorbeeld is het duidelijk hoe je dit kan voorkomen, maar soms zijn er zoveel variabelen dat je niet alles meer kan controleren op een invoer die errors kan veroorzaken.
+						Dan kan je gaan werken met de try/catch constructie:
+					</p>
+					<pre class="content dark">
+int Dag = 0;
+try
+{
+   Dag = (int)"Maandag";
+}
+catch (Exception Ex)
+{
+   //Doe iets met de variabel Ex
+}					</pre>
+					<p class="content">
+						Let op: Een syntaxfout telt niet als een exception, je IDE zal gewoon een error geven en je zal niet in staat zijn het programma uit te voeren.
+						Je moet een gevoel krijgen voor syntax fouten en meteen een bel in je hoofd horen dat er iets fout gaat wanneer je ergens geen semicolon ziet staan waar die hoort te staan, of wanneer je een haakje vergeet neer te zetten na je if statement.
+					</p>
+				</div>
+			</div>
+
+			<div id="column2" class="column">
+			
+			<div class="box yellow">
+					<p class="title">Voor elke waarde: Foreach</p>
+					<p class="content">
+						Als je een grote array hebt wordt het onmogelijk en onoverzichtelijk om veel berekeningen te doen op elke waarde in die array. Daarvoor is de foreach constructie. Met foreach kan je voor elke waarde in een array een stuk code uitvoeren met de waarde waar je dan bent als losse variabel.
+					</p>
+					<pre class="content dark">
+string[] Namen = new string[2];
+Namen[0] = "Rens Kievit";
+Namen[1] = "Amir Zaidi";
+string Tekst = "Deze mensen zijn cool: ";
+foreach (string Naam in Namen)
+{
+   Tekst += (Naam + ", ");
+}					</pre>
+					<p class="content">
+						Uitkomst: Deze mensen zijn cool: Rens Kievit, Amir Zaidi, <br/><br/>
+						Foreach bestaat uit twee delen gescheiden door het woordje "in".
+						We beginnen met het tweede deel (hier "Namen") omdat het eerste deel daardoor logischer te begrijpen wordt. Het tweede deel is simpelweg de variabel van de array (of een net aangemaakte array, maar dat wordt bijna nooit gebruikt) waarvan je iets met alle waardes wilt doen. Het eerste deel is een nieuwe variabel waarin je om de beurt de waardes van de array wilt zetten. Elke keer dat er een loop gebeurt wordt er dus één waarde uit de array in die variabel gezet. Hier gebeuren er twee loops: In de eerste loop is de variabel Naam 'Rens Kievit' en in de twee loop is de variabel Naam 'Amir Zaidi'.
+					</p>
+				</div>
+				
+				<div class="box yellow">
+					<p class="title">Zo Lang als: While</p>
+					<p class="content">
+						While is hetzelfde als if, behalve dat wat er tussen de haakjes { } staat door blijft worden uitgevoerd tot wat tussen de boogjes ( ) staat niet meer waar is. Dus als je zou doen:
+					</p>
+					<pre class="content dark">
+int Tellen = 3;
+while (Tellen < 9)
+{
+   Tellen++;
+}					</pre>
+					<p class="content">
+						Dan zou dus de code "Tellen++" 6 keer worden uitgevoerd, totdat Tellen dus niet meer kleiner dan 9 zou zijn. 
+						Om een stuk code voor altijd uitgevoerd te laten worden kan je bijvoorbeeld dit doen:
+					</p>
+					<pre class="content dark">
+while (true)
+{
+   bool OneindigUitgevoerd = true;
+}					</pre>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Eerst doen, dan denken: Do/While</p>
+					<p class="content">
+						De do/while constructie werkt precies hetzelfde als de losse while constructie, alleen hij wordt al een keer uitgevoerd voordat hij checkt of de vraag tussen de boogjes ( ) wel true is. 						Oftewel dit zou zelfs een keer worden uitgevoerd:
+					</p>
+					<pre class="content dark">
+do
+{
+   bool EenKeerUitgevoerd = true;
+} while (1 > 2);				</pre>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Comments</p>
+					<p class="content">
+						Comments zijn stukjes tekst die worden genegeerd in je programma.
+						Je kan er nuttige opmerkingen in zetten of een verwachte uitvoer voorspellen.
+						Er zijn meerdere manieren om comments te schrijven, maar de twee meest gebruikte zijn deze:
+					</p>
+					<pre class="content dark">
+int EenNummer = 60;
+//Hallo iedereen, dit is een comment!		
+//Ik heb het gevoel dat EenNummer 60 is	
+//Alles op de regel na // is de comment</pre>
+					<pre class="content">
+/*
+Of deze, alles wat hiertussen staat
+wordt ook niet uitgevoerd
+:) */					</pre>
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

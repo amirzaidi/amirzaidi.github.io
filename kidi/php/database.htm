@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Database</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a id="selected">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Opslag voor accounts en overige permanente data</p>
+				<p class="content">
+					In de vorige paragraaf hebben we al een begin gemaakt met het maken van een inlog-systeem.
+					Op de meeste websites is er wel een mogelijkheid om in te kunnen loggen om dingen te bewerken,
+					en we zullen het daar ook het meeste over gaan hebben.
+					Er is veel informatie die je permanent wilt kunnen opslaan,
+					zonder voor elke mogelijke vorm van die informatie een apart html bestand aan te hoeven maken.
+					Daarvoor hebben we de mogelijkheid in programmeertalen om databases te gebruiken.
+					De twee meest gebruikte databases in PHP zijn SQL en MySQL.
+					Omdat MySQL standaard bij XAMPP wordt geïnstalleerd zullen we dat in onze voorbeelden gebruiken.
+					Ook zullen we niet de oude <a href="http://php.net/manual/en/ref.mysql.php">mysql_</a> functies gebruiken maar de verbeterde <a href="http://php.net/manual/en/class.mysqli.php">mysqli_</a> (staat voor mysql-improved) functies,
+					die sneller en veiliger werken. Daarbij bestaat ook nog de PDO manier om MySQL te gebruiken, maar we zullen alleen MySQLi behandelen op deze website. Om volledig gebruik te maken van de nieuwe functies van MySQLi gebruiken we de OOP versie van de functies. Als je nog niet weet hoe OOP werkt kan je er <a href="../program/ordening.htm">hier</a> een begin aan maken.
+				</p>
+				<p class="content dark">
+					Hoe je je MySQL voor moet stellen is een programma dat op een computer wordt uitgevoerd.
+					Je PHP pagina's kunnen met dat programma verbinden (zelfs op een andere computer als je die computer toegang geeft) en data opslaan of ophalen.
+					Aan het begin van je PHP pagina moet je dus net zoals bij de sessies elke keer weer verbinding maken met de MySQL server.
+					Het verschil is alleen dat die MySQL server overal voor iedereen hetzelfde is, en informatie die je erin opslaat voor iedereen ook hetzelfde is.
+				</p>
+				<p class="content">
+					Op die server heb je verschillende databases.
+					Een database is een collectie van tabellen, letterlijk zoals ze er in Microsoft Office Excel uit zien.
+					Vanuit XAMPP kan je je tabellen met de hand bewerken, ook net zoals je het in Excel zou doen, door naar http://localhost/phpmyadmin/ te gaan.
+					Je hebt voor het verbinden via PHPMyAdmin en via PHP pagina's beide je MySQL wachtwoord nodig.
+				</p>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">Een verbinding maken met je MySQL Server</p>
+				<p class="content">
+					Een verbinding met een MySQL Server wordt weergeven als object van de class MySQLi.
+					Dat object heeft ook altijd een standaard database geselecteerd waarvan informatie wordt opgehaald en waarop informatie wordt geschreven.
+					De constructor heeft 4 belangrijke argumenten: Hostname, User, Password, Database.
+					Als eerste raad ik je aan om in PHPMyAdmin een database aan te maken met de naam TestDB, dat is de naam die we als voorbeeld gaan gebruiken in deze paragraaf.
+				</p>
+				<pre class="content dark">
+&lt;?php
+$Verbinding = new MySQLi('localhost', 'root', '<em>Je Wachtwoord</em>', 'TestDB');
+?>				</pre>
+				<p class="content">
+					Het eerste argument is waarmee je PHP pagina moet verbinden, waar de MySQL server op staat.
+					Als je de MySQL server op dezelfde computer hebt staan als de webserver (zoals in dit voorbeeld)
+					is dat dus localhost, wat betekent dat je met jezelf verbindt.
+					Het tweede argument is de naam van het account op MySQL.
+					MySQL servers kunnen meerdere accounts hebben, bijvoorbeeld ééntje die alleen kan lezen en ééntje die kan lezen en schrijven.
+					Het standaard account, met de gebruikersnaam root (waar je aan het begin van dit hoofdstuk een wachtwoord voor hebt gekozen) heeft alle rechten.
+					Het derde account is dus het wachtwoord voor het account dat je bij het tweede argument hebt opgegeven,
+					dus het wachtwoord dat je zelf hebt gekozen aan het begin van dit hoofdstuk.
+					Het vierde argument is de naam van de database, we hebben hiervoor een lege database gemaakt met de naam TestDB, en die database zullen we ook gebruiken.
+				</p>
+			</div>
+				<div class="box blue">
+					<p class="title">Queries: Informatie ophalen, bewerken en opslaan</p>
+					<p class="content">
+						Wat je in PHPMyAdmin met de hand kan doen kunnen PHP pagina's ook geautomatiseerd doen.
+						PHPMyAdmin is niets anders dan een map met een grote hoeveelheid PHP pagina's die je de database met de hand laat gebruiken.
+						Die data geautomatiseerd gebruiken doe je met queries.
+						Queries zijn gewoon regels tekst (strings) die worden verzonden naar de database en dan mogelijk een resultaat terug geven, afhankelijk wat de bedoeling is van de query.
+						De belangrijkste query-soorten zijn SELECT, INSERT, DELETE en UPDATE.
+						Met SELECT queries kan je informatie uit de database halen.
+						De manier waarop je een SELECT query schrijft is zo:
+					</p>
+					<pre class="content dark">
+<strong>SELECT <em>velden</em> FROM <em>tabel</em></strong> WHERE <em>vergelijkingen</em> LIMIT <em>max rijen</em></pre>
+					<p class="content">
+						Het gemarkeerde deel is verplicht in een SELECT query.
+						Je geeft aan welke velden je wilt uit de database (gescheiden door komma's, of een astrix (*) om alles op te halen).
+						Daarna zeg je uit welke tabel die moeten worden gehaald.
+						De velden worden columns genoemd in PHPMyAdmin, dat zijn dus de namen bovenaan de columns.
+						Het WHERE deel heeft een iets andere Syntax dan PHP en C#.
+						Je gebruikt in het WHERE deel een los is-teken (=) in plaats van een dubbele om een gelijkenis te vragen, een <> in plaats van != om ongelijkenis te vragen,
+						'AND' in plaats van '&&' en 'OR' in plaats van '||'.
+						De rest gebruikt ongeveer dezelfde regels, dus je gebruikt haakjes voor het ordenen en groter en kleiner dan zijn hetzelfde als in programmeertalen.
+						Columns zijn de variabelen in de queries, en je gebruikt geen dollar teken om die variabelen aan te tonen.
+						MySQL staat namelijk los van PHP en kan ook vanuit andere talen gebruikt worden.
+						Queries zijn in elke taal hetzelfde op dezelfde database server (PostSQL of Microsoft SQL kan anders zijn dan MySQL).
+						Dan heb je nog een limiet.
+						Je kan het where of het limiet deel, of beide weglaten als je dat wilt.
+						Als je het limiet deel laat staan moet je er een getal achter zetten.
+						Je krijgt dan maximaal zoveel rijen informatie terug.
+						INSERT kan gebruikt worden om data te maken die je met SELECT kan ophalen:
+					</p>
+					<pre class="content dark">
+<strong>INSERT INTO <em>tabel (naam van column1, naam van column2, col...)</em></strong> VALUES <em><mark>(waarde van col1, waarde van col2, waarde van col..)</mark> <mark>(meer waardes, .., ..)</mark> <mark>(nog meer waardes, .., ..)</mark></em> (het gemarkeerde deel is dus herhaalbaar)</pre>
+					<p class="content">
+						Dan heb je ook nog de UPDATE en DELETE queries:
+					</p>
+					<pre class="content dark">
+<strong>UPDATE <em>tabel</em></strong> SET <em><mark>column1 = waarde1</mark>, <mark>column2 = waarde2</mark>, <mark>etc..</mark></em> WHERE <em>vergelijkingen</em> LIMIT <em>max rijen</em>
+
+<strong>DELETE FROM <em>tabel</em></strong> WHERE <em>vergelijkingen</em> LIMIT <em>max rijen</em></pre>
+					<p class="content">
+						Die zijn, zoals de namen al zeggen, om rijen die al in de database staan te veranderen en om rijen te verwijderen.
+					</p>
+				</div>
+
+			<div class="column" id="column1">
+
+				<div class="box">
+					<p class="title">SQL Injectie</p>
+					<p class="content">
+						Zoals je kan zien in de voorbeelden wordt je query letterlijk met de functie $Verbinding->query() naar de database verzonden, en krijg je een resultaat terug van die functie bij select queries. Er is alleen een probleem met die manier van queries versturen. Letterlijke dingen zet je tussen enkele apostrofs ( ' ), maar wat als je variabelen in die query ook een letterlijke apostrof erin hebben? Bijvoorbeeld als je dit hebt:
+					</p>
+					<pre class="content dark">
+&lt;?php
+$Verbinding->query("DELETE FROM users WHERE id = '" . $_GET['id'] . "'");
+?>					</pre>
+					<p class="content">
+						Als je als URL ?id=5 hebt zou dit een simpele kloppende query geven:<br/>
+						DELETE FROM users WHERE id = '5'</br>
+						Er is jammer genoeg veel meer wat je nu zou kunnen doen. Je hoeft niet te leren wat je allemaal kan doen, maar ik zal een voorbeeld geven wat er mis kan gaan:<br/>
+						URL: pagina.php?id=1' OR id > 0 OR id = '2<br/>
+						Query: DELETE FROM users WHERE id = '1' OR id > 0 OR id = '2'<br/>
+						Er zijn verschillende manieren om dit te voorkomen.
+						De bekendste is met de functie real_escape_string van de database, die haalt alle apostrofs en anders schadelijke karakters (zoals de '\' ) uit je query. Een opgelost voorbeeld zou dan dus zijn:
+					</p>
+					<pre class="content dark">
+&lt;?php
+$Verbinding->query("DELETE FROM users WHERE id = '" . $Verbinding->real_escape_string($_GET['id']) . "'");
+?>					</pre>
+					<p class="content">
+						Als je nu naar deze URL zou gaan:<br/> pagina.php?id=1' OR id > 0 OR id = '2<br/>
+						Krijg je deze query:<br/> DELETE FROM users WHERE id = '1\' OR id > 0 OR id = \'2'<br/>
+						Je database zal nu het hele deel [1\' OR id > 0 OR id = \'2] letterlijk nemen als het id en niets verwijderen.
+					</p>
+				</div>
+
+				<div class="box green">
+					<p class="title">Database Class</p>
+					<p class="content">
+						Ookal is MySQLi uit zichzelf al een class/object wanneer je het wilt gebruiken,
+						vind ik het toch handiger om een speciale database class te maken die het gebruik van MySQLi sneller maakt.
+						Daarin maak ik ik bijvoorbeeld de functies Select, Insert, Update en Delete, zodat ik gewoon kan doen $DB->Select('users', Array('id', 'mail'))
+						als ik alle ids en mails van de users tabel wil, in plaats van dat ik de hele query moet uittypen: $DB->Query("SELECT id, mail FROM users").
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+
+				<div class="box yellow">
+					<p class="title">Voorbeelden</p>
+					<p class="content">
+						Omdat de voorbeelden in het theorie deel verwarrend kunnen zijn heb ik wat praktische gebruiken opgeschreven als voorbeelden.
+						Operking: Het is een stuk beter om POST (met een form) te gebruiken in de meeste gevallen hier, 
+						maar ik heb GET gebruikt om het simpel te houden.
+					</p>
+					<p class="content dark">
+						<a href="../example/query_select.htm" target="_blank">SELECT</a><br/>
+						<a href="../example/query_insert.htm" target="_blank">INSERT</a><br/>
+						<a href="../example/query_delete.htm" target="_blank">DELETE</a><br/>
+						<a href="../example/query_update.htm" target="_blank">UPDATE</a><br/>
+					</p>
+				</div>
+
+				<div class="box blue">
+					<p class="title">Gebruik IDs</p>
+					<p class="content">
+						Het is heel handig om alle rijen in een tabel een uniek nummer te geven onder de columnnaam 'id'.
+						Als je dat niet doet is het moeilijk om naar een complete rij te verwijzen vanuit PHP of vanuit een andere tabel.
+						Ook werkt het selecteren van één of meerdere IDs in een tabel een stuk sneller dan het selecteren op andere WHERE vragen,
+						omdat de tabel geordend wordt op IDs, en de database-server dus precies weet waar die moet zoeken naar een bepaald ID.
+						Bijvoorbeeld als je een hele hoop items hebt in je webshop (denk aan Amazon) en je een url wilt geven die naar één item wijst.
+						Het is niet erg handig als je in die hele url de naam en beschrijving van het item moet zetten, zodat je PHP code dat item kan vinden.
+						/shop?item=Tuinstoel&beschrijving=Luxe_Tuinstoel<br/>/shop?item=522
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">Prepare en Execute</p>
+					<p class="content">
+						Er is ook een andere manier om SQL Injectie te voorkomen.
+						Dat is met het gebruik van de prepare/execute functies van MySQLi.
+						De manier dat dat werkt is dat je een plaatshouder gebruikt in de plaats van je variabel,
+						en dan later de variabel los verstuurt naar de database, dus niet in de query.
+						De database-server weet dan dat je die hele variabel letterlijk bedoelt, 
+						en zorgt er dus voor dat het de functionaliteit van je query niet kan gebruiken.
+						Meer informatie <a href="http://php.net/manual/en/mysqli.prepare.php">hier</a>.
+					</p>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

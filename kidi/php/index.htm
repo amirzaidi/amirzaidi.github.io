@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Webserver</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a id="selected">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Statisch en Dynamisch mengen</p>
+				<p class="content">
+					PHP is een taal die leven in je HTML pagina's kan blazen en ze meer kan laten doen dan alleen dezelfde informatie weergeven. Het kan ook gebruikt worden om programma's in te maken maar het is niet zeer efficient om die in PHP te maken. Om PHP in je HTML pagina's te gebruiken moet je een HTML webhost hebben die de pagina's naar meerdere mensen tegelijk kan uploaden. Die webhost moet ook een PHP Parser geïnstalleerd hebben zodat de PHP code in je bestanden wordt uitgevoerd, en niet letterlijk naar bezoekers wordt gestuurd. IIS is zonder twijfel de beste webhost voor Windows computers maar is lastig om te gebruiken, dus we gebruiken in onze voorbeelden XAMPP. XAMPP is een ontwikkelaarsprogramma dat gebruikt wordt om aan onafgemaakte projecten te werken omdat het zo simpel is om te gebruiken. Er zitten een paar ingebouwde programma's in XAMPP, degene die we gaan gebruiken zijn Apache en later in dit hoofdstuk MySql. Apache is de webhost waar ik het eerder over had, het zorgt ervoor dat mensen je webpagina via hun browser kunnen bezoeken en dankzij de PHP integratie zorgt het er ook voor dat de PHP wordt uitgevoerd.
+				</p>
+				<p class="content dark">
+					<img src="../images/xampp_running.png" alt="XAMPP met Apache en MySQL" />
+				</p>
+				<p class="content">
+					XAMPP is <a href="http://sourceforge.net/projects/xampp/files/latest/download" target="_blank">hier</a> te downloaden. Houd je gewoon aan de standaardinstellingen en het installeren zou vlekkeloos moeten verlopen. Zorg ervoor dat je geen andere programma's zoals Skype in de achtergrond hebt openstaan omdat ze ervoor kunnen zorgen dat Apache niet wilt starten. Apache en MySQL als services installeren is niet nodig. Als XAMPP succesvol geïnstalleerd is en Apache en MySql zijn gestart moet je nog één ding doen, een MySql wachtwoord instellen. Als eerste ga je naar http://localhost/. Als de site niet werkt is er iets fout gegaan met de installatie. Op die site kies je Nederlands, en dan klik je links op de tab veiligheid. Er staan een paar errors en onder de tabel staat een link naar een andere pagina om de errors "op te lossen". Klik op die link. De webpagina waar je nu op komt laat je je MySql wachtwoord eens veranderen. Ik raad aan om een nooitgebruikt wachtwoord te gebruiken omdat je het later in .php bestanden moet opslaan. Als er gevraagd wordt wat voor soort wachtwoord je wilt moet je "Cookie" kiezen. De rest van de instellingen moet je allemaal laten zoals ze staan. Onderaan de pagina kan je je MySql wachtwoord opslaan.
+				</p>
+				<p class="content dark">
+					Nadat je je MySql wachtwoord hebt gekozen kan je je site afsluiten en moet je naar de map C:/xampp/htdocs/ gaan op je computer. Alles wat in die map staat mag verwijderd worden. De htdocs map is een map die je veel moet gaan gebruiken, wat je erin zet is de inhoud van je website. Als je een bestand genaamd cake.html in die map zet dan zal http://localhost/cake.html dat bestand laten zien. Je bent nu klaar om te beginnen met PHP.
+				</p>
+			</div>
+
+			<div class="column" id="column1">
+				<div class="box">
+					<p class="title">Portforwarden</p>
+					<p class="content">Localhost is geen echt internet adres, het verwijst naar de computer waar je op dat moment opzit. Je verbindt dus met jezelf. Als je je website echt online wilt zetten moet je <a href="http://nl.wikihow.com/Port-Forwarding-instellen-op-een-router">portforwarden</a>. Normale mensen hebben thuis een router staan die ervoor zorgt dat alle 65536 (TCP) poorten worden toegewezen aan de goede computer, de computer die hem op dat moment nodig hebt. Soms heb je tien apparaten die het internet gebruiken in huis en poort 80 is een lage poort, dus die wordt vaak verwisseld tussen apparaten. Wanneer je een poort portforward wordt die poort permanent direct doorgestuurd naar één computer in je huishouden. Normaal als er iemand van buitenaf een poort probeert te bezoeken zal je router die persoon blokkeren omdat die geen toestemming heeft gekregen van de computer waar de poort op dat moment op wordt gebruikt om te verbinden. Als je een poort portforward heeft iedereen van buitenaf toestemming op die poort met jouw computer te verbinden. Pas dus op dat je geen gevaarlijke programma's (Apache is beveiligd tegen hackers) portforward, omdat ze je computer kunnen proberen te hacken.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Je eerste PHP pagina</p>
+					<p class="content">
+						PHP code wordt <strong>niet</strong> uitgevoerd in een standaard HTML pagina.
+						Om PHP pagina's te maken moet je ze een PHP extentie geven.
+						We beginnen met een simpele pagina.
+						Maak in je htdocs (ookwel je 'root' genoemd) een nieuw bestand aan genaamd 'eerstepagina.php'.
+						Daarin kan je je PHP code dus wel zetten en laten uitvoeren!
+						Zet in dit bestand maar eens:
+					</p>
+					<pre class="content dark">
+&lt;?php echo date('H:i:s'); ?>		</pre>
+					<p class="content">
+						Als je nu naar http://localhost/eerstepagina.php gaat zou je de tijd moeten zien.
+						Deze regel moet je gaan vervangen met de PHP code in de tutorials.
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+				<div class="box blue">
+					<p class="title">De Index</p>
+					<p class="content">
+						Elk mapje heeft een pagina die wordt geladen als je die map probeert te bezoeken in je browser.
+						Deze pagina heet de index. De index heet of index.htm(l) of index.php.
+						Zelfs htdocs heeft zo'n pagina. Als je naar http://localhost/ gaat zal dus de pagina
+						/htdocs/index.php of /htdocs/index.htm(l) worden geladen.
+						Daarom is het verstanding om tenminste een index pagina te maken voor elke map die je maakt.
+					</p>
+				</div>
+
+				<div class="box red">
+					<p class="title">Welk bestand wordt geladen?</p>
+					<pre class="content">
+htdocs/
+	index.php
+	index.htm
+	style.php
+	style/
+		index.php
+		style.css
+		style.php
+		index.css		</pre>
+					<p class="content dark">
+						Je bezoekt: http://localhost/style
+					</p>
+				</div>
+
+				<div class="box purple">
+					<p class="title">Uitwerking</p>
+					<p class="content hidden">
+						Het bestand /htdocs/style/index.php wordt geladen.
+						Je webhost kijkt in het mapje style of er een index bestaat.
+						Het bestand index.php wordt gevonden, geladen en naar je browser gestuurd.
+					</p>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Praktijk</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Theorie</a></div>
+				<div class="link"><a id="selected">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box yellow">
+				<p class="title">Logische Uitdrukkingen</p>
+				<p class="content">
+					We beginnen bij het begin, de logische uitdrukkingen. 
+					Dat klinkt als een moeilijke term, maar eigenlijk is het nog makkelijker dan een formule in wiskunde:
+				</p>
+				<pre class="content dark">
+<em>VariabelType NaamVanVariabel</em> = <em>WaardeVanVariabel</em>;
+string AchternaamVanRens = "Kievit";
+char LaatsteLetter = 't';
+int LeeftijdVanRens = 15;
+bool RensDoetIets = false;		</pre>
+				<p class="content">
+					De eerste regel is een voorbeeld van hoe logische uitdrukkingen eruit zien. Daarna geef ik je vier voorbeelden.
+					De naam van een variabel mag letters, cijfers en lage streepjes bevatten, maar het mag niet met een cijfer beginnen.
+					De semicolon ';' betekent het einde van een logische uitdrukking. Het beste is dat je altijd na de semicolon een enter gebruikt.
+					Je hebt heel veel variabeltypen en je kan zelfs nieuwe maken, maar hier houden we het even op de vier simpelste:
+				</p>
+				<ul class="content dark">
+					<li>String: Een tekst -> Waarde moet tussen dubbele apostrof</li>
+					<li>Char: Één letter -> Moet tussen enkele apostrof, kan niet leeg zijn</li>
+					<li>Int: Een heel nummer van -2 tot 2 miljard (32 bits) -> Waarde los</li>
+					<li>Bool: Een waar of niet waar (true/false) -> Waarde als woord</li>
+				</ul>
+				<p class="content">
+					Je hebt nog veel meer veelgebruikte variabeltypen zoals de uint (0 tot 4 miljard), byte (0 tot 255) en double (kommagetal). Getallen hoeven nooit tussen apostrofs.<br/><br/>
+					Zodra je een variabel hebt gemaakt en je hem wilt veranderen hoef je niet nog een keer te zeggen welk soort variabel het is. 
+					Dat mag zelfs niet, en je kan het variabel type niet veranderen in C# nadat je een naam een variabel type hebt gegeven.
+				</p>
+			</div>
+
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">Rekenen met variabelen</p>
+					<p class="content">
+						Variabelen zijn bedoeld om in een berekening te gebruiken, en die berekeningen lijken gewoon op simpel rekenen:
+					</p>
+					<pre class="content dark">
+int GeboorteJaar = 2006;
+int Leeftijd = 3;
+int HetJaarNu = GeboorteJaar + Leeftijd;	</pre>
+					<p class="content">
+						Of een simpelere optelling:
+					</p>
+					<pre class="content dark">
+int HetJaarNu = 2006 + 3;			</pre>
+					<p class="content">
+						Of met een begingetal en een vast optelgetal:
+					</p>
+					<pre class="content dark">
+int GeboorteJaar = 2006;
+int HetJaarNu = Geboortejaar + 3;		</pre>
+					<p class="content">
+						Daarna kan je die variabel bijvoorbeeld opslaan in een grote database of gebruiken in de volgende berekening. Teksten bij elkaar voegen is ook mogelijk met het plus teken:
+					</p>
+					<pre class="content dark">
+string Voornaam = "Rens";
+string Achternaam = "Kievit";
+string Helenaam = Voornaam + " " + Achternaam;</pre>
+					<p class="content">
+						De variabel Helenaam is nu dus Rens Kievit (Als je dacht dat de apostrof erbij hoorde, de apostrof laat alleen zien dat het een tekst is, het zit er niet <em>letterlijk</em> in)<br/>
+						Berekeningen met nummers zijn ook heel makkelijk in te korten, je kan bijvoorbeeld als je een variabel recyclet:
+					</p>
+					<pre class="content dark">
+int JaarNu = 2003;
+int TijdVerstreken = 5;
+JaarNu = JaarNu + TijdVerstreken;		</pre>
+					<p class="content">
+						Ook bijvoorbeeld dit doen:
+					</p>
+					<pre class="content dark">
+int JaarNu = 2003;
+int TijdVerstreken = 5;
+JaarNu += TijdVerstreken;			</pre>
+					<p class="content">
+						En er is zelfs een speciaal teken voor het nummer 1 erbij optellen of eraf halen, deze twee dingen betekenen hetzelfde (behalve dat de variabelen anders heten):
+					</p>
+					<pre class="content dark">
+int JaarNu1 = 2009;
+Jaarnu1 += 1;
+Jaarnu1 += 1;
+Jaarnu1 -= 1;
+
+int JaarNu2 = 2009;
+Jaarnu2++;
+Jaarnu2++;
+Jaarnu2--;				</pre>
+					<p class="content">
+						Jaarnu1 en Jaarnu2 zijn nu allebei 2010.
+					</p>
+				</div>
+
+				<div class="box red">
+					<p class="title">Welke zijn fout?</p>
+					<ol class="content">
+						<li>char EersteLetter = "a";</li>
+						<li>string Tekst = "Hallo"</li>
+						<li>int EenNummer = 5.8;</li>
+						<li>bool ProgrammaKlaar = true;</li>
+						<li>char 5deLetter = 'e';</li>
+					</ol>
+				</div>
+				<div class="box purple">
+					<p class="title">Uitwerking</p>
+					<ol class="content hidden">
+						Ze zijn allemaal fout behalve de 4e:<br/>
+						<li>Gebruikt de dubbele apostrof voor een char</li>
+						<li>Vergeet de semicolon</li>
+						<li>Gebruikt een int variabel om een kommagetal op te slaan</li>
+						<li>Variabelnaam begint met een cijfer</li>
+					</ol>
+				</div>
+			</div>
+
+			<div id="column2" class="column">
+				<div class="box">
+					<p class="title">C# Syntax</p>
+					<p class="content">
+						De syntax in C# is niet heel ingewikkeld vergeleken met bijvoorbeeld C++. 
+						C# gebruikt woorden, is-tekens, punten, komma's, twee soorten apostrof, drie soorten haakjes en de semicolon het meest. 													Waarvoor het allemaal is zal je dit hoofdstuk leren.
+					</p>
+				</div>
+
+				<div class="box blue">
+					<p class="title">De Semicolon ';'</p>
+					<p class="content">
+						De semicolon geeft het einde van een logische uitdrukking aan. Het is altijd de bedoeling dat je een enter na een semicolon gebruikt, met uitzondering van de for en do while-construct. Na bijvoorbeeld een variabel is gelijk aan een waarde gebruik je hem, maar ook na het gebruiken van een functie. Bij vragen met if/else en constructies zoals foreach of while gebruik je hem niet.
+					</p>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Conversies</p>
+					<p class="content">
+						Meestal krijg je als invoer van een gebruiker een string, maar wat nou als het een nummer hoort te zijn en je ermee wilt rekenen? Bijvoorbeeld als iemand zijn verjaardag opgeeft als nummers en je wilt bekijken of de dag vandaag hetzelfde is als die dag. Maar je kan gewoonlijk strings en ints niet met elkaar vergelijken. Dan moet je je string converteren naar een int. Dat is simpel te doen, maar als het niet omgezet kan worden zal je een fatale error krijgen en je programma crashen. Later in het hoofdstuk leer je hoe je dat kan oplossen.
+					</p>
+					<pre class="content dark">
+string Dag = "6";
+string Maand = "9";
+int DagNummer = (int)Dag;
+int MaandNummer = (int)Maand;		</pre>
+					<p class="content">
+						Je zet gewoon simpelweg het type waarheen je het wilt converteren ervoor tussen  ( ). 
+						Helaas zal dit voorbeeld om logische redenen vastlopen (September kan niet worden omgezet naar een getal):
+					</p>
+					<pre class="content dark">
+string Verjaardag = "6 September";
+int Verjaardag = (int)Verjaardag;		</pre>
+				</div>
+
+				<div class="box green">
+					<p class="title">Zet door en je komt er wel</p>
+					<p class="content">
+						Misschien heb je informatica tot nu toe saai gevonden, werken met HTML en CSS om een paar plaatjes op een pagina te zetten 
+						waar niemand ooit nog op gaat kijken. 
+						Vrees niet, het gaat naar mijn mening een stuk leuker worden zodra je verder komt met de echte programmeertalen. 
+					</p>
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

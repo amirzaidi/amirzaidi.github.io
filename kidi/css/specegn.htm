@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Speciale Eigenschappen</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a id="selected">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Gebruik</a></div>
+				<div class="link"><a href="tekst.htm">Tekst</a></div>
+				<div class="link"><a href="boxen.htm">Boxen</a></div>
+				<div class="link"><a href="pos.htm">Posities</a></div>
+				<div class="link"><a id="selected">Speciale Eigenschappen</a></div>
+			</div>
+				<div class="box orange">
+					<p class="title">Pseudo classes</p>
+					<p class="content">Pseudo classes zijn verschillende speciale voorwaarden die je kan toevoegen in CSS. Bijvoorbeeld dat bepaalde eigenschappen alleen worden toegevoegd als de gebruiker met zijn muis over het element gaat. Om een pseudo class aan te geven gebruik je een dubbele punt.
+					</p>
+					<pre class="content dark">
+p.hovertekst {
+   font-family: Arial;
+   font-size: 15px;
+   color: #AAA
+}
+
+p.hovertekst:hover {
+   font-size: 20px;
+   text-decoration: underline;
+   color: #E0E
+}					</pre>
+					<p class="content">Als de eisen van de pseudo class hier behaald zijn, bij een tekst met de class <em>hovertekst</em>, wordt de tekst groter, krijgt een lijn eronder, en verandert van kleur. Het letterype verandert niet, en blijft dus Arial.
+					</p>
+				</div>
+				<div class="box blue">
+					<p class="title">Parent and child</p>
+					<p class="content">Parents, childs, descendants en siblings maken deel uit van de psuedo classes van CSS, maar zijn te zien in het html document. Het heeft te maken met het nesten, ofterwijl tags in tags plaatsen. 				</p>
+					<pre class="content dark">
+&lt;div style="margin: 5px; padding: 10px">
+   &lt;h1>Parents en childs&lt;/h1>
+   &lt;p>Eerste paragraaf&lt;/p>
+   &lt;div style="margin-left: 20px; margin-top: 20px">
+      &lt;p>Tweede paragraaf&lt;/p>
+   &lt;/div>	
+&lt;/div>				</pre>
+					<p class="content">Allebei de div-tags zijn hier parents, want zij hebben allebei een tag in zich genest. Voor de eerste zijn dit de h1- p- en div-tags, hij is de parent van hen, en zij zijn de children van de eerste div. De tweede p-tag is geen child van de eerste div, omdat er nog een andere tag tussen zit, hij is dus het child van de tweede div.<br />
+Siblings zijn elementen die los staan van elkaar, maar wel dezelfde parent hebben, in het voorbeeld hierboven zijn de drie children van de eerste div ook elkaars siblings.<br />
+Descendants zijn net als children, elementen genest in andere elementen. Alleen waar children direct onder het element waar ze children van zijn staan, kan er bij descendants ook elementen tussen staan. In het voorbeeld is de laatste p-tag een descendant van de eerste div.
+
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Combinators</p>
+					<p class="content">Combinators zijn vaak handig om te gebruiken om eigenschappen van grote groepen tegelijkertijd te veranderen. In plaats van bij iedere tag een class in te voeren, kan je met een combinator een groep gelijke tags aan geven.<br />
+Er zijn 4 verschillende combinators die je kan gebruiken.
+					</p>
+					<pre class="content dark">
+div p {
+   font-family: Segoe UI
+   color: blue
+}					</pre>
+					<p class="content">Dit is de <em>descendant selector</em>. Het voorbeeld hierboven zoekt alle p-tags die descendants, dus ook de children, zijn van een div, en geeft deze het lettertype Segoe UI en maakt die tekst blauw.			</p>
+					<pre class="content dark">
+div > p {
+   font-family: Arial
+   color: yellow
+}					</pre>
+					<p class="content">De <em>child selector</em> zoekt naar alle children van een parent. In dit voorbeeld wordt er dus gezocht naar alle p-tags die children zijn van een div. Descendants doen bij deze combinator niet mee. 
+					</p>
+					<pre class="content dark">
+div + p {
+   font-family: Georgia;
+   color: green
+}					</pre>
+					<p class="content">Bij de <em>adjacent sibling selector</em> tellen alleen de directe siblings mee. In dit geval tellen alleen p-tags die direct na een div-tag komen, en natuurlijk ook siblings van elkaar zijn.				</p>
+					<pre class="content dark">
+div ~ p {
+   font-family: Calibri
+   color: purple
+}					</pre>
+					<p class="content">De vierder en laatste combinator is de <em>general sibling selector</em>. In plaats van alleen maar naar directe siblings te zoeken, kijkt de general sibling selector naar alle siblings. Bij dit voorbeeld worden dus alle siblings van een div-tag veranderd. Zolang zij zelf een p-tag zijn natuurlijk.
+					</p>
+				</div>	
+				<div id="column1" class="column">
+					<div class="box blue">
+						<p class="title">First- en last child</p>
+						<p class="content">First- en last child zijn twee pseudo classes. Boven aan deze pagina staat uitgelegd hoe je pseudo classes geburikt.<br />
+Als je een een rij dezelfde tags hebt, die allemaal siblings van elkaar zijn kan je deze tag gebruiken. Met first-child kan je ervoor zorgen dat de eerste van die rij siblings er anders uit gaat zien. Met last-child kan je de laatste veranderen.<br />
+Dit kan gebruikt worden voor bijvoorbeeld een navigatie balk met streepjes tussen de verschillende onderwerpen. Als je zegt dat er aan de rechterkant van ieder onderwerp een streepje moet komen, komt er bij het laatste onderwerp ook een streepje, waarna dan niks meer komt. Met last-child kan je dat streepje weghalen. Dit hebben wij bijvoorbeeld gedaan bij de balk die je rechtsbovenin ziet.<br />
+Met <em>:nth-child(x)</em> en <em>:nth-last-child(x)</em> kan je een andere child kiezen dan de eerste of laatste. Op de plek van een x kan je een getal invoeren dat groter is dan 0. <em>:nth-child</em> telt vanaf het eerste child, <em>:nth-last-child</em> vanaf de laatste</em				</p>
+					</div>
+					<div class="box yellow">
+						<p class="title">Hover</p>
+						<p class="content">Met de pseudo class <em>:hover</em> kan je de stijl van een stuk laten veranderen wanneer de gebruiker er met zijn muis overheen gaat.<br />
+Als je met je muis bijvoorbeeld over de boxen met tekst gaat, zie je dat er een lichte schaduw achter verschijnt. 
+						</p>
+					</div>
+				</div>
+				<div id="column2" class="column">
+					<div class="box yellow">
+						<p class="title">Links</p>
+						<p class="content">Met de pseudo classes kan je links er anders uit laten zien als ze nog niet bezocht zijn dan als ze al wel bezocht zijn.<br />
+Met <em>a:link</em> kan je de stijl van een onbezochte link veranderen. Standaard zijn deze onderstreept en hebben een blauwe kleur.				</p>
+						<p class="content dark">
+Voor bezochte links gebruik je <em>a:visited</em>, standaard is deze tekst, net zoals nog niet bezochte links, onderstreept, maar in plaats van blauw is de link dan paars.
+						</p>
+						<p class="content">
+<em>a:active</em> wordt gebruikt voor links waar op wordt geklikt. Zolang de gebruiker de linkermuis knop ingedrukt wordt blijft deze stijl actief.<br />
+Als er niks anders is aangegeven krijgt de link een grijze achtergrond wanneer hij actief is.
+						</p>
+					</div>
+				</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Multithreading</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Parallele Console.Write</p>
+				<pre class="content">
+using System;
+class Program
+{
+	static void Main(string[] args)
+	{
+		Thread NewThread = new Thread(SchrijfB);
+		NewThread.Start();
+
+		for (int i = 0; i < 10; i++)
+		{
+			Console.Write("a");
+		}
+	}
+
+	static void SchrijfB()
+	{
+		for (int i = 0; i < 10; i++)
+		{
+			Console.Write("b");
+		}
+	}
+}				</pre>
+				<p class="content dark">
+					Mogelijke uitkomsten:<br/>
+					abababababababababab<br/>
+					aaaaabbbbbaaaaabbbbb<br/>
+					aabbabaaabbbabbabaab<br/>
+					(Ligt eraan hoe het wordt ingedeeld door je besturingssysteem)
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Basis</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a id="selected">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+		</nav>
+			</div>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a id="selected">Basis</a></div>
+				<div class="link"><a href="linken.htm">Linken</a></div>
+				<div class="link"><a href="ordenen.htm">Ordenen</a></div>
+				<div class="link"><a href="divs.htm">Divs</a></div>
+				<div class="link"><a href="attributen.htm">Attributen</a></div>
+				<div class="link"><a href="anderetags.htm">Overige Tags</a></div>
+			</div>	
+				<div class="box orange">
+					<p class="title">HTML</p>
+					<p class="content">HTML is een computertaal die wordt gebruikt voor het maken van websites. In HTML werkt men met zogenaamde tags, die aangeven hoe bepaalde stukken geschreven tekst moeten worden aangegeven door de browser die de HTML code omzet in een website.			</p>
+				</div>
+			<div id="column1" class="column">
+				<div class="box blue">
+					<p class="title">Beginnen met HTML</p>
+					<p class="content">Om te beginnen met het maken van een website. Moet je eerst aangeven dat je gaat coderen in HTML.
+					</p>
+					<pre class="content dark">
+&lt;!DOCTYPE html>
+   &lt;head>
+
+   &lt;/head>
+   &lt;body>
+
+   &lt;/body>
+&lt;/html>				</pre>
+					<p class="content">De html tag geeft hier aan dat het document een html bestand is, en het !DOCTYPE gedeelte geeft aan dat je aan het programmeren bent in HTML5.<br />
+In de head tag zet je alle informatie over de website, deze krijg je meestal niet direct te zien op de pagina zelf. Wel kun je hier de titel inzetten, die je helemaal bovenaan in de browser ziet.<br />
+Tussen de body tags komen alle dingen die je uiteindelijk op de website ziet. Dit is waar het grootste gedeelte van de website in komt.			</p>
+				</div>	
+				<div class="box blue">
+					<p class="title">Tekst</p>
+					<p class="content">Om tekst in te voeren op de website, zou je gewoon tekst kunnen invoeren in je kladblok bestand. Maar dit is niet volgens de regel, en het is moeilijk om aan te passen. Ook voor tekst hebben we verschillende tags. Dit zijn de <em>&lt;p></em> en de <em>&lt;h*></em> tags.
+					</p>
+					<pre class="content dark">
+&lt;!DOCTYPE html>
+   &lt;head>
+   &lt;/head>
+   &lt;body>
+      &lt;h1>Programmeren&lt;/h1>
+      &lt;p>Programmeren is heel leuk!&lt;/p>
+   &lt;/body>
+&lt;/html>				</pre>
+					<p class="content">In het voorbeeld hieboven staat er nu iets in de body, het stuk dat op de uiteindelijke website komt. Hierin staan de twee verschillende tags waar ik het net over had. De h-tag geeft een heading aan, de tekst hiertussen, nu "Programmeren".<br />
+Deze tekst wordt groter, en dikgedrukt weergegeven. Dit wordt meestal gebruikt voor titels. Van de h-tag zijn verschillende varianten. h1-h6. Hoe groter het nummer achter de h, hoe kleiner de tekst ertussen wordt.<br />
+De p-tag geeft een paragraaf aan. Hierin zet je meestal het grootste stuk van de tekst. De meeste browser zetten voor en na het begin van een paragraaf wat ruimte.
+					</p>
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">	
+					<p class="title">Tags gebruiken</p>
+					<p class="content">Zoals ik net zei, gebruik je in HTML heel erg veel tags, maar tags kan je niet zomaar opschrijven. Om een tag aan te geven moet je het tussen <> zetten. Bijvoorbeeld <em>&lt;html></em> of <em>&lt;body></em>.<br />
+Als je een tag hebt geopend moet je deze daarna ook afsluiten. Dit doe je door een / in de tag te zetten. <em>&lt;/html></em> en <em>&lt;/body></em>
+					</p>
+				</div>
+				<div class="box">
+					<p class="title">Code invoeren</p>
+					<p class="content">Als je jouw HTML code aan het invoeren bent maakt het niet uit of je de tags in kleine letters, of in hoofdletters zet. Ook maken extra spaties in de code niet uit.<br />
+Wel kan ik je aanraden om in tags kleine letters te gebruiken, omdat het sneller is. En als je de code aan het typen bent, meer wit ruimte te maken als je tags nest.
+					</p>
+				</div>
+				<div class="box blue">
+					<p class="title">Nesten</p>
+					<p class="content">Nesten is iets belangrijks in HTML. Als je verschillende tags in elkaar gebruikt. Moet je de laatst geopende tag, als eerst sluiten. Dan is het dus:
+					</p>
+					<pre class="content dark">
+&lt;!DOCTYPE html>
+   &lt;head>
+
+   &lt;/head>
+   &lt;body>
+
+   &lt;/body>
+&lt;/html>				</pre>
+					<p class="content">En niet:
+					</p>
+					<pre class="content dark">
+&lt;!DOCTYPE html>
+   &lt;head>
+
+   &lt;body>
+
+   &lt;/head>
+   &lt;/body>
+&lt;/html>				</pre>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

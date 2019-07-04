@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Template Systeem</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a id="selected">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Het gebruik van templates</p>
+				<p class="content">
+					Een template is een blauwdruk van een PHP pagina, het is de HTML code zonder PHP code erin.
+					De bedoeling van een template systeem is om de PHP code los van de HTML pagina te runnen,
+					en herhaling tegen te gaan. Je hoeft bijvoorbeeld niet op elke pagina de &lt;!DOCTYPE html> te zetten als je een template systeem gebruikt, dat kan het systeem voor je doen.
+					Het idee is heel simpel: Je hebt één pagina die met $_GET['page'] of een andere variabel binnen krijgt welke pagina moet worden geladen.
+					Je maakt bijvoorbeeld een index.php met daarin de lijn " require $_GET['page'] . '.tpl'; ".
+					Dan heb je in die map bijvoorbeeld een bestand home.tpl.
+					Als je dan gaat naar de pagina index.php?page=home zal hij dus het bestand home.tpl laden.
+					Het handige hiervan is dat je in die index.php heel veel dingen kan doen die op elke pagina komen.
+					Je kan bijvoorbeeld bovenaan je index.php gewoon je hele head zetten en alleen de home.tpl de body laten zijn.
+					Dat is wat ik ook zal doen in de voorbeelden, omdat het zeer effectief is.
+				</p>
+			</div>
+				<div class="box blue">
+					<p class="title">Ob_get_clean() vs. file_get_contents()</p>
+					<p class="content">
+						Het is zeer handig om de inhoud van je tpl bestand, bijvoorbeeld de 'home.tpl' als je naar de pagina index.php?page=home gaat niet simpel te requiren, maar in een variabel op te slaan.
+						Dus bijvoorbeeld als er in het bestand home.tpl staat 'Hallo!', en je doet $inhoud = leesbestand('home.tpl'),
+						krijg je een variabel met de volledige inhoud van home.tpl, oftewel 'Hallo!'.
+						Er is een simpele functie om precies dat te doen, genaamd <a href="http://php.net/manual/en/function.file-get-contents.php">file_get_contents()</a>.
+						Het nadeel van deze functie is dat PHP code in het bestand home.tpl niet zal worden uitgevoerd, maar letterlijk wordt opgeslagen als tekst.
+						Dat komt omdat file_get_contents gewoon het bestand leest en als variabel opslaat, en geen PHP codes uitvoert.
+						Er is een andere manier om de PHP code wel uitgevoerd te laten worden, namelijk met <a href="syntax.htm#include">require() of include()</a>.
+						Normaal als je die functies zou gebruiken zou je het niet als variabel kunnen opslaan, maar er is een manier dat je dat wel kan doen, namelijk met het gebruik van een buffer.
+						Als je in een PHP bestand HTML code zet (of echo't) wordt het standaard naar de browser van de bezoeker gestuurd.
+						Je kan een buffer gebruiken om alles wat er aan HTML codes wordt verstuurd te onderscheppen en op te slaan in een variabel.
+						Zo'n buffer start je met de functie <a href="http://php.net/manual/en/function.ob-start.php">ob_start()</a>.
+						Nadat je de buffer hebt gestart moet je de require (of include) uitvoeren.
+						Alle PHP code zal gewoon worden uitgevoerd en alle HTML code zal worden opgeslagen in de buffer.
+						Daarna kan je met de speciale functie <a href="http://php.net/manual/en/function.ob-get-clean.php">ob_get_clean()</a> ervoor zorgen dat die buffer niet naar de browser wordt verzonden, maar wordt opgeslagen in een variabel.
+					</p>
+				</div>
+			
+			<div class="column" id="column1">
+				<div class="box yellow">
+					<p class="title">Simpel Voorbeeld met Buffers</p>
+					<pre class="content">
+<strong>index.php</strong>
+&lt;?php
+$page = 'index';
+if (!empty($_GET['page']))
+{
+	$page = $_GET['page'];
+}
+
+$gebruiker = 'Amir';
+
+ob_start();
+require $page . '.tpl'; //Hier wordt alle PHP code al uitgevoerd!
+$content = ob_get_clean();
+
+echo '&lt;!DOCTYPE html>',
+	$content,
+	'&lt;/html>';
+?>					</pre>
+					<pre class="content dark">
+<strong>home.tpl</strong>
+Welkom, &lt;?php echo $gebruiker; ?>		</pre>
+					<p class="content">
+						Resultaat van "/index.php?page=home":
+					</p>
+					<pre class="content dark">
+&lt;!DOCTYPE html>
+Welkom, Amir
+&lt;/html>				</pre>
+				</div>
+
+				<div class="box yellow">
+					<p class="title">Variabelen</p>
+					<p class="content">
+						Zover lijkt dit hele gedoe nogal nutteloos, maar als dat zo was zou niemand hier de moeite voor nemen.
+						Het handige hiervan is dat je nu met de variabel $content hele moeilijke maar handige dingen kan doen.
+						We beginnen met een simpel trucje, 'html variabelen'.
+						Het doel hiervan is dat je geen echo's hoeft te gebruiken in al je template bestanden.
+						We kunnen het voorbeeld hierboven een beetje veranderen, met dezelfde uitkomst:
+					</p>
+					<pre class="content dark">
+<strong>Verandering aan index.php</strong>
+echo '&lt;!DOCTYPE html>',
+	str_replace('{gebruiker}', $gebruiker, $content),
+	'&lt;/html>';			</pre>
+					<pre class="content">
+<strong>home.tpl</strong>
+Welkom, {gebruiker}			</pre>
+					<p class="content dark">
+						Je kan misschien nu al zien hoe veel sneller je op die manier kan programmeren.
+						Op sommige pagina's, bijvoorbeeld de profiel-pagina van de gebruiker,
+						zal je heel vaak de naam van de gebruiker moeten zetten.
+						Het bespaart je veel moeite en tijd om overal {gebruiker} te kunnen zetten in plaats van &lt;?php echo $gebruiker; ?>
+					</p>
+					<p class="content">
+						Om dit met een aantal variabelen te doen zou je of heel veel str_replaces moeten gebruiken,
+						een foreach loop maken of een andere functie moeten gebruiken.
+						Het snelste om uit te voeren voor je webhost, wat met grote projecten een belangrijk punt kan zijn, is het gebruiken van een andere functie.
+						Dus in plaats van de functie <a href="http://php.net/manual/en/function.str-replace.php">str_replace()</a> zullen we de functie <a href="http://php.net/strtr">strtr()</a> gebruiken in het volgende voorbeeld. Ook is een voordeel van strtr over str_replace dat je in strtr geen variabel in variabel kan vervangen. Als je gebruiker dus een "motto" mag instellen kan je niet in een {motto} tag iets raars doen zoals letterlijk {motto} zetten, waardoor je webhost zou kunnen crashen. strtr gaat maar eens langs je hele tekst, en zal dus geen tags in tags vervangen.
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+				<div class="box blue">
+					<p class="title">OOP</p>
+					<p class="content">
+						Om het overzichtelijk en makkelijk te gebruiken te maken wordt van het template systeem vaak één class gemaakt.
+						Die class wordt dan 'Template' genoemd, en heeft twee properties: Een array van key/values en de inhoud van de pagina.
+						Dan heeft die class een constructor waarin het template bestand wordt geladen (met require/include of file_get_contents),
+						een functie om een 'HTML Variabel' toe te voegen aan de array van key/values,
+						en een functie om de uitkomst te echo'en (met werkende HTML Variabels).<br/><br/>
+						<a href="../example/tpl_class.htm" target="_blank">Voorbeeld</a>
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">Overzicht</p>
+					<p class="content">
+						Je kan een template systeem zo geavanceerd en functierijk maken als je kan en wilt,
+						maar je moet onthouden dat een template systeem deels gemaakt is om alles simpeler te maken voor je.
+						Als je zo veel functionaliteit toevoegt dat je het net zo makkelijk in één pagina had kunnen berekenen met gemixte PHP en HTML ga je te ver.
+						Je moet goed letten op de balans tussen functionaliteit en simpelheid om te gebruiken.
+						Het beste is om als je echt veel functionaliteit nodig hebt een voorgemaakt <a href="framework.htm">framework</a> te gebruiken, 
+						en de functienamen daarvan te leren.
+					</p>
+				</div>
+
+				<div class="box">
+					<p class="title">Eval</p>
+					<p class="content">
+						Er is een speciale functie in PHP genaamd eval die je misschien tegen zal komen op het internet.
+						Eval is een functie die als argument werkende PHP code accepteert en die uitvoert.
+						Met eval kan je hele geavanceerde template logica maken, zoals if-vragen in de vorm van {if $var equals $var2},
+						maar dat kan gevaarlijk worden wanneer de bezoeker variabelen kan veranderen.
+						Ik raad je aan, samen met vele andere websites, om geen logica in de template bestanden te zetten en het puur HTML te houden.
+						Als je echt logica nodig hebt in de templates kan je altijd echte PHP gebruiken, 
+						het is niet nodig om over te gaan tot zulke omwegen die alleen maar gevaren brengen.
+					</p>
+				</div>
+			</div>
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

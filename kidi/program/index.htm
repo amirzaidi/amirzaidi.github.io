@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Theorie</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a id="selected">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a id="selected">Theorie</a></div>
+				<div class="link"><a href="praktijk.htm">Praktijk</a></div>
+				<div class="link"><a href="vragen.htm">Vragen</a></div>
+				<div class="link"><a href="arrays.htm">Arrays</a></div>
+				<div class="link"><a href="constructies.htm">Constructies</a></div>
+				<div class="link"><a href="functies.htm">Functies</a></div>
+				<div class="link"><a href="ordening.htm">Ordening</a></div>
+				<div class="link"><a href="oop.htm">OOP</a></div>
+				<div class="link"><a href="framework.htm">.NET</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">De logica achter programmeertaal</p>
+				<p class="content">
+					Programmeren is meer dan een hobby of baan. Het is een gecompliceerde manier van denken, de meest logische manier van denken die er bestaat. Hij is zo logisch, dat als je één fout maakt je hele brein, of de CPU van een computer, vol kan komen met fouten. Als je het kan zonder fouten kan je het zo efficient maken als je wilt. Een brein heeft de mogelijkheid om vele gedachtes en acties tegelijk te behandelen, een computer kan niet veel berekeningen tegelijk doen, maar kan er wel veel meer per seconde, en de bedoeling van een programmeur is die rekenkracht zo goed mogelijk te gebruiken in zijn programma. Als je wilt leren hoe je dat moet doen, ben je hier op de juiste plaats.
+				</p>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Een stap verder dan het statische</p>
+				<p class="content">
+					Zover hebben we alleen nog maar HTML en CSS behandeld. HTML en CSS zijn statische talen, dat wil zeggen dat je er geen logica of vraag in kan zetten. Je zegt wat waar moet komen op de pagina, en je browser weet hoe het eruit moet zien. 
+				</p>
+				<pre class="content dark">
+&lt;div style="background: red; position: absolute; top: 50px; left: 50px;">
+   Hallo!
+&lt;/div>				</pre>
+				<p class="content">
+					Je kan interactiviteit toevoegen met bijvoorbeeld Javascript, wat een webpagina levendiger kan maken met wat berekeningen en effecten. Javascript is gebaseerd op Java, wat één van de bekendste programmeertalen is om programma's in te maken. Java, en andere talen zoals C en de varianten daarop (C++, C#), Visual Basic en PHP zijn talen waarin je berekeningen kan maken en je een dynamische reactie kunnen geven, gebaseerd op wat je invoert. Bijvoorbeeld een persoonlijk ID nummer maken van een naam.
+				</p>
+				<ul class="content dark">
+					<li>Het programma vraagt om een naam</li>
+					<li>De naam wordt omgekeerd met een simpele opdracht ter beveiliging</li>
+					<li>Alle letters in de naam worden met een ascii-tabel omgezet in cijfers</li>
+					<li>De cijfers worden in een cryptografische manier aan elkaar geplakt, bijvoorbeeld door bij 105 en 203 
+					de 5 en 2 op te tellen zodat je 10703 krijgt, dat is weer ter beveiliging van de originele naam</li>
+				</ul>
+				<p class="content">
+					Op die manier kan je een programma gebruiken om een moeilijke taak voor je te doen, zodat je moeilijke berekeningen niet zelf hoeft te doen. Met programmeertalen kan je nog veel meer dan alleen berekeningen, maar die functies liggen eraan over welke taal je het hebt. C# is een taal om .exe (executable programs) te maken voor Windows, PHP is een taal bedoeld om dynamische HTML pagina's mee te maken. Dus C# heeft functies zoals het openen en sluiten van een ander programma, en PHP kan bijvoorbeeld de invoer van je naam en wachtwoord lezen wanneer je inlogt op een PHP pagina.
+				</p>
+			</div>
+			<div class="column" id="column1">
+				<div class="box">
+					<p class="title">Voorbeelden in C#</p>
+					<p class="content">
+						Op de volgende pagina gaan we echt beginnen aan programmeren. 
+						Vanaf daar zal ik al mijn voorbeelden in C# geven omdat je daar heel veel in kan, 
+						de syntax makkelijk te begrijpen is
+						en ik daar het meeste ervaring mee heb.
+					</p>
+				</div>
+
+			<div class="box">
+				<p class="title">Gebruik een IDE</p>
+				<p class="content" id="visualstudio">
+					Om C#, PHP of een andere taal te gebruiken is het zeer handig, vaak ook nodig, om een goede IDE ervoor te downloaden en installeren. Voor C# is de beste en meestgebruikte IDE Visual Studio, een programma gemaakt door Microsoft zelf om mensen makkelijk C# programma's te laten maken. Visual Studio Express is de gratis versie ervan en kan je downloaden vanaf <a href="http://go.microsoft.com/?linkid=9832256&clcid=0x409">de officiële microsoft site</a>.<br/><br/>
+						Als je de voorbeelden zelf wilt uitproberen en er mee wilt experimenten raad ik je zeer aan om dit programma te installeren en te gebruiken. Wanneer je het geinstalleerd hebt moet je het openen, en dan op nieuw project klikken. Kies een C# Console Application. Er komt al heel wat code op je beeld, die je nog een lange tijd niet hoeft te gebruiken of veranderen. Waar je jouw test code gaat zetten is hiertussen:
+				</p>
+				<pre class="content dark">
+static void Main(string[] args)
+{
+   -- Zet hier je code --
+}				</pre>
+				<p class="content">
+					Daarna hoef je alleen op F5 te drukken en je code zal worden uitgevoerd. Maar aangezien je nog niet hebt geleerd om echt iets nuttigs te doen is het niet echt nodig om al zo ver te gaan.
+				</p>
+			</div>
+			</div>
+
+			<div class="column" id="column2">
+				<div class="box blue">
+					<p class="title">Verschillende Syntaxen</p>
+					<p class="content">
+						In de meeste talen kan je niet de code kopieren tussen verschillende talen, omdat sommige dingen anders heten of je ze anders schrijft. Bijvoorbeeld het dollarteken is in PHP heel veel nodig, terwijl je ermee in C# alleen maar errors gaat veroorzaken. Om aan een nieuwe taal te leren moet je ook goed worden met de syntax, en aan veel talen tegelijk beginnen gaat je alleen maar verwarren omdat de syntaxen hoogstwaarschijnlijk op veel plaatsen verschillen.
+					</p>
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

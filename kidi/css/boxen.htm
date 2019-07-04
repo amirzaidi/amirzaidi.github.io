@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Boxen</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a id="selected">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Gebruik</a></div>
+				<div class="link"><a href="tekst.htm">Tekst</a></div>
+				<div class="link"><a id="selected">Boxen</a></div>
+				<div class="link"><a href="pos.htm">Posities</a></div>
+				<div class="link"><a href="specegn.htm">Speciale Eigenschappen</a></div>
+			</div>
+			<div class="box blue">
+				<p class="title">Margin en padding</p>
+				<p class="content">De margin en padding vormen, samen met de border en de content, het zogenaamde <em>box model</em>. In het box model vormt de margin de buitenste ring, gevolgd door de border, de padding, en in het midden is de content.<br />
+Met <em>margin: </em> geef je een aantal pixels ruimte om de box, de box duwt als het ware de content om zich heen weg.<br />
+De padding zit in de box. Deze maakt meer ruimte tussen de content in de box, en de border. 
+				</p>
+				<p class="content dark">
+<img src="../images/boxmodel.gif"/>
+				</p>
+				<p class="content">De afbeelding hierboven is handig als geheugensteuntje en weergave van wat de margin en padding doen.
+			</div>
+			<div id="column1" class="column">
+				<div class="box yellow">
+					<p class="title">Border</p>
+					<p class="content">De border is de rand om het element. Hij zit, zoals is weergegeven op de afbeelding hierboven, tussen de margin en de padding. Een border heeft 3 verschillende eigenschappen die je kunt veranderen. <em>border-style: </em>, <em>border-width: </em> en <em>border-color: </em>. Deze kunnen samengevoegd worden naar <em>border: </em>
+					</p>
+					<p class="content dark">Er zijn acht verschillende soorten border-styles. Dotted, dashed, solid, double, groove, ridge, inset en outset.<br />
+Het is ook mogelijk om verschillende zijdes van een box verschillende stijlen te geven. Bij <em>border-style: </em> kan je één tot vier verschillende stijlen geven.<br />
+<em>border-style: solid</em> alle vier de zijdes zijn solid.<br />
+<em>border-style: solid dotted</em> de boven en onderkant zijn solid, de zijkanten dotted.<br />
+<em>border-style: solid dotted dashed</em> de bovenkant is solid, de zijkanten dotted, en de onderkant dashed.<br />
+<em>border-style: solid dotted dashed double</em> de bovenkant is solid, rechterkant is dotted, onderkant is dashed en de linkerkant is double.
+					</p>
+					<p class="content">De dikte van de border geef je aan met <em>border-width: </em>. De dikte wordt aangegeven in px, of met thin, medium of thick.<br />
+Ook de dikte van de borders kan verschillen per zijde, dit werkt hetzelfde als bij <em>border-style: </em>
+					</p>
+					<p class="content dark">De zijdes van de border kunnen ook gekleur worden met <em>border-color: </em>. Geldige waardes hiervoor zijn dezelfde als de waardes gegeven in het vorige paragraaf.<br />
+Voor kleuren geldt hetzelfde over de verschillende zijdes. Je kan dus door meerder kleur waardes achter elkaar te zetten, de vier verschillende zijdes verschillende kleuren geven.
+					</p>
+					<p class="content">Al deze verschillende waardes kunnen samengevoegd woorden naar 
+één eigenschap, <em>border: </em>. Hierin kan je de kleur, dikte en stijl aangeven. Het enige nadeel aan deze manier, is dat je niet verschillende zijdes verschillende stijlen kan geven.<br />
+Als je dit wel wilt doen, kan je ook gebruik maken van <em>border-top: </em>, <em>border-right: </em> enzovoort.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Shadow</p>
+					<p class="content">Als je het stukje over <em>text-shadow: </em> hebt gelezen in de vorige paragraaf, dan weet je al het grootste stuk van <em>box-shadow: </em><br />
+Bij <em>box-shadow: </em> is er nog iets extra's dat je kan toevoegen naast de horizontale- en verticale verplaatsing, en de vervaging. Je kan de box schaduw vergroten met <em>spread</em>, deze heeft een waarde in px, en zorgt ervoor dat de schaduw groter wordt. Een box met een spread van 5px is vijf pixels groter aan alle vier de kanten. Dit  getal moet de laatste van de vier zijn, en is dus niet te gebruiken zonder vervaging.
+					</p>
+				</div>
+			</div>
+			<div id="column2" class="column"">
+				<div class="box yellow">
+					<p class="title">Background</p>
+					<p class="content">Als laatst in het <em>box-model</em> kan je een achtergrond toevoegen. De achtergrond beslaat dan het hele stuk dat de box inneemt.<br />
+Als achtergrond kun je een kleur of een afbeelding instellen.<br />
+Voor kleuren gebruik je <em>background-color: </em>. Hiervoor kun je dezelfde waardes gebruiken als dat zijn aangegeven in het vorige hoofdstuk. Voor afbeeldingen<br /><em>background-image: url(jouwafbl.jpg)</em>
+					</p>
+					<p class="content dark">
+Bij een kleur maakt het niet uit als hij over de hele pagina herhaalt word, ook is het niet mogelijk om dit tegen te gaan. Bij afbeeldingen daarentegen kan het er raar uit zien als hij vaak wordt herhaald. Hiervoor is <em>background-repeat: </em> 
+Hiermee kan je zeggen dat de afbeelding alleen over de x-as (horizontaal, <em>repeat-x</em>) of de y-as (verticaal, <em>repeat-y</em>) moet worden herhaald. Of dat de afbeelding helemaal niet moet worden herhaald, <em>no-repeat</em>
+					</p>
+					<p class="content">Als een afbeelding maar één keer op de pagina komt, staat deze standaard helemaal linksboven, dit kan je aanpassen met <em>background-position: </em>. De waarde hiervoor kun je geven in een afstand (px,cm..),<br />
+in procenten van de totale pagina, waarin 0% 0% linksbovenin is, en 100% 100% rechtsonderin, of met<br />left/right/center top/center/bottom.<br />
+In al deze drie gevallen gaat de eerste waarde over de x-as en de tweede over de y-as.<br />
+Als er bij de laatste twee een waarde niet is gegeven, wordt de andere automatisch 50%, of center.
+					</p>
+					<p class="content dark">Met <em>background-position: </em> kan je kiezen of de afbeelding op één plek blijft als je scrollt, of dat de afbeelding ook mee scrollt. <em>background-position: scroll</em> is de standaard eigenschap. Met <em>background-position: fixed</em> blijft de afbeelding op de zelfde plek, ook als je naar beneden of boven scrollt.		</p>
+					<p class="content">Met <em>background: </em> kan je alle bovenstaande eigenschappen samenvoegen, net zoals bij <em>border</em>
+					</p>	
+				</div>
+			</div>
+
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

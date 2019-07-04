@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Select Query</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Het gebruik van een SELECT query</p>
+				<pre class="content">
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Nieuwe functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3</pre>
+				<pre class="content dark">
+<b>Nieuws.php:</b>
+&lt;?php
+$db = new mysqli('localhost', 'root', '******', 'kidi_website');
+$nieuws = $db->query('SELECT * FROM artikelen LIMIT 2');
+while ($artikel = $nieuws->fetch_assoc())
+{
+	echo '&lt;div>&lt;b>', $artikel['titel'], '&lt;/b>&lt;/div>', "\n";
+	echo '&lt;div>', $artikel['verhaal'], '&lt;/div>', "\n";
+	echo '&lt;div>&lt;a href="http://', $artikel['id'], '.com">Lees Meer&lt;/a>&lt;/div>', "\n\n";
+}
+?>				</pre>
+				<pre class="content">
+<b>Uitkomst:</b>
+&lt;div>&lt;b>Welkom op Kidi!&lt;/b>&lt;/div>
+&lt;div>BlaBla1&lt;/div>
+&lt;div>&lt;a href="http://1.com">&lt;/a>&lt;/div>
+
+&lt;div>&lt;b>Nieuwe functies&lt;/b>&lt;/div>
+&lt;div>BlaBla2&lt;/div>
+&lt;div>&lt;a href="http://2.com">&lt;/a>&lt;/div></pre>
+				<p class="content dark">
+					Fetch_assoc is een functie van de class mysqli_result (waarvan je een object krijgt als resultaat wanneer je de functie $db->query() gebruikt met een SELECT query), die de volgende rij waardes zet in een array. Zodra er geen waardes meer over zijn wordt fetch_assoc() dus FALSE en stopt de while loop.
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

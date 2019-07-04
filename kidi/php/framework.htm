@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Framework</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a href="session.htm">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a id="selected">Framework</a></div>
+			</div>
+
+			<div class="box orange">
+				<p class="title">Een ander zijn werk bespaart je moeite</p>
+				<p class="content">
+					Als je alles wat je hier en op andere plaatsen op het internet geleerd hebt gaat toepassen op je eigen website,
+					zal je al snel met een hoop bestanden komen die allemaal perfect moeten samenwerken.
+					Als er maar één beveiligingslek hebt kan je de gegevens van honderden gebruikers riskeren, en ook hun vertrouwen.
+					Dus moet je veel moeite doen om alles zorgvuldig te testen en te beredeneren of er iets fout kan gaan.
+					Natuurlijk zijn er al miljoenen, zelfs miljarden websites voor jou gemaakt die allemaal dezelfde problemen hadden.
+					Je kan veel makkelijker iemand anders zijn basis gebruiken en daarop al je informatie zetten, in plaats van alles overnieuw te maken.
+					Dat is geen stelen en je kan er niet voor worden aangeklaagd als de maker het openbaar heeft gemaakt, net zoals bij Bootstrap CSS.
+					De basis waar je op gaat werken wordt ookwel een Framework genoemd, het grondwerk waarop je jouw website gaat maken.
+					Op de programmeertab hebben we het al over het .NET Framework gehad.
+					Dat is een framework gemaakt door microsoft om het programmeren in Visual Basic, C# en andere talen een stuk makkelijker en sneller te maken.
+					Je moet wel veel kennis hebben van PHP als je veranderingen wilt maken aan een bestaand framework, 
+					omdat er vaak zeer geavanceerde constructies worden gebruikt.
+					Wanneer je echter leert werken met grote frameworks kan je veel tijd besparen.
+				</p>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Je eigen framework</p>
+				<p class="content">
+					Als je toch je eigen framework gaat maken moet je op een speciale manier programmeren.
+					Je moet ervoor zorgen dat je bepaalde delen, je classes, los opnieuw kan gebruiken in een ander project.
+					Daarna moet je al die classes samen laten werken op een algemene manier die je voor vele soorten websites kan gebruiken.
+					Als dat je is gelukt kan je pas beginnen met het maken van de echte inhoud en functionaliteit van de eindwebsite.
+					Natuurlijk kan je niet voordat je begint met de inhoud voorspellen wat je precies nodig gaat hebben aan functionaliteit.
+					Het grote probleem is ervoor zorgen dat de classes geen data uit de inhoud gaan halen, wat vaak fout gaat.
+					De bedoeling is dat je in duidelijke lagen gaat werken:<br/>
+					<strong>Classes -> Bruikbaar Framework/Core -> Inhoud dat gebruik maakt van het framework</strong><br/>
+					Je moet altijd een niveau lager moeten kunnen werken zonder dat de functionaliteit breekt.
+					Je moet dus een compleet andere inhoud kunnen gebruiken op hetzelfde framework, 
+					en je moet een ander framework kunnen maken met dezelfde classes.
+				</p>
+			</div>
+
+			<div class="column" id="column1">
+				<div class="box blue">
+					<p class="title">Benodigde Classes</p>
+					<p class="content">
+						Er zijn een hoop classes die je <em>wilt</em> gebruiken als je je eigen framework gaat maken.
+						Het is mogelijk om zonder sommigen te werken of ze te combineren, 
+						maar het handigste is om zo veel mogelijk aparte delen apart te houden wanneer dat overzichtelijker is.
+						Onthoud dat je nu al op een plaats bent waar er geen "het beste" meer bestaat,
+						je moet zelf maken waar je goed mee kan werken en je moet zelf de balans tussen snelheid, overzichtelijkheid en functionaliteit kiezen.
+						Dit is een lijst van veelgebruikte classes:
+					</p>
+					<ul class="content dark">
+						<li><strong>Database/MySQL</strong>: Een class die het gebruiken van je database makkelijker maakt.</li>
+						<li><strong>User/Account</strong>: Een class die de $_SESSION variabel handig behandelt en automatisch voor je de session_starts en destroys behandelt.
+						Vaak gaat het bij deze class fout met de level-uitleg en gaan programmeurs de database direct gebruiken vanuit deze class.</li>
+						<li><strong>Site</strong>: Een class die het IP van de bezoeker kan achterhalen, zelfs met proxy's en cloudflare, en bezoekers kan doorsturen naar een andere URL wanneer nodig.</li>
+						<li><strong>Template</strong>: Een class die het gebruiken van HTML Variabelen versimpelt en .tpl bestanden kan laden en behandelen. Eén van de simpelere classes om efficient te maken.</li>
+					</ul>
+					<p class="content">
+						Zulke classes kan je gebruiken als je website ze nodig heeft:
+					</p>
+					<ul class="content dark">
+						<li><strong>Cache</strong>: Een class die het opslaan en ophalen van variabelen uit de RAM-Cache die je gebruikt makkelijker maakt</li>
+						<li><strong>Paypal/iDeal</strong>: Een class die transacties van bezoekers behandelt</li>
+						<li><strong>Router</strong>: Een class die het behandelen van je GETs/URLs makkelijker maakt voor wanneer je geen losse bestanden gebruikt maar één bestand heeft dat alle verzoeken behandelt (vaak index.php), zoals in mijn voorbeeld met het template systeem.</li>
+					</ul>
+					<p class="content">
+						Die classes zetten de meeste mensen dan allemaal in één map (meestal genaamd /classes/) onder namen class.CLASSNAAM.php of class_CLASSNAAM.php of gewoon CLASSNAAM.php.
+						Zorg ervoor dat je al deze classes los kan gebruiken in aparte gevallen, oftewel je een apart project kan maken met het losse gebruik van die class.
+					</p>
+				</div>
+
+				<div class="box blue">
+					<p class="title">Core</p>
+					<p class="content">
+						Nadat je al je classes hebt, moet je ze samen laten werken.
+						Daarvoor moet je een apart bestand maken (vaak core.php of global.php) waarin je al de classes required, 
+						en de benodigde objecten aanmaakt van die classes.
+						Vaak is het in PHP niet eens nodig om objecten te gebruiken en kan je beter statische properties/functies gebruiken.
+						Daarna zorg je er dus voor dat op elke pagina eerst de core wordt uitgevoerd, voordat de rest van de PHP code wordt uitgevoerd.
+						In de core worden belangrijke dingen gedaan die je in de rest van je website dan makkelijk kan gebruiken.</br></br>
+						<a href="../example/core.htm" target="_blank">Voorbeeld van een mogelijke core</a>
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+
+				<div class="box blue">
+					<p class="title">Twee Soorten Content</p>
+					<p class="content">
+						Je kan op twee manieren je eind-pagina's (content) ordenen.
+						Je kan aparte .php bestanden maken per pagina en op elke pagina je core requiren,
+						en je kan één bestand maken (bijvoorbeeld index.php) die alle verzoeken behandelt en automatisch de goede .tpl laadt.
+						Beide systemen hebben hun voordelen en hun nadelen.
+						Ze kunnen wel allebei .tpl bestanden gebruiken als je dat wilt.
+					</p>
+				</div>
+
+				<div class="box red">
+					<p class="title">Wat zijn de voordelen?</p>
+					<ul class="content">
+						<li>Van één bestand dat alle verzoeken behandelt?</li>
+					</ul>
+					<pre class="content dark">
+templates/
+	index.tpl
+	home.tpl
+	register.tpl
+index.php [require templates/{$page}.tpl]	</pre>
+					<ul class="content">
+						<li>Van losse PHP bestanden?</li>
+					</ul>
+					<pre class="content dark">
+templates/
+	index.tpl
+	home.tpl
+	register.tpl
+index.php [require templates/index.tpl]
+home.php [require templates/home.tpl]
+register.php [require templates/register.tpl]	</pre>
+				</div>
+
+				<div class="box purple">
+					<p class="title">Antwoord</p>
+					<ul class="content hidden">
+						<li>Je hoeft alleen maar veel .tpl bestanden te maken, en ze kunnen allemaal HTML variabelen gebruiken.
+						Het is dus veel beter geordend en makkelijker te gebruiken.</li>
+						<li>Je hebt eerder geleerd dat het geen goed idee is om veel PHP in .tpl bestanden te zetten,
+						omdat die .tpl bestanden verzonnen zijn om je inhoud beter te ordenen en makkelijker dynamische variabelen te gebruiken.
+						Maar er is een nadeel van één bestand dat alle verzoeken behandelt en de .tpl kiest die nodig is,
+						als je PHP code wilt uitvoeren specifiek voor één pagina zul je die in de .tpl moeten uitvoeren en dus het overzicht verslechteren.
+						Wanneer je meerdere PHP bestanden gebruikt kan je in die PHP bestanden de PHP code uitvoeren, en de .tpl bestanden schoon houden.</li>
+					</ul>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Template Class</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Een OOP gebruik van Templates</p>
+				<pre class="content">
+<strong>template_class.php</strong>
+&lt;?php
+class template
+{
+	private $content;
+	private $vars = Array();
+
+	function __construct($tplfile)
+	{
+		ob_start();
+		require $tplfile . '.tpl';
+		$this->content = ob_get_clean();
+	}
+
+	public function setVar($key, $value)
+	{
+		$this->vars['{' . $key . '}'] = $value;
+	}
+
+	public function output()
+	{
+		echo '&lt;!DOCTYPE html>',
+		'&lt;head>',
+			$this->getheader(),
+		'&lt;/head>',
+		'&lt;body>',
+			strtr($this->vars, $this->content),
+		'&lt;/body>',
+		'&lt;/html>';
+	}
+
+	private function getheader()
+	{
+		return '&lt;title>Welkom op Kidi!&lt;/title>';
+	}
+}
+?>				</pre>
+				<pre class="content dark">
+<strong>index.php</strong>
+&lt;?php
+$page = 'index';
+if (!empty($_GET['page']))
+{
+	$page = $_GET['page'];
+}
+
+require 'template_class.php';
+
+$tpl = new template($page);
+
+$tpl->setVar('tijd', date('H:i:s'));
+$tpl->setVar('naam', 'Roens');
+$tpl->setVar('websitenaam', 'Kidi');
+
+$tpl->output();
+?>				</pre>
+				<pre class="content">
+<strong>home.tpl</strong>
+De tijd is {tijd}&lt;br/>
+Welkom, {naam}, op {websitenaam}!	</pre>
+				<p class="content dark">
+				<strong>/index.php?page=home</strong><br/>
+				De tijd is <em>15:12:32</em><br/>
+				Welkom, Roens, op Kidi!
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

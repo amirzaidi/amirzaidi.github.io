@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Sessies</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a href="../html/index.htm">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a id="selected">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Webserver</a></div>
+				<div class="link"><a href="syntax.htm">Syntax</a></div>
+				<div class="link"><a href="globals.htm">Globale Variabelen</a></div>
+				<div class="link"><a id="selected">Sessies</a></div>
+				<div class="link"><a href="database.htm">Database</a></div>
+				<div class="link"><a href="template.htm">Template Systeem</a></div>
+				<div class="link"><a href="cache.htm">Cache</a></div>
+				<div class="link"><a href="framework.htm">Framework</a></div>
+			</div>
+
+			<div class="box blue">
+				<p class="title">Start de Session</p>
+				<p class="content">
+					Sessions zitten niet standaard geïntegreerd in je pagina.
+					Je moet zelf op elke pagina het gebruik mogelijk maken door de sessie variabel te activeren.
+					Dit kan je doen met de functie <a href="http://php.net/manual/en/function.session-start.php">session_start()</a>.<br/>
+					Wanneer je die functie gebruikt wordt er zonder dat je het merkt een persoonlijk bestand gemaakt/gebruikt, 
+					dat tussen de pagina's te vinden is met het gebruik van cookies.
+					Wanneer iemand zijn cookies verwijdert wordt er dus een nieuwe sessie voor hem aangemaakt.
+					In dat bestand wordt de data opgeslagen die je aan de $_SESSION array geeft.
+				</p>
+			</div>
+
+			<div class="column" id="column1">
+				<div class="box yellow">
+					<p class="title">$_SESSION[]</p>
+					<p class="content">
+						Nadat je de sessie hebt gestart met die functie kan je de $_SESSION variabel tussen pagina's gebruiken.
+					</p>
+					<pre class="content dark">
+<b>Betaal.php:</b>
+&lt;?php
+//Maakt gebruik mogelijk van $_SESSION:
+session_start();
+/*
+	Check Rekening
+*/
+$_SESSION['betaald'] = true;
+header('Location: Betaald.php');
+?>					</pre>
+					<pre class="content">
+<b>Betaald.php:</b>
+&lt;?php
+session_start(); //Op elke pagina!
+
+if ($_SESSION['betaald'] == true)
+{
+	echo 'Bedankt voor uw aankoop!';
+	unset($_SESSION['betaald']);
+}
+else
+{
+	echo 'Je hebt niet betaald!';
+}
+?>					</pre>
+				</div>
+
+				<div class="box">
+					<p class="title">Header Location</p>
+					<p class="content">
+						In het voorbeeld hiervoor heb ik de functie header gebruikt.
+						Header is een functie die losse data naar de bezoeker kan sturen zonder de inhoud van de HTML pagina te veranderen. 
+						Header heeft maar één belangrijk argument, 
+						dat is een string dat aangeeft in een X: Y verhouding wat je wilt versturen.
+						Er zijn veel 'headers' die je kan versturen maar de belangrijkste is Location.
+						De 'Location Header' vertelt een browser dat hij naar een andere pagina moet gaan.
+						Op het voorbeeld wordt je dus doorgestuurd naar Betaald.php.
+						Zo'n location header is heel handig om iemand die bijvoorbeeld niet ingelogd is van de profiel pagina terug te sturen naar de index pagina of naar de registreer pagina.
+					</p>
+				</div>
+
+				<div class="box blue">
+					<p class="title">Inloggen</p>
+					<p class="content">
+						Inloggen heeft precies hetzelfde principe.
+						Je onvangt de gebruikersnaam via een $_POST (of $_GET) variabel op een pagina.
+						Op die pagina zet je dan in de $_SESSION array die naam (onder de key 'username', of 'name').
+						Dan kan je op de andere pagina's isset($_SESSION['username']) doen om te testen of je bent ingelogd, en die naam kan je echoën op plaatsen waar de gebruikersnaam moet staan. 
+					</p>
+				</div>
+			</div>
+
+			<div class="column" id="column2">
+
+				<div class="box yellow">
+					<p class="title">Organisatie</p>
+					<p class="content">
+					Het beste is om een apart bestand genaamd core.php te maken en daarin al je functies de zetten die je op elke pagina moet uitvoeren, zoals session_start(), en dan op elke pagina die core.php te <a href="syntax.htm#include">requiren</a>.
+					</p>
+					<pre class="content dark">
+<b>Core.php:</b>
+&lt;?php
+session_start();
+define('VisitIP', $_SERVER['REMOTE_ADDR']);
+?>					</pre>
+					<pre class="content">
+<b>Index.php:</b>
+&lt;?php
+require 'Core.php';
+?>
+&lt;!DOCTYPE html>
+...
+&lt;?php
+if (isset($_SESSION['OpRegisterGeweest']))
+{
+	echo 'Dank u voor het registreren!';
+}
+?>
+...
+&lt;/html>				</pre>
+					<pre class="content dark">
+<b>Registreer.php:</b>
+&lt;?php
+require 'Core.php';
+?>
+&lt;!DOCTYPE html>
+...
+&lt;?php
+$_SESSION['OpRegisterGeweest'] = true;
+?>
+...
+&lt;/html>				</pre>
+				</div>
+
+				<div class="box blue">
+					<p class="title">Session Destroy</p>
+					<p class="content">
+						Als je alle info in de $_SESSION array wilt verwijderen moet je de functie <a href="http://php.net/manual/en/function.session-destroy.php">session_destroy()</a> gebruiken.
+						Hoe een sessie werkt is simpel: Er wordt een cookie gestuurd naar de browser met een uniek ID. Er wordt op de webserver een bestand gemaakt met als naam dat unieke ID. Daarna wordt elke keer dat je session_start() gebruikt alle informatie uit dat bestand gekopieerd naar de $_SESSION array. Als je session_destroy() gebruikt wordt dat bestand verwijderd. Je krijgt dan dus weer een lege $_SESSION array.
+					</p>
+				</div>
+			</div>
+
+			
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Divs</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+		<div id="topBar">
+			<div class="link" style="color:#f65">Opdracht</div>
+			<div class="link" style="color:#fb3">Introductie</div>
+			<div class="link" style="color:#ee0">Practicum</div>
+			<div class="link" style="color:#7c7">Ervaring</div>
+			<div class="link" style="color:#adf">Theorie</div>
+			<div class="link" style="color:#b9f">Uitwerking</div>
+		</div>
+		<nav>
+			<div id="topNav">
+				<div class="tab"><a href="../index.htm">Home</a></div>
+				<div class="tab"><a id="selected">HTML</a></div>
+				<div class="tab"><a href="../css/index.htm">CSS</a></div>
+				<div class="tab"><a href="../program/index.htm">Programmeren</a></div>
+				<div class="tab"><a href="../php/index.htm">PHP</a></div>
+			</div>
+		</nav>
+		<div id="container">
+			<div id="bottomNav">
+				<div class="link"><a href="index.htm">Basis</a></div>
+				<div class="link"><a href="linken.htm">Linken</a></div>
+				<div class="link"><a href="ordenen.htm">Ordenen</a></div>
+				<div class="link"><a id="selected">Divs</a></div>
+				<div class="link"><a href="attributen.htm">Attributen</a></div>
+				<div class="link"><a href="anderetags.htm">Overige Tags</a></div>
+			</div>	
+			<div class="box yellow">
+				<p class="title">Box theorie</p>
+				<p class="content">Als je gaat kijken naar de code van de meeste HTML websites, kun je zien dat deze vooral bestaat uit <em>&lt;divs></em>. Met deze divs wordt de layout van de website aangegeven.<br />
+Deze pagina is ook opgebouwt met meerdere divs. De wat blauwere balk bovenin is een div voor de navigatie, het midden van de pagina is ook een div, de content kan niet buiten de rand van deze div komen. Daarom zijn er de lege balken aan allebei de kanten.
+				</p>
+			</div>
+			<div id="column1" class="column">
+				<div class="box blue">
+					<p class="title">HTML layout tags</p>
+					<p class="content">In html5 zijn er een aantal nieuwe tags toegevoegd die je kan gebruiken voor een layout, in plaats van divs met classes en id's te gebruiken.<br />
+Deze nieuwe tags zijn <em>&lt;header></em>, <em>&lt;nav></em>, <em>&lt;section></em> <em>&lt;article></em>, <em>&lt;aside></em>, <em>&lt;footer></em>, <em>&lt;details></em> en <em>&lt;summary></em>. Deze doen allemaal precies zoals hun naam aangeeft. De manier waarop deze stukken eruit zien kan je aanpassen met CSS, ook kun je hierin aanpassen hoe de content hierin eruit moet zien in CSS. Hoe je dit doet leg ik uit in het volgende hoofdstuk.
+					</p>
+				</div>
+				<div class="box yellow">
+					<p class="title">Align</p>
+					<p class="content">Divs hebben zelf één eigen attribuut. Dit is het attribuut <em>align: </em>. Hiermee geef je aan waar de tekst in de div moet uitlijnen. Als <em>values</em> hiervoor kan je <em>top</em>, <em>right</em>, <em>bottom</em> en <em>left</em> invoeren. Deze verplaatsen de tekst respectievelijk naar boven, rechts, onder en links. Het is een beetje te vergelijken met het uitlijnen in <em>microsoft word</em>. Bij <em>align="right"</em> komt het einde helemaal rechts, hoe meer tekst er is, hoe verder het begin van de tekst naar links gaat.		
+					</p>
+				</div>
+			</div>
+			<div id="column2" class="column">
+				<div class="box yellow">
+					<p class="title">Werken met divs</p>
+					<p class="content">Als je toch liever met divs wilt werken, of je gebruikt een oudere versie van html dan html5, is er de <em>&lt;div></em>.<br />
+Als je alleen een div zou invoeren in een html bestand, alles dat je dan nest in deze div-tag wordt gewoon op de website geplaatst alsof het gewoon los zou staan. Als je wilt dat de box zelf eranders uit komt te zien gaat dit met het zogenaamde <em>box model</em>. Dit staat uitgelegd bij de paragraaf <em>boxen</em> bij CSS.
+Om de stijl van de content in een div te veranderen gebruik je <em>combinators</em>, deze staan uitgelegd bij <em>speciale eigenschappen.</em> 			</p>
+				</div>
+			</div>
+			<footer>
+				<div class="box">
+			&copy; Rens Kievit & Amir Zaidi &nbsp;| 
+			&nbsp;Informatica PO 2e Kwartaal 2014 - 2015 &nbsp;|
+			&nbsp;Alle rechten naar hun respectievelijke eigenaren
+				</div>
+			</footer>
+		</div>
+	</body>
+</html>

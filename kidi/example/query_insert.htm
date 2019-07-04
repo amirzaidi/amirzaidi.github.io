@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<head>
+		<title>Kidi ~ Insert Query</title>
+		<link rel="stylesheet" type="text/css" href="../style/main.css" />
+		<link rel="icon" href="../favicon.ico" type="image/x-icon"/>
+	</head>
+	<body>
+
+		<div id="container">
+			<div class="box yellow">
+				<p class="title">Het gebruik van een INSERT query</p>
+				<pre class="content">
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Nieuwe functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3</pre>
+				<pre class="content dark">
+<b>Insert.php:</b>
+&lt;?php
+$db = new mysqli('localhost', 'root', '******', 'kidi_website');
+
+$titel = $db->real_escape_string($_GET['titel']);
+$inhoud = $db->real_escape_string($_GET['inhoud']);
+
+$db->query("INSERT INTO artikelen (titel, verhaal) VALUES ('" . $titel . "', '" . $inhoud . "')");
+?>				</pre>
+				<pre class="content">
+Na een bezoek aan /Insert.php?titel=Nieuw&inhoud=RandomInhoud
+<b>Database Tabel 'artikelen':</b>
+<em> id	| titel				| verhaal</em>
+ 1	| Welkom op Kidi!	| BlaBla1
+ 2	| Nieuwe functies	| BlaBla2
+ 3	| Bijna afgerond		| BlaBla3
+ 4	| Nieuw			| RandomInhoud</pre>
+				<p class="content dark">
+					Als de id column als Primary Key is ingesteld (wat je zou moeten doen, omdat je anders geen snelheidswinst krijgt) 
+					wordt die automatisch gezet naar de waarde van de vorige rij +1 wanneer je een rij toevoegt
+				</p>
+			</div>
+		</div>
+	</body>
+</html>
